@@ -1,0 +1,109 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ============================================
+   ROSTR Deploy — Taste Design System v1
+   OLED Black · Cyan Accent · Liquid Glass
+   ============================================ */
+
+@layer base {
+  * {
+    border-color: rgba(255, 255, 255, 0.06);
+  }
+
+  html {
+    background: #050505;
+  }
+
+  body {
+    @apply bg-[#050505] text-white antialiased;
+    font-family: var(--font-geist-sans), system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  ::selection {
+    background: rgba(34, 211, 238, 0.25);
+    color: #22d3ee;
+  }
+
+  ::-webkit-scrollbar {
+    width: 4px;
+    height: 4px;
+  }
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.06);
+    border-radius: 100px;
+  }
+}
+
+@layer components {
+  /* Status dot — breathing cyan */
+  .status-dot-live {
+    @apply inline-block w-2 h-2 rounded-full bg-cyan-400;
+    box-shadow: 0 0 8px rgba(34, 211, 238, 0.6);
+    animation: breathe 3s ease-in-out infinite;
+  }
+
+  /* Pill tag */
+  .pill-tag {
+    @apply inline-flex items-center text-[10px] uppercase tracking-[0.2em] font-medium px-3 py-1 rounded-full;
+    @apply bg-white/[0.04] border border-white/[0.06] text-white/50;
+  }
+
+  .pill-tag-cyan {
+    @apply pill-tag;
+    @apply bg-cyan-400/[0.08] border-cyan-400/[0.15] text-cyan-400;
+  }
+
+  .pill-tag-emerald {
+    @apply pill-tag;
+    @apply bg-emerald-400/[0.08] border-emerald-400/[0.15] text-emerald-400;
+  }
+
+  .pill-tag-violet {
+    @apply pill-tag;
+    @apply bg-violet-400/[0.08] border-violet-400/[0.15] text-violet-400;
+  }
+
+  .pill-tag-amber {
+    @apply pill-tag;
+    @apply bg-amber-400/[0.08] border-amber-400/[0.15] text-amber-400;
+  }
+
+  /* Mono data font */
+  .font-mono-data {
+    font-family: var(--font-geist-mono), 'JetBrains Mono', monospace;
+  }
+
+  /* Mesh gradient background */
+  .bg-mesh {
+    background:
+      radial-gradient(ellipse 80% 50% at 20% 0%, rgba(34, 211, 238, 0.05) 0%, transparent 50%),
+      radial-gradient(ellipse 60% 40% at 80% 80%, rgba(52, 211, 153, 0.03) 0%, transparent 50%),
+      radial-gradient(ellipse 50% 30% at 50% 50%, rgba(34, 211, 238, 0.02) 0%, transparent 70%),
+      #050505;
+  }
+
+  /* Grain overlay — taste v1: fixed, pointer-events-none, not on scrolling containers */
+  .grain-overlay::after {
+    content: '';
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0.025;
+    z-index: 50;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+    background-repeat: repeat;
+    background-size: 256px 256px;
+  }
+}
+
+@keyframes breathe {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
