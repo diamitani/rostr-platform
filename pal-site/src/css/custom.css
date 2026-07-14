@@ -1,0 +1,81 @@
+:root {
+  --ifm-color-primary: #22d3ee;
+  --ifm-color-primary-dark: #06b6d4;
+  --ifm-color-primary-darker: #0891b2;
+  --ifm-color-primary-darkest: #0e7490;
+  --ifm-color-primary-light: #67e8f9;
+  --ifm-color-primary-lighter: #a5f3fc;
+  --ifm-color-primary-lightest: #cffafe;
+  --ifm-background-color: #050505;
+  --ifm-background-surface-color: #0a0a0a;
+  --ifm-code-background: rgba(255, 255, 255, 0.04);
+  --ifm-font-family-base: 'Inter', system-ui, -apple-system, sans-serif;
+  --ifm-font-family-monospace: 'JetBrains Mono', 'SF Mono', monospace;
+  --ifm-heading-font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  --ifm-navbar-background-color: rgba(5, 5, 5, 0.8);
+  --ifm-navbar-link-color: rgba(255, 255, 255, 0.6);
+  --ifm-navbar-link-hover-color: #22d3ee;
+  --ifm-footer-background-color: #050505;
+  --ifm-color-content: #ffffff;
+  --ifm-color-content-secondary: rgba(255, 255, 255, 0.5);
+  --ifm-heading-color: #ffffff;
+}
+
+html[data-theme='dark'] {
+  --ifm-background-color: #050505;
+  --ifm-background-surface-color: #0a0a0a;
+}
+
+.navbar {
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.5);
+}
+
+.navbar__title {
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.footer {
+  border-top: 1px solid rgba(255, 255, 255, 0.04);
+}
+
+.hero--primary {
+  background:
+    radial-gradient(ellipse 80% 50% at 20% 0%, rgba(34, 211, 238, 0.08) 0%, transparent 50%),
+    radial-gradient(ellipse 60% 40% at 80% 80%, rgba(52, 211, 153, 0.04) 0%, transparent 50%),
+    #050505 !important;
+}
+
+.button--primary {
+  background: rgba(34, 211, 238, 0.15) !important;
+  border: 1px solid rgba(34, 211, 238, 0.25) !important;
+  color: #22d3ee !important;
+  border-radius: 9999px !important;
+  font-weight: 600 !important;
+  padding: 12px 32px !important;
+  transition: all 0.4s ease !important;
+}
+
+.button--primary:hover {
+  background: rgba(34, 211, 238, 0.25) !important;
+  border-color: rgba(34, 211, 238, 0.4) !important;
+  box-shadow: 0 0 30px rgba(34, 211, 238, 0.15) !important;
+}
+
+.button--secondary {
+  background: rgba(255, 255, 255, 0.04) !important;
+  border: 1px solid rgba(255, 255, 255, 0.08) !important;
+  color: rgba(255, 255, 255, 0.7) !important;
+  border-radius: 9999px !important;
+  font-weight: 500 !important;
+  padding: 12px 32px !important;
+  transition: all 0.4s ease !important;
+}
+
+.button--secondary:hover {
+  background: rgba(255, 255, 255, 0.08) !important;
+  border-color: rgba(255, 255, 255, 0.15) !important;
+  color: white !important;
+}
