@@ -85,6 +85,45 @@ def init_db():
             created_at REAL NOT NULL,
             completed_at REAL
         );
+
+        -- New tables for user/auth/agent management
+        CREATE TABLE IF NOT EXISTS users (
+            id TEXT PRIMARY KEY,
+            username TEXT NOT NULL UNIQUE,
+            api_key TEXT NOT NULL UNIQUE,
+            created_at REAL NOT NULL
+        );
+
+        CREATE TABLE IF NOT EXISTS user_agents (
+            id TEXT PRIMARY KEY,
+            user_id TEXT NOT NULL,
+            name TEXT NOT NULL,
+            description TEXT DEFAULT '',
+            tools TEXT DEFAULT '[]',
+            model TEXT DEFAULT 'deepseek-chat',
+            status TEXT DEFAULT 'idle',
+            logs TEXT DEFAULT '[]',
+            created_at REAL NOT NULL,
+            last_run_at REAL,
+            FOREIGN KEY (user_id) REFERENCES users(id)
+        );
+
+        CREATE TABLE IF NOT EXISTS user_api_keys (
+            user_id TEXT PRIMARY KEY,
+            encrypted_key TEXT NOT NULL,
+            created_at REAL NOT NULL,
+            FOREIGN KEY (user_id) REFERENCES users(id)
+        );
+
+        CREATE TABLE IF NOT EXISTS compilations (
+            id TEXT PRIMARY KEY,
+            user_id TEXT,
+            input_text TEXT NOT NULL,
+            output_json TEXT NOT NULL,
+            source TEXT DEFAULT 'rule-based',
+            created_at REAL NOT NULL,
+            FOREIGN KEY (user_id) REFERENCES users(id)
+        );
     """)
     conn.commit()
 
