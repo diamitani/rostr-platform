@@ -1,0 +1,11 @@
+{
+  "name": "track-royalties-on-dsps",
+  "version": "1.0.0",
+  "price_usd": 25,
+  "vertical": "label-ops",
+  "description": "Key-sheet-linked royalty pulse and gap alerts. Use when the user wants: Track your royalties on DSPs. NPAO A.",
+  "tools_required": [
+    "mcp__supabase royalty_ledger"
+  ],
+  "source": "artispreneur-v3"
+}

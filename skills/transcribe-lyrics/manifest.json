@@ -1,0 +1,13 @@
+{
+  "name": "transcribe-lyrics",
+  "version": "1.0.0",
+  "price_usd": 9,
+  "vertical": "label-ops",
+  "description": "Clean lyrics with section tags. Use when the user wants: transcribe lyrics. NPAO N.",
+  "tools_required": [
+    "file_read",
+    "file_write",
+    "inherit"
+  ],
+  "source": "artispreneur-v3"
+}

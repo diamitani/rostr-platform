@@ -1,0 +1,13 @@
+{
+  "name": "extract-metadata-from-track",
+  "version": "1.0.0",
+  "price_usd": 9,
+  "vertical": "label-ops",
+  "description": "ISRC/writers/BPM/key JSON. Use when the user wants: Extract Metadata from Track. NPAO N.",
+  "tools_required": [
+    "file_read",
+    "file_write",
+    "inherit"
+  ],
+  "source": "artispreneur-v3"
+}

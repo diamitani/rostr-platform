@@ -1,0 +1,11 @@
+{
+  "name": "register-with-pro",
+  "version": "1.0.0",
+  "price_usd": 15,
+  "vertical": "label-ops",
+  "description": "Artist/company PRO signup. Use when the user wants: Register with a P.R.O.. NPAO N.",
+  "tools_required": [
+    "mcp__supabase"
+  ],
+  "source": "artispreneur-v3"
+}

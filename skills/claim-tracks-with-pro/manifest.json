@@ -1,0 +1,11 @@
+{
+  "name": "claim-tracks-with-pro",
+  "version": "1.0.0",
+  "price_usd": 15,
+  "vertical": "label-ops",
+  "description": "Claim unmatched performances/digital uses. Use when the user wants: Claim tracks with a P.R.O.. NPAO A.",
+  "tools_required": [
+    "mcp__supabase update status"
+  ],
+  "source": "artispreneur-v3"
+}

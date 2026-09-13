@@ -1,0 +1,13 @@
+{
+  "name": "generate-social-media-content",
+  "version": "1.0.0",
+  "price_usd": 15,
+  "vertical": "label-ops",
+  "description": "Hooks/captions for Content Creation. Use when the user wants: generate social media content. NPAO P.",
+  "tools_required": [
+    "file_read",
+    "file_write",
+    "inherit"
+  ],
+  "source": "artispreneur-v3"
+}

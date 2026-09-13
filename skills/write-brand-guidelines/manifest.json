@@ -1,0 +1,11 @@
+{
+  "name": "write-brand-guidelines",
+  "version": "1.0.0",
+  "price_usd": 29,
+  "vertical": "studio",
+  "description": "Voice/palette/type/merch rules enforced across marketing. Use when the user wants: write brand guidelines. NPAO P.",
+  "tools_required": [
+    "mcp__notion"
+  ],
+  "source": "artispreneur-v3"
+}

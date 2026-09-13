@@ -1,0 +1,13 @@
+{
+  "name": "create-brand-logo",
+  "version": "1.0.0",
+  "price_usd": 19,
+  "vertical": "studio",
+  "description": "Wordmark/lockup brief. Use when the user wants: create brand logo. NPAO P.",
+  "tools_required": [
+    "file_read",
+    "file_write",
+    "inherit"
+  ],
+  "source": "artispreneur-v3"
+}

@@ -1,0 +1,11 @@
+{
+  "name": "write-a-business-plan",
+  "version": "1.0.0",
+  "price_usd": 39,
+  "vertical": "label-ops",
+  "description": "12-month plan with revenue mix. Use when the user wants: Write a business plan. NPAO P.",
+  "tools_required": [
+    "mcp__finance"
+  ],
+  "source": "artispreneur-v3"
+}

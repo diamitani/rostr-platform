@@ -1,0 +1,13 @@
+{
+  "name": "create-an-artist-bio",
+  "version": "1.0.0",
+  "price_usd": 12,
+  "vertical": "studio",
+  "description": "50/150/400 word bios. Use when the user wants: Create an artist bio. NPAO P.",
+  "tools_required": [
+    "file_read",
+    "file_write",
+    "inherit"
+  ],
+  "source": "artispreneur-v3"
+}

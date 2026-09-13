@@ -1,0 +1,11 @@
+{
+  "name": "upload-track-to-catalogue",
+  "version": "1.0.0",
+  "price_usd": 9,
+  "vertical": "label-ops",
+  "description": "Vault master with provenance. Use when the user wants: Upload Track to Catalogue. NPAO N.",
+  "tools_required": [
+    "mcp__supabase"
+  ],
+  "source": "artispreneur-v3"
+}

@@ -1,0 +1,13 @@
+{
+  "name": "set-up-merch-drop-shipping",
+  "version": "1.0.0",
+  "price_usd": 25,
+  "vertical": "label-ops",
+  "description": "POD vs warehouse for E-Commerce/Merch. Use when the user wants: set up merch drop shipping. NPAO O.",
+  "tools_required": [
+    "file_read",
+    "file_write",
+    "inherit"
+  ],
+  "source": "artispreneur-v3"
+}

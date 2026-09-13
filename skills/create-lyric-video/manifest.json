@@ -1,0 +1,13 @@
+{
+  "name": "create-lyric-video",
+  "version": "1.0.0",
+  "price_usd": 19,
+  "vertical": "label-ops",
+  "description": "Timed lyric storyboard. Use when the user wants: create lyric video. NPAO O.",
+  "tools_required": [
+    "file_read",
+    "file_write",
+    "inherit"
+  ],
+  "source": "artispreneur-v3"
+}

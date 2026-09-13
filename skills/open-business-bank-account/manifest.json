@@ -1,0 +1,11 @@
+{
+  "name": "open-business-bank-account",
+  "version": "1.0.0",
+  "price_usd": 12,
+  "vertical": "label-ops",
+  "description": "Docs list + bank comparison. Use when the user wants: open business bank account. NPAO N.",
+  "tools_required": [
+    "mcp__google_drive"
+  ],
+  "source": "artispreneur-v3"
+}

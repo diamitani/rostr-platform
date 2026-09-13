@@ -1,0 +1,11 @@
+{
+  "name": "build-an-agent",
+  "version": "1.0.0",
+  "price_usd": 29,
+  "vertical": "label-ops",
+  "description": "Compile a Claude Code subagent markdown file. Use when the user wants: Build an Agent. NPAO P.",
+  "tools_required": [
+    "mcp__github"
+  ],
+  "source": "artispreneur-v3"
+}

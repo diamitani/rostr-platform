@@ -1,0 +1,11 @@
+{
+  "name": "release-music-with-dsp",
+  "version": "1.0.0",
+  "price_usd": 29,
+  "vertical": "label-ops",
+  "description": "Release ticket, 21-day buffer. Use when the user wants: Release your music with a DSP. NPAO P.",
+  "tools_required": [
+    "mcp__supabase"
+  ],
+  "source": "artispreneur-v3"
+}

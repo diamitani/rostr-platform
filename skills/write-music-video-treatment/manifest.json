@@ -1,0 +1,13 @@
+{
+  "name": "write-music-video-treatment",
+  "version": "1.0.0",
+  "price_usd": 25,
+  "vertical": "label-ops",
+  "description": "Scene-by-scene treatment with budget bands. Use when the user wants: Write a music video treatment. NPAO P.",
+  "tools_required": [
+    "file_read",
+    "file_write",
+    "inherit"
+  ],
+  "source": "artispreneur-v3"
+}

@@ -1,0 +1,12 @@
+{
+  "name": "file-business-taxes",
+  "version": "1.0.0",
+  "price_usd": 49,
+  "vertical": "label-ops",
+  "description": "Quarterly estimate + tax folder. Use when the user wants: file business taxes. NPAO A.",
+  "tools_required": [
+    "mcp__plaid",
+    "mcp__supabase"
+  ],
+  "source": "artispreneur-v3"
+}

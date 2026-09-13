@@ -1,0 +1,11 @@
+{
+  "name": "analyze-social-media-engagement",
+  "version": "1.0.0",
+  "price_usd": 19,
+  "vertical": "label-ops",
+  "description": "Hook rate, saves, posting windows feeding paid media decisions. Use when the user wants: Analyze social media engagement skill. NPAO A.",
+  "tools_required": [
+    "mcp__hubspot"
+  ],
+  "source": "artispreneur-v3"
+}

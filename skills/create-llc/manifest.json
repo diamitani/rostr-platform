@@ -1,0 +1,11 @@
+{
+  "name": "create-llc",
+  "version": "1.0.0",
+  "price_usd": 49,
+  "vertical": "label-ops",
+  "description": "State LLC formation brief and operating agreement draft. Use when the user wants: Create an LLC. NPAO N.",
+  "tools_required": [
+    "mcp__google_drive upload"
+  ],
+  "source": "artispreneur-v3"
+}

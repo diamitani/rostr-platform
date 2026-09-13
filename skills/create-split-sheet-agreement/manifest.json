@@ -1,0 +1,12 @@
+{
+  "name": "create-split-sheet-agreement",
+  "version": "1.0.0",
+  "price_usd": 19,
+  "vertical": "contracts",
+  "description": "Writer/producer splits before submission or distribution. Use when the user wants: create split sheet agreement. NPAO N.",
+  "tools_required": [
+    "mcp__google_drive",
+    "mcp__notion"
+  ],
+  "source": "artispreneur-v3"
+}

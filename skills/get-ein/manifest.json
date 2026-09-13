@@ -1,0 +1,11 @@
+{
+  "name": "get-ein",
+  "version": "1.0.0",
+  "price_usd": 19,
+  "vertical": "label-ops",
+  "description": "Guided IRS EIN packet after entity choice. Use when the user wants: Get an E.I.N.. NPAO N.",
+  "tools_required": [
+    "mcp__google_drive upload"
+  ],
+  "source": "artispreneur-v3"
+}

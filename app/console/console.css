@@ -1,0 +1,552 @@
+/* Rostr Console — scoped dark theme.
+   Scoped to .rostr-console so the global app styles stay untouched.
+   Tokens match the rostragent-site aesthetic: one deep-blue accent. */
+
+.rostr-console {
+  --rc-bg: #0b0c0f;
+  --rc-bg-alt: #101216;
+  --rc-surface: #14171d;
+  --rc-surface-2: #1a1e26;
+  --rc-border: #232833;
+  --rc-border-soft: #1b2029;
+  --rc-text: #e9ebef;
+  --rc-muted: #a6adb9;
+  --rc-faint: #6b7280;
+  --rc-accent: #4c6ef5;
+  --rc-accent-soft: rgba(76, 110, 245, 0.12);
+  --rc-accent-text: #8fa2ff;
+  --rc-danger: #e5534b;
+  --rc-success: #3fb950;
+  --rc-radius: 12px;
+  --rc-font-sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --rc-font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+
+  min-height: 100vh;
+  background: var(--rc-bg);
+  color: var(--rc-text);
+  font-family: var(--rc-font-sans);
+  font-size: 15px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+.rostr-console *,
+.rostr-console *::before,
+.rostr-console *::after {
+  box-sizing: border-box;
+}
+
+/* ---------- Shell: sidebar + main ---------- */
+
+.rc-shell {
+  display: flex;
+  min-height: 100vh;
+}
+
+.rc-sidebar {
+  width: 300px;
+  flex: 0 0 300px;
+  border-right: 1px solid var(--rc-border-soft);
+  background: var(--rc-bg-alt);
+  padding: 24px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  overflow-y: auto;
+  max-height: 100vh;
+  position: sticky;
+  top: 0;
+}
+
+.rc-main {
+  flex: 1;
+  min-width: 0;
+  padding: 32px 40px 64px;
+  max-width: 1100px;
+}
+
+.rc-brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  color: var(--rc-text);
+}
+
+.rc-brand-mark {
+  width: 30px;
+  height: 30px;
+  background: var(--rc-accent);
+  border-radius: 8px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 1.05rem;
+  color: #fff;
+  flex: 0 0 30px;
+}
+
+.rc-brand-name {
+  font-weight: 700;
+  font-size: 1.05rem;
+  letter-spacing: -0.01em;
+}
+
+.rc-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.rc-nav-label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--rc-faint);
+  margin-bottom: 8px;
+}
+
+.rc-nav a,
+.rc-nav-link {
+  color: var(--rc-muted);
+  text-decoration: none;
+  font-size: 0.92rem;
+  font-weight: 500;
+  padding: 8px 12px;
+  border-radius: 8px;
+  display: block;
+}
+
+.rc-nav a:hover {
+  color: var(--rc-text);
+  background: var(--rc-surface);
+}
+
+/* ---------- Type ---------- */
+
+.rc-h1 {
+  font-size: 1.9rem;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  font-weight: 700;
+  margin: 0 0 12px;
+}
+
+.rc-lede {
+  color: var(--rc-muted);
+  font-size: 1.02rem;
+  max-width: 720px;
+  margin: 0 0 32px;
+}
+
+.rc-note {
+  border: 1px solid var(--rc-border);
+  background: var(--rc-surface);
+  border-radius: var(--rc-radius);
+  padding: 16px 18px;
+  margin-bottom: 32px;
+  color: var(--rc-muted);
+  font-size: 0.95rem;
+}
+
+.rc-note strong {
+  color: var(--rc-text);
+  font-weight: 600;
+}
+
+.rc-section-title {
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--rc-faint);
+  margin: 40px 0 16px;
+}
+
+/* ---------- Project cards ---------- */
+
+.rc-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 16px;
+}
+
+.rc-card {
+  display: block;
+  text-decoration: none;
+  color: var(--rc-text);
+  background: var(--rc-surface);
+  border: 1px solid var(--rc-border);
+  border-radius: var(--rc-radius);
+  padding: 20px;
+  transition: border-color 0.15s, transform 0.15s;
+}
+
+.rc-card:hover {
+  border-color: var(--rc-accent);
+  transform: translateY(-2px);
+}
+
+.rc-card h2 {
+  font-size: 1.15rem;
+  margin: 0 0 6px;
+  letter-spacing: -0.01em;
+}
+
+.rc-card p {
+  margin: 0;
+  color: var(--rc-muted);
+  font-size: 0.92rem;
+}
+
+.rc-card-meta {
+  margin-top: 14px;
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+/* ---------- Chat layout ---------- */
+
+.rc-chat-layout {
+  display: flex;
+  gap: 24px;
+  align-items: flex-start;
+}
+
+.rc-chat-main {
+  flex: 1;
+  min-width: 0;
+}
+
+.rc-side-panel {
+  width: 320px;
+  flex: 0 0 320px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+/* ---------- Chat pane ---------- */
+
+.rc-message-list {
+  border: 1px solid var(--rc-border);
+  border-radius: var(--rc-radius);
+  background: var(--rc-bg-alt);
+  height: 52vh;
+  min-height: 320px;
+  overflow-y: auto;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-bottom: 16px;
+}
+
+.rc-empty {
+  color: var(--rc-faint);
+  font-size: 0.95rem;
+  margin: auto;
+  max-width: 420px;
+  text-align: center;
+}
+
+.rc-msg {
+  font-size: 0.94rem;
+  line-height: 1.55;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+.rc-msg-thought {
+  color: var(--rc-muted);
+  font-style: italic;
+  border-left: 2px solid var(--rc-border);
+  padding-left: 12px;
+}
+
+.rc-msg-action {
+  color: var(--rc-accent-text);
+  font-family: var(--rc-font-mono);
+  font-size: 0.86rem;
+  background: var(--rc-accent-soft);
+  border: 1px solid var(--rc-border-soft);
+  border-radius: 8px;
+  padding: 10px 12px;
+}
+
+.rc-msg-result {
+  color: var(--rc-text);
+  border-left: 2px solid var(--rc-accent);
+  padding-left: 12px;
+}
+
+.rc-msg-done {
+  color: var(--rc-success);
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.rc-msg-error {
+  color: var(--rc-danger);
+  border: 1px solid var(--rc-danger);
+  border-radius: 8px;
+  padding: 10px 12px;
+}
+
+.rc-msg-label {
+  display: block;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--rc-faint);
+  margin-bottom: 4px;
+  font-style: normal;
+}
+
+/* ---------- Form ---------- */
+
+.rc-form {
+  border: 1px solid var(--rc-border);
+  border-radius: var(--rc-radius);
+  background: var(--rc-surface);
+  padding: 20px;
+}
+
+.rc-field {
+  margin-bottom: 14px;
+}
+
+.rc-field label {
+  display: block;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--rc-faint);
+  margin-bottom: 6px;
+}
+
+.rc-field select,
+.rc-field input[type="text"],
+.rc-field textarea {
+  width: 100%;
+  background: var(--rc-bg-alt);
+  border: 1px solid var(--rc-border);
+  border-radius: 8px;
+  color: var(--rc-text);
+  font-family: var(--rc-font-sans);
+  font-size: 0.95rem;
+  padding: 10px 12px;
+  outline: none;
+}
+
+.rc-field select:focus,
+.rc-field input[type="text"]:focus,
+.rc-field textarea:focus {
+  border-color: var(--rc-accent);
+}
+
+.rc-field textarea {
+  min-height: 110px;
+  resize: vertical;
+  line-height: 1.55;
+}
+
+.rc-field-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+
+.rc-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--rc-accent);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-family: var(--rc-font-sans);
+  font-weight: 600;
+  font-size: 0.95rem;
+  padding: 12px 24px;
+  cursor: pointer;
+  transition: opacity 0.15s;
+}
+
+.rc-btn:hover:not(:disabled) {
+  opacity: 0.9;
+}
+
+.rc-btn:disabled {
+  opacity: 0.45;
+  cursor: default;
+}
+
+/* ---------- Badges, pills ---------- */
+
+.rc-pill {
+  display: inline-block;
+  font-size: 0.76rem;
+  font-weight: 600;
+  padding: 3px 10px;
+  border-radius: 999px;
+  background: var(--rc-surface-2);
+  border: 1px solid var(--rc-border);
+  color: var(--rc-muted);
+}
+
+.rc-pill-accent {
+  color: var(--rc-accent-text);
+  border-color: var(--rc-accent);
+  background: var(--rc-accent-soft);
+}
+
+/* ---------- Sessions ---------- */
+
+.rc-session-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.rc-session details {
+  border: 1px solid var(--rc-border);
+  border-radius: 8px;
+  background: var(--rc-surface);
+  overflow: hidden;
+}
+
+.rc-session summary {
+  cursor: pointer;
+  padding: 10px 12px;
+  list-style: none;
+  font-size: 0.88rem;
+}
+
+.rc-session summary::-webkit-details-marker {
+  display: none;
+}
+
+.rc-session summary:hover {
+  background: var(--rc-surface-2);
+}
+
+.rc-session-id {
+  font-family: var(--rc-font-mono);
+  font-size: 0.8rem;
+  color: var(--rc-text);
+  display: block;
+  margin-bottom: 4px;
+  word-break: break-all;
+}
+
+.rc-session-summary {
+  color: var(--rc-muted);
+  font-size: 0.85rem;
+  display: block;
+  margin-bottom: 6px;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.rc-session-meta {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.rc-session-text {
+  border-top: 1px solid var(--rc-border-soft);
+  padding: 12px;
+  font-size: 0.85rem;
+  color: var(--rc-muted);
+  white-space: pre-wrap;
+  max-height: 320px;
+  overflow-y: auto;
+  margin: 0;
+}
+
+.rc-session-empty {
+  color: var(--rc-faint);
+  font-size: 0.9rem;
+}
+
+/* ---------- Artifacts ---------- */
+
+.rc-artifact-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.rc-artifact {
+  border: 1px solid var(--rc-border);
+  border-radius: 8px;
+  background: var(--rc-surface);
+  padding: 10px 12px;
+  font-size: 0.88rem;
+}
+
+.rc-artifact-name {
+  font-weight: 600;
+  color: var(--rc-text);
+  word-break: break-all;
+}
+
+.rc-artifact-meta {
+  color: var(--rc-faint);
+  font-size: 0.8rem;
+  margin-top: 4px;
+}
+
+.rc-artifact-empty {
+  color: var(--rc-faint);
+  font-size: 0.9rem;
+}
+
+/* ---------- Responsive ---------- */
+
+@media (max-width: 900px) {
+  .rc-shell {
+    flex-direction: column;
+  }
+
+  .rc-sidebar {
+    width: 100%;
+    flex: none;
+    max-height: none;
+    position: static;
+    border-right: none;
+    border-bottom: 1px solid var(--rc-border-soft);
+    padding: 16px 20px;
+  }
+
+  .rc-chat-layout {
+    flex-direction: column;
+  }
+
+  .rc-side-panel {
+    width: 100%;
+    flex: none;
+  }
+
+  .rc-main {
+    padding: 24px 20px 48px;
+  }
+
+  .rc-field-row {
+    grid-template-columns: 1fr;
+  }
+
+  .rc-message-list {
+    height: 48vh;
+  }
+}

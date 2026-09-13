@@ -1,0 +1,11 @@
+{
+  "name": "create-an-epk",
+  "version": "1.0.0",
+  "price_usd": 29,
+  "vertical": "studio",
+  "description": "Full media kit / EPK. Use when the user wants: Create an EPK. NPAO P.",
+  "tools_required": [
+    "mcp__google_drive"
+  ],
+  "source": "artispreneur-v3"
+}

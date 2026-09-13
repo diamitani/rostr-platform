@@ -1,0 +1,13 @@
+{
+  "name": "create-content-calendar",
+  "version": "1.0.0",
+  "price_usd": 15,
+  "vertical": "label-ops",
+  "description": "30-day calendar for Scheduling and Posting. Use when the user wants: create content calendar. NPAO P.",
+  "tools_required": [
+    "file_read",
+    "file_write",
+    "inherit"
+  ],
+  "source": "artispreneur-v3"
+}

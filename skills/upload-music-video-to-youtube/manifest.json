@@ -1,0 +1,12 @@
+{
+  "name": "upload-music-video-to-youtube",
+  "version": "1.0.0",
+  "price_usd": 12,
+  "vertical": "label-ops",
+  "description": "YouTube packet: title/desc/chapters, confirmed via API. Use when the user wants: upload music video to youtube. NPAO P.",
+  "tools_required": [
+    "mcp__bitly",
+    "mcp__youtube_data_api"
+  ],
+  "source": "artispreneur-v3"
+}

@@ -1,0 +1,11 @@
+{
+  "name": "build-a-skill",
+  "version": "1.0.0",
+  "price_usd": 19,
+  "vertical": "label-ops",
+  "description": "Package a SKILL.md for preload. Use when the user wants: Build a Skill. NPAO P.",
+  "tools_required": [
+    "mcp__github"
+  ],
+  "source": "artispreneur-v3"
+}

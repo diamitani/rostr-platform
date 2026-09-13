@@ -1,0 +1,412 @@
+{
+  "id": "artispreneur",
+  "name": "Artispreneur",
+  "agents": [
+    {
+      "id": "artispreneur-master",
+      "name": "Artispreneur Agent",
+      "systemPrompt": "You are the Artispreneur Agent, the master music-business agent for independent artists. You hold all 34 label-service skills and fulfill marketplace orders end to end: identity, branding, business setup, finance, publishing, distribution, content, merch, outreach, and contracts.",
+      "skills": [
+        "add-music-to-collaborative-playlist",
+        "analyze-social-media-engagement",
+        "build-a-skill",
+        "build-an-agent",
+        "claim-tracks-with-pro",
+        "create-an-artist-bio",
+        "create-an-epk",
+        "create-brand-logo",
+        "create-c-corp",
+        "create-content-calendar",
+        "create-llc",
+        "create-lyric-video",
+        "create-merch-designs",
+        "create-split-sheet-agreement",
+        "extract-metadata-from-track",
+        "file-business-taxes",
+        "find-outreach-targets",
+        "generate-social-media-content",
+        "get-ein",
+        "license-music",
+        "manage-business-expenses",
+        "open-business-bank-account",
+        "register-tracks-with-pro",
+        "register-with-pro",
+        "release-music-with-dsp",
+        "set-up-dsp",
+        "set-up-merch-drop-shipping",
+        "track-royalties-on-dsps",
+        "transcribe-lyrics",
+        "upload-music-video-to-youtube",
+        "upload-track-to-catalogue",
+        "write-a-business-plan",
+        "write-brand-guidelines",
+        "write-music-video-treatment"
+      ],
+      "model": "anthropic/claude-sonnet-4-20250514"
+    },
+    {
+      "id": "contract-agent",
+      "name": "Contract Agent",
+      "systemPrompt": "You are the Contract Agent for Artispreneur. You draft and review music contracts across 30 templates, starting with split-sheet agreements and sync licenses.",
+      "skills": [
+        "create-split-sheet-agreement",
+        "license-music"
+      ],
+      "model": "anthropic/claude-sonnet-4-20250514"
+    }
+  ],
+  "workspaces": [
+    {
+      "id": "studio",
+      "name": "Studio",
+      "skills": [
+        "create-an-epk",
+        "create-an-artist-bio",
+        "create-brand-logo",
+        "write-brand-guidelines"
+      ]
+    },
+    {
+      "id": "branding",
+      "name": "Branding",
+      "skills": [
+        "create-brand-logo",
+        "write-brand-guidelines",
+        "create-content-calendar",
+        "generate-social-media-content",
+        "analyze-social-media-engagement"
+      ]
+    },
+    {
+      "id": "business",
+      "name": "Business",
+      "skills": [
+        "write-a-business-plan",
+        "create-llc",
+        "get-ein",
+        "create-c-corp",
+        "open-business-bank-account"
+      ]
+    },
+    {
+      "id": "finance",
+      "name": "Finance",
+      "skills": [
+        "manage-business-expenses",
+        "file-business-taxes",
+        "track-royalties-on-dsps"
+      ]
+    },
+    {
+      "id": "publishing",
+      "name": "Publishing",
+      "skills": [
+        "register-with-pro",
+        "register-tracks-with-pro",
+        "claim-tracks-with-pro"
+      ]
+    },
+    {
+      "id": "distribution",
+      "name": "Distribution",
+      "skills": [
+        "set-up-dsp",
+        "release-music-with-dsp",
+        "extract-metadata-from-track",
+        "transcribe-lyrics",
+        "upload-track-to-catalogue"
+      ]
+    },
+    {
+      "id": "content",
+      "name": "Content",
+      "skills": [
+        "create-content-calendar",
+        "generate-social-media-content",
+        "create-lyric-video",
+        "write-music-video-treatment",
+        "upload-music-video-to-youtube",
+        "analyze-social-media-engagement"
+      ]
+    },
+    {
+      "id": "merch",
+      "name": "Merch",
+      "skills": [
+        "create-merch-designs",
+        "set-up-merch-drop-shipping"
+      ]
+    },
+    {
+      "id": "directory",
+      "name": "Directory",
+      "skills": [
+        "find-outreach-targets",
+        "add-music-to-collaborative-playlist"
+      ]
+    },
+    {
+      "id": "contracts",
+      "name": "Contracts",
+      "skills": [
+        "create-split-sheet-agreement",
+        "license-music"
+      ]
+    },
+    {
+      "id": "academy",
+      "name": "Academy",
+      "skills": [],
+      "note": "Coming soon \u2014 courses are being packaged."
+    },
+    {
+      "id": "developer",
+      "name": "Developer",
+      "skills": [
+        "build-an-agent",
+        "build-a-skill"
+      ]
+    }
+  ],
+  "skills": {
+    "add-music-to-collaborative-playlist": {
+      "name": "add-music-to-collaborative-playlist",
+      "description": "Playlist pitch, Indie Bible tone, part of Messaging/Sequences. Use when the user wants: add music to collaborative playlist. NPAO O.",
+      "price_usd": 15,
+      "vertical": "label-ops",
+      "version": "1.0.0"
+    },
+    "analyze-social-media-engagement": {
+      "name": "analyze-social-media-engagement",
+      "description": "Hook rate, saves, posting windows feeding paid media decisions. Use when the user wants: Analyze social media engagement skill. NPAO A.",
+      "price_usd": 19,
+      "vertical": "label-ops",
+      "version": "1.0.0"
+    },
+    "build-a-skill": {
+      "name": "build-a-skill",
+      "description": "Package a SKILL.md for preload. Use when the user wants: Build a Skill. NPAO P.",
+      "price_usd": 19,
+      "vertical": "label-ops",
+      "version": "1.0.0"
+    },
+    "build-an-agent": {
+      "name": "build-an-agent",
+      "description": "Compile a Claude Code subagent markdown file. Use when the user wants: Build an Agent. NPAO P.",
+      "price_usd": 29,
+      "vertical": "label-ops",
+      "version": "1.0.0"
+    },
+    "claim-tracks-with-pro": {
+      "name": "claim-tracks-with-pro",
+      "description": "Claim unmatched performances/digital uses. Use when the user wants: Claim tracks with a P.R.O.. NPAO A.",
+      "price_usd": 15,
+      "vertical": "label-ops",
+      "version": "1.0.0"
+    },
+    "create-an-artist-bio": {
+      "name": "create-an-artist-bio",
+      "description": "50/150/400 word bios. Use when the user wants: Create an artist bio. NPAO P.",
+      "price_usd": 12,
+      "vertical": "studio",
+      "version": "1.0.0"
+    },
+    "create-an-epk": {
+      "name": "create-an-epk",
+      "description": "Full media kit / EPK. Use when the user wants: Create an EPK. NPAO P.",
+      "price_usd": 29,
+      "vertical": "studio",
+      "version": "1.0.0"
+    },
+    "create-brand-logo": {
+      "name": "create-brand-logo",
+      "description": "Wordmark/lockup brief. Use when the user wants: create brand logo. NPAO P.",
+      "price_usd": 19,
+      "vertical": "studio",
+      "version": "1.0.0"
+    },
+    "create-c-corp": {
+      "name": "create-c-corp",
+      "description": "C-Corp outline for scale or investors. Use when the user wants: Create a C-Corp. NPAO O.",
+      "price_usd": 79,
+      "vertical": "label-ops",
+      "version": "1.0.0"
+    },
+    "create-content-calendar": {
+      "name": "create-content-calendar",
+      "description": "30-day calendar for Scheduling and Posting. Use when the user wants: create content calendar. NPAO P.",
+      "price_usd": 15,
+      "vertical": "label-ops",
+      "version": "1.0.0"
+    },
+    "create-llc": {
+      "name": "create-llc",
+      "description": "State LLC formation brief and operating agreement draft. Use when the user wants: Create an LLC. NPAO N.",
+      "price_usd": 49,
+      "vertical": "label-ops",
+      "version": "1.0.0"
+    },
+    "create-lyric-video": {
+      "name": "create-lyric-video",
+      "description": "Timed lyric storyboard. Use when the user wants: create lyric video. NPAO O.",
+      "price_usd": 19,
+      "vertical": "label-ops",
+      "version": "1.0.0"
+    },
+    "create-merch-designs": {
+      "name": "create-merch-designs",
+      "description": "SKU concepts for E-Commerce/Merch. Use when the user wants: create merch designs. NPAO O.",
+      "price_usd": 25,
+      "vertical": "label-ops",
+      "version": "1.0.0"
+    },
+    "create-split-sheet-agreement": {
+      "name": "create-split-sheet-agreement",
+      "description": "Writer/producer splits before submission or distribution. Use when the user wants: create split sheet agreement. NPAO N.",
+      "price_usd": 19,
+      "vertical": "contracts",
+      "version": "1.0.0"
+    },
+    "extract-metadata-from-track": {
+      "name": "extract-metadata-from-track",
+      "description": "ISRC/writers/BPM/key JSON. Use when the user wants: Extract Metadata from Track. NPAO N.",
+      "price_usd": 9,
+      "vertical": "label-ops",
+      "version": "1.0.0"
+    },
+    "file-business-taxes": {
+      "name": "file-business-taxes",
+      "description": "Quarterly estimate + tax folder. Use when the user wants: file business taxes. NPAO A.",
+      "price_usd": 49,
+      "vertical": "label-ops",
+      "version": "1.0.0"
+    },
+    "find-outreach-targets": {
+      "name": "find-outreach-targets",
+      "description": "Type your goal ('get on playlists', 'book gigs') \u2014 finds the best-matched playlists, venues, curators and promoters and writes tailored outreach messages for each.",
+      "price_usd": 25,
+      "vertical": "directory",
+      "version": "1.0.0"
+    },
+    "generate-social-media-content": {
+      "name": "generate-social-media-content",
+      "description": "Hooks/captions for Content Creation. Use when the user wants: generate social media content. NPAO P.",
+      "price_usd": 15,
+      "vertical": "label-ops",
+      "version": "1.0.0"
+    },
+    "get-ein": {
+      "name": "get-ein",
+      "description": "Guided IRS EIN packet after entity choice. Use when the user wants: Get an E.I.N.. NPAO N.",
+      "price_usd": 19,
+      "vertical": "label-ops",
+      "version": "1.0.0"
+    },
+    "license-music": {
+      "name": "license-music",
+      "description": "Sync/license brief, licensing sub-capability. Use when the user wants: License your music. NPAO O.",
+      "price_usd": 19,
+      "vertical": "contracts",
+      "version": "1.0.0"
+    },
+    "manage-business-expenses": {
+      "name": "manage-business-expenses",
+      "description": "Studio/ads/travel ledger. Use when the user wants: manage business expenes. NPAO A.",
+      "price_usd": 15,
+      "vertical": "label-ops",
+      "version": "1.0.0"
+    },
+    "open-business-bank-account": {
+      "name": "open-business-bank-account",
+      "description": "Docs list + bank comparison. Use when the user wants: open business bank account. NPAO N.",
+      "price_usd": 12,
+      "vertical": "label-ops",
+      "version": "1.0.0"
+    },
+    "register-tracks-with-pro": {
+      "name": "register-tracks-with-pro",
+      "description": "Batch work registration + key sheet entry. Use when the user wants: Register your tracks with a P.R.O.. NPAO N.",
+      "price_usd": 19,
+      "vertical": "label-ops",
+      "version": "1.0.0"
+    },
+    "register-with-pro": {
+      "name": "register-with-pro",
+      "description": "Artist/company PRO signup. Use when the user wants: Register with a P.R.O.. NPAO N.",
+      "price_usd": 15,
+      "vertical": "label-ops",
+      "version": "1.0.0"
+    },
+    "release-music-with-dsp": {
+      "name": "release-music-with-dsp",
+      "description": "Release ticket, 21-day buffer. Use when the user wants: Release your music with a DSP. NPAO P.",
+      "price_usd": 29,
+      "vertical": "label-ops",
+      "version": "1.0.0"
+    },
+    "set-up-dsp": {
+      "name": "set-up-dsp",
+      "description": "Spotify/Apple/YouTube artist profile claim. Use when the user wants: set up DSP. NPAO N.",
+      "price_usd": 15,
+      "vertical": "label-ops",
+      "version": "1.0.0"
+    },
+    "set-up-merch-drop-shipping": {
+      "name": "set-up-merch-drop-shipping",
+      "description": "POD vs warehouse for E-Commerce/Merch. Use when the user wants: set up merch drop shipping. NPAO O.",
+      "price_usd": 25,
+      "vertical": "label-ops",
+      "version": "1.0.0"
+    },
+    "track-royalties-on-dsps": {
+      "name": "track-royalties-on-dsps",
+      "description": "Key-sheet-linked royalty pulse and gap alerts. Use when the user wants: Track your royalties on DSPs. NPAO A.",
+      "price_usd": 25,
+      "vertical": "label-ops",
+      "version": "1.0.0"
+    },
+    "transcribe-lyrics": {
+      "name": "transcribe-lyrics",
+      "description": "Clean lyrics with section tags. Use when the user wants: transcribe lyrics. NPAO N.",
+      "price_usd": 9,
+      "vertical": "label-ops",
+      "version": "1.0.0"
+    },
+    "upload-music-video-to-youtube": {
+      "name": "upload-music-video-to-youtube",
+      "description": "YouTube packet: title/desc/chapters, confirmed via API. Use when the user wants: upload music video to youtube. NPAO P.",
+      "price_usd": 12,
+      "vertical": "label-ops",
+      "version": "1.0.0"
+    },
+    "upload-track-to-catalogue": {
+      "name": "upload-track-to-catalogue",
+      "description": "Vault master with provenance. Use when the user wants: Upload Track to Catalogue. NPAO N.",
+      "price_usd": 9,
+      "vertical": "label-ops",
+      "version": "1.0.0"
+    },
+    "write-a-business-plan": {
+      "name": "write-a-business-plan",
+      "description": "12-month plan with revenue mix. Use when the user wants: Write a business plan. NPAO P.",
+      "price_usd": 39,
+      "vertical": "label-ops",
+      "version": "1.0.0"
+    },
+    "write-brand-guidelines": {
+      "name": "write-brand-guidelines",
+      "description": "Voice/palette/type/merch rules enforced across marketing. Use when the user wants: write brand guidelines. NPAO P.",
+      "price_usd": 29,
+      "vertical": "studio",
+      "version": "1.0.0"
+    },
+    "write-music-video-treatment": {
+      "name": "write-music-video-treatment",
+      "description": "Scene-by-scene treatment with budget bands. Use when the user wants: Write a music video treatment. NPAO P.",
+      "price_usd": 25,
+      "vertical": "label-ops",
+      "version": "1.0.0"
+    }
+  },
+  "catalog_total_usd": 777
+}

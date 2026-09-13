@@ -1,0 +1,12 @@
+{
+  "name": "manage-business-expenses",
+  "version": "1.0.0",
+  "price_usd": 15,
+  "vertical": "label-ops",
+  "description": "Studio/ads/travel ledger. Use when the user wants: manage business expenes. NPAO A.",
+  "tools_required": [
+    "mcp__plaid",
+    "mcp__supabase"
+  ],
+  "source": "artispreneur-v3"
+}

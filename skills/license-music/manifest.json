@@ -1,0 +1,11 @@
+{
+  "name": "license-music",
+  "version": "1.0.0",
+  "price_usd": 19,
+  "vertical": "contracts",
+  "description": "Sync/license brief, licensing sub-capability. Use when the user wants: License your music. NPAO O.",
+  "tools_required": [
+    "mcp__google_drive"
+  ],
+  "source": "artispreneur-v3"
+}

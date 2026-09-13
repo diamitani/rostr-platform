@@ -1,0 +1,11 @@
+{
+  "name": "create-c-corp",
+  "version": "1.0.0",
+  "price_usd": 79,
+  "vertical": "label-ops",
+  "description": "C-Corp outline for scale or investors. Use when the user wants: Create a C-Corp. NPAO O.",
+  "tools_required": [
+    "mcp__google_drive upload"
+  ],
+  "source": "artispreneur-v3"
+}

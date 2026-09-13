@@ -1,0 +1,13 @@
+{
+  "name": "add-music-to-collaborative-playlist",
+  "version": "1.0.0",
+  "price_usd": 15,
+  "vertical": "label-ops",
+  "description": "Playlist pitch, Indie Bible tone, part of Messaging/Sequences. Use when the user wants: add music to collaborative playlist. NPAO O.",
+  "tools_required": [
+    "mcp__bitly",
+    "mcp__hubspot",
+    "mcp__outlook"
+  ],
+  "source": "artispreneur-v3"
+}
