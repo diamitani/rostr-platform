@@ -119,6 +119,21 @@ When analyzing n8n health or diagnosing failures:
 
 ---
 
+## 📚 Reference Library
+
+Read these references when relevant to the build:
+- `references/connectors.md` — exact REST endpoints, auth schemes, and payload schemas for CRMs, data tools, sequencers, and LLMs.
+- `references/triggers.md` — 5 ingestion trigger patterns (CSV upload, CRM poller, scheduled search, intent webhook, daily cron) with node configs.
+- `references/n8n-templates.md` — 9-node production graph schema, node parameters, and connection map.
+- `references/icp-matrix.md` — ICP job title taxonomy and contact reveal filter rules.
+- `references/pas-copywriting.md` — PAS copywriting playbook with master prompt template (example metrics are placeholders).
+- `references/copy-frameworks.md` — PAS/BAB/AIDA frameworks, email templates, 4-touch sequence patterns, subject-line variants.
+- `references/tool-configuration.md` — tool config patterns, MCP server templates, `.env.template` schema.
+- `references/build-pipeline.md` — 12-step orchestrated build pipeline (intake → schema → build plan → node config → report).
+- `references/execution-analyst-playbook.md` — error classification, 5 diagnostic patterns, and fix templates.
+- `references/salesgency-outreach-playbook.md` — Salesgency cold email + LinkedIn DM sequences (fill every bracket before use).
+- `templates/` — importable n8n workflow JSONs (master PAE workflow + client-customized variant).
+
 ## 📦 Master Deliverables Package
 
 For every prospect automation or n8n build request, provide:
