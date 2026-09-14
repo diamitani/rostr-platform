@@ -506,3 +506,9 @@ Agent:
 
 - **v2.0.0**: Multi-agent architecture, MCP support, Make.com integration
 - **v1.0.0**: Initial PAL pipeline, n8n workflow generation, email framework
+
+## Reference Library
+
+- `references/dashboard-components.md` — dashboard layout and intake-wizard component patterns (Prospect PAL client portal build specs).
+- `references/onboarding-flow.md` — intake wizard step-by-step field spec for campaign setup.
+- `references/marketing-site.md` — marketing site content/structure reference.
