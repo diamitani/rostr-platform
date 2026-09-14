@@ -48,9 +48,34 @@ function nowIso(): string {
 
 export class JsonHub implements Hub {
   private rootDir: string;
+  // In-memory fallback when the filesystem is unwritable (e.g. Vercel
+  // serverless functions). Runs still stream and complete; they just don't
+  // persist across invocations. SupabaseHub is the documented path for
+  // durable storage.
+  private memRuns = new Map<string, RunRecord>();
+  private memEntitlements = new Map<string, Entitlement[]>();
+  private fsWritable: boolean | null = null;
 
   constructor(rootDir?: string) {
     this.rootDir = rootDir ?? process.env.DATA_DIR ?? "./data";
+  }
+
+  private canWriteFs(): boolean {
+    if (this.fsWritable !== null) return this.fsWritable;
+    try {
+      fs.mkdirSync(this.rootDir, { recursive: true });
+      const probe = path.join(this.rootDir, ".writetest");
+      fs.writeFileSync(probe, "ok", "utf-8");
+      fs.unlinkSync(probe);
+      this.fsWritable = true;
+    } catch {
+      this.fsWritable = false;
+    }
+    return this.fsWritable;
+  }
+
+  private memKey(projectId: string, runId: string): string {
+    return `${projectId}:${runId}`;
   }
 
   private projectDir(projectId: string): string {
@@ -103,11 +128,18 @@ export class JsonHub implements Hub {
       decisions: [],
       createdAt: nowIso(),
     };
-    this.writeJson(this.runPath(projectId, run.id), run);
+    if (!this.canWriteFs()) {
+      this.memRuns.set(this.memKey(projectId, run.id), run);
+    } else {
+      this.writeJson(this.runPath(projectId, run.id), run);
+    }
     return run;
   }
 
   async getRun(projectId: string, runId: string): Promise<RunRecord | null> {
+    if (!this.canWriteFs()) {
+      return this.memRuns.get(this.memKey(projectId, runId)) ?? null;
+    }
     return this.readJson<RunRecord | null>(
       this.runPath(projectId, runId),
       null
@@ -115,6 +147,10 @@ export class JsonHub implements Hub {
   }
 
   async updateRun(projectId: string, run: RunRecord): Promise<void> {
+    if (!this.canWriteFs()) {
+      this.memRuns.set(this.memKey(projectId, run.id), run);
+      return;
+    }
     this.writeJson(this.runPath(projectId, run.id), run);
   }
 
@@ -134,7 +170,7 @@ export class JsonHub implements Hub {
       at: nowIso(),
     };
     run.steps.push(full);
-    this.writeJson(this.runPath(projectId, runId), run);
+    await this.updateRun(projectId, run);
     return full;
   }
 
@@ -148,16 +184,20 @@ export class JsonHub implements Hub {
       throw new Error(`run not found: ${runId}`);
     }
     run.decisions.push({ at: nowIso(), text });
-    this.writeJson(this.runPath(projectId, runId), run);
+    await this.updateRun(projectId, run);
   }
 
   async logReference(projectId: string, entry: string): Promise<void> {
+    if (!this.canWriteFs()) return; // ephemeral on serverless; skip silently
     const p = this.referencePath(projectId);
     fs.mkdirSync(path.dirname(p), { recursive: true });
     fs.appendFileSync(p, `${nowIso()} ${entry}\n`, "utf-8");
   }
 
   private loadEntitlements(projectId: string): Entitlement[] {
+    if (!this.canWriteFs()) {
+      return this.memEntitlements.get(projectId) ?? [];
+    }
     return this.readJson<Entitlement[]>(
       this.entitlementsPath(projectId),
       []
@@ -185,6 +225,10 @@ export class JsonHub implements Hub {
       all[idx] = e;
     } else {
       all.push(e);
+    }
+    if (!this.canWriteFs()) {
+      this.memEntitlements.set(e.projectId, all);
+      return;
     }
     this.writeJson(this.entitlementsPath(e.projectId), all);
   }
