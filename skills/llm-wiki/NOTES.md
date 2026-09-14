@@ -1,0 +1,23 @@
+# Notes: llm-wiki
+
+- Source repo: diamitani/hermes-agent-skills-marketplace
+- Source path: hermes-agent-community/research/llm-wiki/SKILL.md
+- Raw URL: https://raw.githubusercontent.com/diamitani/hermes-agent-skills-marketplace/main/hermes-agent-community/research/llm-wiki/SKILL.md
+- Index category: ai-agents
+- Frontmatter: rewritten (source frontmatter replaced)
+- Description: rewritten to LLM-agnostic house standard
+- Placeholders found (0): none
+- Broken references (9):
+  - `WIKI/SCHEMA.md` — 404 / not found
+  - `WIKI/index.md` — 404 / not found
+  - `WIKI/log.md` — 404 / not found
+  - `_archive/entities/old-page.md` — 404 / not found
+  - `_meta/topic-map.md` — 404 / not found
+  - `raw/articles/karpathy-llm-wiki-2026.md` — 404 / not found
+  - `raw/articles/source-file.md` — 404 / not found
+  - `raw/articles/source-name.md` — 404 / not found
+  - `raw/articles/source.md` — 404 / not found
+- Relative references downloaded (0):
+  - none
+- Aliases collapsed into this copy (0):
+  - none

@@ -1,0 +1,26 @@
+# Notes: p5js
+
+- Source repo: diamitani/hermes-agent-skills-marketplace
+- Source path: hermes-agent-creative/creative/p5js/SKILL.md
+- Raw URL: https://raw.githubusercontent.com/diamitani/hermes-agent-skills-marketplace/main/hermes-agent-creative/creative/p5js/SKILL.md
+- Index category: ai-agents
+- Frontmatter: rewritten (source frontmatter replaced)
+- Description: rewritten to LLM-agnostic house standard
+- Placeholders found (0): none
+- Broken references (12):
+  - `references/animation.md` — 404 / not found
+  - `references/color-systems.md` — 404 / not found
+  - `references/core-api.md` — 404 / not found
+  - `references/export-pipeline.md` — 404 / not found
+  - `references/interaction.md` — 404 / not found
+  - `references/shapes-and-geometry.md` — 404 / not found
+  - `references/troubleshooting.md` — 404 / not found
+  - `references/typography.md` — 404 / not found
+  - `references/visual-effects.md` — 404 / not found
+  - `references/webgl-and-3d.md` — 404 / not found
+  - `scripts/export-frames.js` — 404 / not found
+  - `templates/viewer.html` — 404 / not found
+- Relative references downloaded (0):
+  - none
+- Aliases collapsed into this copy (0):
+  - none

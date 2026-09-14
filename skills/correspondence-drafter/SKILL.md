@@ -1,13 +1,6 @@
 ---
 name: correspondence-drafter
-description: >
-  Draft insurer reconsideration letters, regulator complaints, and attorney intake memos
-  for Patrick's cases. Firm, factual, bluster-free tone. Every draft ends with an
-  approval checklist and is DRAFT-UNTIL-APPROVED — this skill has no send capability
-  and never contacts anyone.
-  Triggers: draft a letter, write to the insurer, complaint draft, reconsideration,
-  appeal letter, intake memo, attorney memo, demand letter, response to denial.
-tools: Read, Write, Edit
+description: "LLM-agnostic productivity and task automation skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to work with correspondence drafter. Use when working with correspondence drafter."
 ---
 
 # Correspondence Drafter

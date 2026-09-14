@@ -1,7 +1,6 @@
 ---
 name: extract-metadata-from-track
-description: ISRC/writers/BPM/key JSON. Use when the user wants: Extract Metadata from Track. NPAO N.
-allowed-tools: inherit
+description: "LLM-agnostic data engineering and analytics skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to work with ISRC/writers/BPM/key JSON. Use when the user wants to extract metadata from track."
 ---
 
 # Extract Metadata from Track

@@ -1,7 +1,6 @@
 ---
 name: create-merch-designs
-description: SKU concepts for E-Commerce/Merch. Use when the user wants: create merch designs. NPAO O.
-allowed-tools: inherit
+description: "LLM-agnostic productivity and task automation skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to work with SKU concepts for E-Commerce/Merch. Use when the user wants to create merch designs."
 ---
 
 # create merch designs

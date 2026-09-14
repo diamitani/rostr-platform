@@ -1,0 +1,23 @@
+# Notes: marketing-chatbot-execution-analyst-marketing-chatbot-execution-analyst
+
+- Source repo: diamitani/marketing_chatbot_execution_analyst-skill
+- Source path: SKILL.md
+- Raw URL: https://raw.githubusercontent.com/diamitani/marketing_chatbot_execution_analyst-skill/main/SKILL.md
+- Index category: other
+- Frontmatter: rewritten (source frontmatter replaced)
+- Description: rewritten to LLM-agnostic house standard
+- Placeholders found (2): `{{HUBSPOT_PORTAL_ID}}`, `{{N8N_INSTANCE_URL}}`
+- Broken references (9):
+  - `dashboard/build.py` — 404 / not found
+  - `dashboard/index.html` — 404 / not found
+  - `docs/SCHEMA.md` — 404 / not found
+  - `references/daily-report-workflow-spec.md` — 404 / not found
+  - `scripts/alert.py` — 404 / not found
+  - `scripts/ingest.py` — 404 / not found
+  - `scripts/query.py` — 404 / not found
+  - `scripts/run_daily.py` — 404 / not found
+  - `scripts/store.py` — 404 / not found
+- Relative references downloaded (0):
+  - none
+- Aliases collapsed into this copy (0):
+  - none

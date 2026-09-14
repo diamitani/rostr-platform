@@ -1,7 +1,6 @@
 ---
 name: register-tracks-with-pro
-description: Batch work registration + key sheet entry. Use when the user wants: Register your tracks with a P.R.O.. NPAO N.
-allowed-tools: mcp__supabase upsert pro_keysheet
+description: "LLM-agnostic productivity and task automation skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to work with Batch work registration + key sheet entry. Use when the user wants to register your tracks with a p.r.o."
 ---
 
 # Register your tracks with a P.R.O.

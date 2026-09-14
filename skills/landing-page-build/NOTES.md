@@ -1,0 +1,23 @@
+# Notes: landing-page-build
+
+- Source repo: diamitani/hermes-agent-skills-marketplace
+- Source path: hermes-agent-foundation/web-development/landing-page-build/SKILL.md
+- Raw URL: https://raw.githubusercontent.com/diamitani/hermes-agent-skills-marketplace/main/hermes-agent-foundation/web-development/landing-page-build/SKILL.md
+- Index category: ai-agents
+- Frontmatter: rewritten (source frontmatter replaced)
+- Description: rewritten to LLM-agnostic house standard
+- Placeholders found (1): `{{...}}`
+- Broken references (9):
+  - `./logo.png` — 404 / not found
+  - `knowledge-base/sites/academy/public/logo.png` — 404 / not found
+  - `references/holding-company-pattern.md` — 404 / not found
+  - `references/nextjs-route-groups.md` — 404 / not found
+  - `references/portfolio-patterns.md` — 404 / not found
+  - `references/qa-verification-pattern.md` — 404 / not found
+  - `references/research-centerpiece-pattern.md` — 404 / not found
+  - `scripts/build_all_courses.py` — 404 / not found
+  - `scripts/build_courses.py` — 404 / not found
+- Relative references downloaded (0):
+  - none
+- Aliases collapsed into this copy (0):
+  - none

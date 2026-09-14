@@ -1,0 +1,39 @@
+# Notes: premium-site-build-os-skill
+
+- Source repo: diamitani/premium_site_build_os-skill
+- Source path: SKILL.md
+- Raw URL: https://raw.githubusercontent.com/diamitani/premium_site_build_os-skill/main/SKILL.md
+- Index category: other
+- Frontmatter: added (source had no frontmatter)
+- Description: rewritten to LLM-agnostic house standard
+- Placeholders found (0): none
+- Broken references (25):
+  - `docs/01-intent-spec.md` — 404 / not found
+  - `docs/02-jtbd.md` — 404 / not found
+  - `docs/03-user-stories.md` — 404 / not found
+  - `docs/04-ia.md` — 404 / not found
+  - `docs/05-sitemap.md` — 404 / not found
+  - `docs/06-flows.md` — 404 / not found
+  - `docs/07-design-system.md` — 404 / not found
+  - `docs/08-prd.md` — 404 / not found
+  - `docs/09-specifications.md` — 404 / not found
+  - `docs/10-architecture.md` — 404 / not found
+  - `docs/11-stack-adr.md` — 404 / not found
+  - `docs/12-data-model.md` — 404 / not found
+  - `docs/13-api.md` — 404 / not found
+  - `docs/14-frontend-ui.md` — 404 / not found
+  - `docs/15-backend-infra.md` — 404 / not found
+  - `docs/16-payments.md` — 404 / not found
+  - `docs/17-security.md` — 404 / not found
+  - `docs/18-observability.md` — 404 / not found
+  - `docs/19-roadmap.md` — 404 / not found
+  - `docs/20-playbook.md` — 404 / not found
+  - `docs/21-quality.md` — 404 / not found
+  - `docs/22-runbook.md` — 404 / not found
+  - `docs/23-legal.md` — 404 / not found
+  - `docs/24-instruction-pack.md` — 404 / not found
+  - `docs/25-evidence.md` — 404 / not found
+- Relative references downloaded (0):
+  - none
+- Aliases collapsed into this copy (0):
+  - none

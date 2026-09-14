@@ -1,12 +1,6 @@
 ---
 name: case-intake-organizer
-description: >
-  Take raw inputs — PDFs, emails, notes, photos, links — and organize them into the case's
-  six-subdirectory structure with strict file naming, a per-case document manifest, and a
-  living case fact sheet. The librarian skill: nothing gets analyzed until it's filed.
-  Triggers: intake, organize documents, file this, new documents, sort the case file,
-  manifest, fact sheet, rename files, add evidence.
-tools: Read, Write, Edit, Bash
+description: "LLM-agnostic productivity and task automation skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to work with case intake organizer. Use when working with case intake organizer."
 ---
 
 # Case Intake Organizer

@@ -1,0 +1,23 @@
+# Notes: new-project-system
+
+- Source repo: diamitani/skill-skill
+- Source path: SKILL.md
+- Raw URL: https://raw.githubusercontent.com/diamitani/skill-skill/main/SKILL.md
+- Index category: other
+- Frontmatter: rewritten (source frontmatter replaced)
+- Description: rewritten to LLM-agnostic house standard
+- Placeholders found (2): `{{COMPANY_NAME}}`, `{{USER_NAME}}`
+- Broken references (9):
+  - `Automation/PROJECT_INDEX.md` — 404 / not found
+  - `references/JTBD_BUILDER.md` — 404 / not found
+  - `references/NPAO_4Ds_FRAMEWORK.md` — 404 / not found
+  - `references/PAL_FRAMEWORK.md` — 404 / not found
+  - `references/PRD_TEMPLATE.md` — 404 / not found
+  - `references/PROJECT_INTAKE_QUESTIONNAIRE.md` — 404 / not found
+  - `references/RAGDAL_FRAMEWORK.md` — 404 / not found
+  - `references/ROSTR_HUB_CONTEXTENGINE.md` — 404 / not found
+  - `references/SCHEDULER.md` — 404 / not found
+- Relative references downloaded (0):
+  - none
+- Aliases collapsed into this copy (0):
+  - none

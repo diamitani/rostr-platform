@@ -1,0 +1,22 @@
+# Notes: monarch-video
+
+- Source repo: diamitani/monarch-video
+- Source path: SKILL.md
+- Raw URL: https://raw.githubusercontent.com/diamitani/monarch-video/main/SKILL.md
+- Index category: prospecting/GTM
+- Frontmatter: rewritten (source frontmatter replaced)
+- Description: rewritten to LLM-agnostic house standard
+- Placeholders found (0): none
+- Broken references (0):
+  - none
+- Relative references downloaded (8):
+  - `brand/brand.json` → `brand/brand.json`
+  - `examples/storyboard-with-images.json` → `examples/storyboard-with-images.json`
+  - `references/image-sourcing.md` → `references/image-sourcing.md`
+  - `references/voices.md` → `references/voices.md`
+  - `scripts/framecheck.py` → `scripts/framecheck.py`
+  - `scripts/intake.py` → `scripts/intake.py`
+  - `scripts/logo_audit.py` → `scripts/logo_audit.py`
+  - `templates/storyboard.example.json` → `templates/storyboard.example.json`
+- Aliases collapsed into this copy (0):
+  - none

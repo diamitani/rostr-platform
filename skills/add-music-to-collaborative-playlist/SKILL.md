@@ -1,7 +1,6 @@
 ---
 name: add-music-to-collaborative-playlist
-description: Playlist pitch, Indie Bible tone, part of Messaging/Sequences. Use when the user wants: add music to collaborative playlist. NPAO O.
-allowed-tools: mcp__bitly, mcp__hubspot, mcp__outlook
+description: "LLM-agnostic sales prospecting and go-to-market skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to work with Playlist pitch, Indie Bible tone, part of Messaging/Sequences. Use when the user wants to add music to collaborative playlist."
 ---
 
 # add music to collaborative playlist

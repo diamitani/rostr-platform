@@ -1,7 +1,6 @@
 ---
 name: track-royalties-on-dsps
-description: Key-sheet-linked royalty pulse and gap alerts. Use when the user wants: Track your royalties on DSPs. NPAO A.
-allowed-tools: mcp__supabase royalty_ledger
+description: "LLM-agnostic productivity and task automation skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to work with Key-sheet-linked royalty pulse and gap alerts. Use when the user wants to track your royalties on dsps."
 ---
 
 # Track your royalties on DSPs

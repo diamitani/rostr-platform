@@ -1,7 +1,6 @@
 ---
 name: set-up-merch-drop-shipping
-description: POD vs warehouse for E-Commerce/Merch. Use when the user wants: set up merch drop shipping. NPAO O.
-allowed-tools: inherit
+description: "LLM-agnostic productivity and task automation skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to work with POD vs warehouse for E-Commerce/Merch. Use when the user wants to set up merch drop shipping."
 ---
 
 # set up merch drop shipping

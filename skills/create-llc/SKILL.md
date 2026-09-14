@@ -1,7 +1,6 @@
 ---
 name: create-llc
-description: State LLC formation brief and operating agreement draft. Use when the user wants: Create an LLC. NPAO N.
-allowed-tools: mcp__google_drive upload
+description: "LLM-agnostic productivity and task automation skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to work with State LLC formation brief and operating agreement draft. Use when the user wants to create an llc."
 ---
 
 # Create an LLC

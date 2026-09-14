@@ -1,0 +1,30 @@
+# Notes: comfyui
+
+- Source repo: diamitani/hermes-agent-skills-marketplace
+- Source path: hermes-agent-creative/creative/comfyui/SKILL.md
+- Raw URL: https://raw.githubusercontent.com/diamitani/hermes-agent-skills-marketplace/main/hermes-agent-creative/creative/comfyui/SKILL.md
+- Index category: n8n/automation
+- Frontmatter: rewritten (source frontmatter replaced)
+- Description: rewritten to LLM-agnostic house standard
+- Placeholders found (0): none
+- Broken references (16):
+  - `./mask.png` — 404 / not found
+  - `./outputs/sdxl_00001_.png` — 404 / not found
+  - `./photo.png` — 404 / not found
+  - `./x.png` — 404 / not found
+  - `scripts/check_deps.py` — 404 / not found
+  - `scripts/extract_schema.py` — 404 / not found
+  - `scripts/fetch_logs.py` — 404 / not found
+  - `scripts/hardware_check.py` — 404 / not found
+  - `scripts/health_check.py` — 404 / not found
+  - `scripts/run_batch.py` — 404 / not found
+  - `scripts/run_workflow.py` — 404 / not found
+  - `workflows/README.md` — 404 / not found
+  - `workflows/flux_dev_txt2img.json` — 404 / not found
+  - `workflows/sd15_txt2img.json` — 404 / not found
+  - `workflows/sdxl_img2img.json` — 404 / not found
+  - `workflows/sdxl_inpaint.json` — 404 / not found
+- Relative references downloaded (0):
+  - none
+- Aliases collapsed into this copy (0):
+  - none

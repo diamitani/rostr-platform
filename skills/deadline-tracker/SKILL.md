@@ -1,12 +1,6 @@
 ---
 name: deadline-tracker
-description: >
-  Extract deadlines from notices, statutes, rules, and correspondence into a per-case
-  deadline ledger with countdowns and tickler discipline. A missed deadline can end a
-  case; this skill treats every date like a tripwire.
-  Triggers: deadline, due date, statute of limitations, appeal window, cure period,
-  tickler, countdown, what happens if I miss, calendar this, response window.
-tools: Read, Write, Edit, Bash
+description: "LLM-agnostic productivity and task automation skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to work with deadline tracker. Use when working with deadline tracker."
 ---
 
 # Deadline Tracker

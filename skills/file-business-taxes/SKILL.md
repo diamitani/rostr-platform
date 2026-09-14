@@ -1,7 +1,6 @@
 ---
 name: file-business-taxes
-description: Quarterly estimate + tax folder. Use when the user wants: file business taxes. NPAO A.
-allowed-tools: mcp__plaid, mcp__supabase
+description: "LLM-agnostic productivity and task automation skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to work with Quarterly estimate + tax folder. Use when the user wants to file business taxes."
 ---
 
 # file business taxes

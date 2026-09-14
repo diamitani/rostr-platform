@@ -1,7 +1,6 @@
 ---
 name: build-an-agent
-description: Compile a Claude Code subagent markdown file. Use when the user wants: Build an Agent. NPAO P.
-allowed-tools: mcp__github
+description: "LLM-agnostic developer tooling skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to compile a Claude Code subagent markdown file. Use when the user wants to build an agent."
 ---
 
 # Build an Agent

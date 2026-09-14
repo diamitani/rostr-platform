@@ -1,0 +1,22 @@
+# Notes: runtime
+
+- Source repo: diamitani/rostr-agent
+- Source path: Knowledge/Mac Mini archives/chatuitemplate/.agents/skills/runtime/SKILL.md
+- Raw URL: https://raw.githubusercontent.com/diamitani/rostr-agent/main/Knowledge/Mac%20Mini%20archives/chatuitemplate/.agents/skills/runtime/SKILL.md
+- Index category: other
+- Frontmatter: rewritten (source frontmatter replaced)
+- Description: rewritten to LLM-agnostic house standard
+- Placeholders found (0): none
+- Broken references (1):
+  - `assistant-ui.com/llms.txt` — 404 / not found
+- Relative references downloaded (8):
+  - `./references/adapters.md` → `references/adapters.md`
+  - `./references/external-store.md` → `references/external-store.md`
+  - `./references/local-runtime.md` → `references/local-runtime.md`
+  - `./references/runtime-concepts.md` → `references/runtime-concepts.md`
+  - `./references/state-hooks.md` → `references/state-hooks.md`
+  - `./references/thread-list.md` → `references/thread-list.md`
+  - `./references/types.md` → `references/types.md`
+  - `./references/voice.md` → `references/voice.md`
+- Aliases collapsed into this copy (0):
+  - none

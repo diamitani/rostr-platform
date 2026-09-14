@@ -1,7 +1,6 @@
 ---
 name: write-brand-guidelines
-description: Voice/palette/type/merch rules enforced across marketing. Use when the user wants: write brand guidelines. NPAO P.
-allowed-tools: mcp__notion
+description: "LLM-agnostic AI agent development skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to work with Voice/palette/type/merch rules enforced across marketing. Use when the user wants to write brand guidelines."
 ---
 
 # write brand guidelines

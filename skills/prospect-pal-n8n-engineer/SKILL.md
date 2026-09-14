@@ -1,13 +1,6 @@
 ---
 name: prospect-pal-n8n-engineer
-description: >
-  n8n Systems Engineer Agent for Prospect PAL. Self-service workflow building, 
-  customization, and debugging. Import/export n8n JSON, edit nodes, configure 
-  credentials, and optimize performance. Use when building workflows yourself,
-  editing existing automations, or debugging n8n issues.
-  Triggers: n8n engineer, edit workflow, customize n8n, debug workflow, 
-  n8n json, workflow editor, self-hosted n8n, n8n build.
-tools: Read, Write, Edit, Bash, WebFetch
+description: "LLM-agnostic workflow automation skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to work with prospect pal n8n engineer. Use when working with prospect pal n8n engineer."
 ---
 
 # n8n Systems Engineer Agent

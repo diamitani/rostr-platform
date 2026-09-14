@@ -1,7 +1,6 @@
 ---
 name: upload-music-video-to-youtube
-description: YouTube packet: title/desc/chapters, confirmed via API. Use when the user wants: upload music video to youtube. NPAO P.
-allowed-tools: mcp__bitly, mcp__youtube_data_api
+description: "LLM-agnostic music production and marketing skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to work with YouTube packet: title/desc/chapters, confirmed via API. Use when the user wants to upload music video to youtube."
 ---
 
 # upload music video to youtube

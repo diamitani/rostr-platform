@@ -1,7 +1,6 @@
 ---
 name: create-an-epk
-description: Full media kit / EPK. Use when the user wants: Create an EPK. NPAO P.
-allowed-tools: mcp__google_drive
+description: "LLM-agnostic music production and marketing skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to work with Full media kit / EPK. Use when the user wants to create an epk."
 ---
 
 # Create an EPK

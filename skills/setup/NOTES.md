@@ -1,0 +1,42 @@
+# Notes: setup
+
+- Source repo: diamitani/rostr-agent
+- Source path: Knowledge/Mac Mini archives/chatuitemplate/.agents/skills/setup/SKILL.md
+- Raw URL: https://raw.githubusercontent.com/diamitani/rostr-agent/main/Knowledge/Mac%20Mini%20archives/chatuitemplate/.agents/skills/setup/SKILL.md
+- Index category: other
+- Frontmatter: rewritten (source frontmatter replaced)
+- Description: rewritten to LLM-agnostic house standard
+- Placeholders found (0): none
+- Broken references (1):
+  - `assistant-ui.com/llms.txt` — 404 / not found
+- Relative references downloaded (28):
+  - `./references/a2a.md` → `references/a2a.md`
+  - `./references/ag-ui.md` → `references/ag-ui.md`
+  - `./references/ai-sdk-legacy.md` → `references/ai-sdk-legacy.md`
+  - `./references/ai-sdk.md` → `references/ai-sdk.md`
+  - `./references/cloudflare-agents.md` → `references/cloudflare-agents.md`
+  - `./references/custom-backend.md` → `references/custom-backend.md`
+  - `./references/devtools.md` → `references/devtools.md`
+  - `./references/google-adk.md` → `references/google-adk.md`
+  - `./references/langchain.md` → `references/langchain.md`
+  - `./references/langgraph.md` → `references/langgraph.md`
+  - `./references/mastra.md` → `references/mastra.md`
+  - `./references/registry-components.md` → `references/registry-components.md`
+  - `./references/styling.md` → `references/styling.md`
+  - `./references/tanstack.md` → `references/tanstack.md`
+  - `references/a2a.md` → `references/a2a.md`
+  - `references/ag-ui.md` → `references/ag-ui.md`
+  - `references/ai-sdk-legacy.md` → `references/ai-sdk-legacy.md`
+  - `references/ai-sdk.md` → `references/ai-sdk.md`
+  - `references/cloudflare-agents.md` → `references/cloudflare-agents.md`
+  - `references/custom-backend.md` → `references/custom-backend.md`
+  - `references/devtools.md` → `references/devtools.md`
+  - `references/google-adk.md` → `references/google-adk.md`
+  - `references/langchain.md` → `references/langchain.md`
+  - `references/langgraph.md` → `references/langgraph.md`
+  - `references/mastra.md` → `references/mastra.md`
+  - `references/registry-components.md` → `references/registry-components.md`
+  - `references/styling.md` → `references/styling.md`
+  - `references/tanstack.md` → `references/tanstack.md`
+- Aliases collapsed into this copy (0):
+  - none

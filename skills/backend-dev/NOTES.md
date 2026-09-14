@@ -1,0 +1,30 @@
+# Notes: backend-dev
+
+- Source repo: diamitani/hermes-agent-skills-marketplace
+- Source path: hermes-agent-productive/software-development/backend-dev/SKILL.md
+- Raw URL: https://raw.githubusercontent.com/diamitani/hermes-agent-skills-marketplace/main/hermes-agent-productive/software-development/backend-dev/SKILL.md
+- Index category: dev-tools
+- Scan flagged duplicate_of: backend-dev
+- Frontmatter: rewritten (source frontmatter replaced)
+- Description: rewritten to LLM-agnostic house standard
+- Placeholders found (0): none
+- Broken references (15):
+  - `alembic/env.py` — 404 / not found
+  - `models/items.py` — 404 / not found
+  - `routers/items.py` — 404 / not found
+  - `schemas/item.py` — 404 / not found
+  - `src/app/config.py` — 404 / not found
+  - `src/app/database.py` — 404 / not found
+  - `src/app/dependencies.py` — 404 / not found
+  - `src/app/main.py` — 404 / not found
+  - `src/app/models/base.py` — 404 / not found
+  - `src/app/models/item.py` — 404 / not found
+  - `src/app/routers/items.py` — 404 / not found
+  - `src/app/schemas/item.py` — 404 / not found
+  - `tests/conftest.py` — 404 / not found
+  - `tests/test_file.py` — 404 / not found
+  - `tests/test_routers/test_items.py` — 404 / not found
+- Relative references downloaded (0):
+  - none
+- Aliases collapsed into this copy (1):
+  - diamitani/hermes-agent-skills-marketplace / hermes-agent-business/software-development/backend-dev/SKILL.md

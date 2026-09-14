@@ -1,0 +1,25 @@
+# Notes: music-contract-agent-music-contract-agent
+
+- Source repo: diamitani/music_contract_agent
+- Source path: SKILL.md
+- Raw URL: https://raw.githubusercontent.com/diamitani/music_contract_agent/main/SKILL.md
+- Index category: music
+- Scan flagged duplicate_of: music-contract-agent
+- Frontmatter: rewritten (source frontmatter replaced)
+- Description: rewritten to LLM-agnostic house standard
+- Placeholders found (0): none
+- Broken references (10):
+  - `references/00-contract-library-index.md` — 404 / not found
+  - `references/01-intake-workflow.md` — 404 / not found
+  - `references/02-drafting-rules-and-defaults.md` — 404 / not found
+  - `references/03-review-and-missing-template-modes.md` — 404 / not found
+  - `references/04-explain-mode.md` — 404 / not found
+  - `references/05-safety-and-legal-boundaries.md` — 404 / not found
+  - `references/06-output-requirements-and-qa.md` — 404 / not found
+  - `schema/contract.schema.json` — 404 / not found
+  - `scripts/generate_index.py` — 404 / not found
+  - `scripts/render_docx.py` — 404 / not found
+- Relative references downloaded (0):
+  - none
+- Aliases collapsed into this copy (0):
+  - none

@@ -1,7 +1,6 @@
 ---
 name: analyze-social-media-engagement
-description: Hook rate, saves, posting windows feeding paid media decisions. Use when the user wants: Analyze social media engagement skill. NPAO A.
-allowed-tools: mcp__hubspot
+description: "LLM-agnostic developer tooling skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to work with Hook rate, saves, posting windows feeding paid media decisions. Use when the user wants to analyze social media engagement skill."
 ---
 
 # Analyze social media engagement skill

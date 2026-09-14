@@ -1,7 +1,6 @@
 ---
 name: create-split-sheet-agreement
-description: Writer/producer splits before submission or distribution. Use when the user wants: create split sheet agreement. NPAO N.
-allowed-tools: mcp__google_drive, mcp__notion
+description: "LLM-agnostic productivity and task automation skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to work with Writer/producer splits before submission or distribution. Use when the user wants to create split sheet agreement."
 ---
 
 # create split sheet agreement

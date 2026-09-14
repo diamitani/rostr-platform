@@ -1,7 +1,6 @@
 ---
 name: generate-social-media-content
-description: Hooks/captions for Content Creation. Use when the user wants: generate social media content. NPAO P.
-allowed-tools: inherit
+description: "LLM-agnostic developer tooling skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to work with Hooks/captions for Content Creation. Use when the user wants to generate social media content."
 ---
 
 # generate social media content

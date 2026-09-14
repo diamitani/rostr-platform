@@ -1,7 +1,6 @@
 ---
 name: manage-business-expenses
-description: Studio/ads/travel ledger. Use when the user wants: manage business expenes. NPAO A.
-allowed-tools: mcp__plaid, mcp__supabase
+description: "LLM-agnostic productivity and task automation skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to work with Studio/ads/travel ledger. Use when the user wants to manage business expenes."
 ---
 
 # manage business expenes

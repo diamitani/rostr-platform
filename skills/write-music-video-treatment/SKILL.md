@@ -1,7 +1,6 @@
 ---
 name: write-music-video-treatment
-description: Scene-by-scene treatment with budget bands. Use when the user wants: Write a music video treatment. NPAO P.
-allowed-tools: inherit
+description: "LLM-agnostic music production and marketing skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to work with Scene-by-scene treatment with budget bands. Use when the user wants to write a music video treatment."
 ---
 
 # Write a music video treatment

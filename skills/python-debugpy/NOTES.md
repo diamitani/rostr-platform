@@ -1,0 +1,21 @@
+# Notes: python-debugpy
+
+- Source repo: diamitani/hermes-agent-skills-marketplace
+- Source path: hermes-agent-business/software-development/python-debugpy/SKILL.md
+- Raw URL: https://raw.githubusercontent.com/diamitani/hermes-agent-skills-marketplace/main/hermes-agent-business/software-development/python-debugpy/SKILL.md
+- Index category: dev-tools
+- Frontmatter: rewritten (source frontmatter replaced)
+- Description: rewritten to LLM-agnostic house standard
+- Placeholders found (0): none
+- Broken references (7):
+  - `gateway/run.py` — 404 / not found
+  - `path/to/entrypoint.py` — 404 / not found
+  - `path/to/script.py` — 404 / not found
+  - `tests/foo_test.py` — 404 / not found
+  - `tests/path/to/test_file.py` — 404 / not found
+  - `tests/the_test.py` — 404 / not found
+  - `tui_gateway/server.py` — 404 / not found
+- Relative references downloaded (0):
+  - none
+- Aliases collapsed into this copy (1):
+  - diamitani/hermes-agent-skills-marketplace / hermes-agent-productive/software-development/python-debugpy/SKILL.md

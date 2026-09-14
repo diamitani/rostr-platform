@@ -1,7 +1,6 @@
 ---
 name: license-music
-description: Sync/license brief, licensing sub-capability. Use when the user wants: License your music. NPAO O.
-allowed-tools: mcp__google_drive
+description: "LLM-agnostic music production and marketing skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to work with Sync/license brief, licensing sub-capability. Use when the user wants to license your music."
 ---
 
 # License your music

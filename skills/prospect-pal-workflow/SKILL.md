@@ -1,12 +1,6 @@
 ---
 name: prospect-pal-workflow
-description: >
-  Workflow Generator Agent for Prospect PAL. Generates production-ready n8n JSON 
-  workflows from campaign configuration. Builds node sequences for lead discovery, 
-  enrichment, AI research, email generation, and sequencer enrollment.
-  Triggers: generate workflow, n8n json, build workflow, create automation, 
-  workflow builder, n8n template, automation workflow.
-tools: Read, Write, Edit
+description: "LLM-agnostic workflow automation skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to work with prospect pal workflow. Use when working with prospect pal workflow."
 ---
 
 # Workflow Generator Agent

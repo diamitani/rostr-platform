@@ -1,7 +1,6 @@
 ---
 name: upload-track-to-catalogue
-description: Vault master with provenance. Use when the user wants: Upload Track to Catalogue. NPAO N.
-allowed-tools: mcp__supabase
+description: "LLM-agnostic productivity and task automation skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to work with Vault master with provenance. Use when the user wants to upload track to catalogue."
 ---
 
 # Upload Track to Catalogue

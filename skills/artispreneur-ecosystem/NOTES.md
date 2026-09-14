@@ -1,0 +1,48 @@
+# Notes: artispreneur-ecosystem
+
+- Source repo: diamitani/hermes-agent-skills-marketplace
+- Source path: hermes-agent-foundation/web-development/artispreneur-ecosystem/SKILL.md
+- Raw URL: https://raw.githubusercontent.com/diamitani/hermes-agent-skills-marketplace/main/hermes-agent-foundation/web-development/artispreneur-ecosystem/SKILL.md
+- Index category: dev-tools
+- Frontmatter: rewritten (source frontmatter replaced)
+- Description: rewritten to LLM-agnostic house standard
+- Placeholders found (6): `{{...}}`, `{{...fadeInStyles, ...otherStyles}}`, `{{color}}`, `{{color: "oklch(0.72 0.19 85)"}}`, `{{color: "oklch(0.98 0 0)"}}`, `{{fontSize: "8px", fontWeight: 700, letterSpacing: "1px",
+    textTransform: "uppercase", color: "oklch(0.45 0 0)"}}`
+- Broken references (33):
+  - `app/globals.css` — 404 / not found
+  - `backend/app/agents/rostr_agent.py` — 404 / not found
+  - `backend/hermes_provisioner.py` — 404 / not found
+  - `backend/main.py` — 404 / not found
+  - `backend/onboarding.py` — 404 / not found
+  - `backend/skills_webhook.py` — 404 / not found
+  - `backend/tts.py` — 404 / not found
+  - `knowledge-base/sites/academy/lib/courses.ts` — 404 / not found
+  - `lib/constants.ts` — 404 / not found
+  - `lib/course-transcripts.ts` — 404 / not found
+  - `lib/courses.ts` — 404 / not found
+  - `lib/directory.ts` — 404 / not found
+  - `lib/media.ts` — 404 / not found
+  - `lib/utils.ts` — 404 / not found
+  - `public/images/artispreneur-20logo.png` — 404 / not found
+  - `references/auth-migration-localstorage.md` — 404 / not found
+  - `references/aws-architecture-v4.md` — 404 / not found
+  - `references/aws-architecture.md` — 404 / not found
+  - `references/backend-schema.md` — 404 / not found
+  - `references/bio-generation.md` — 404 / not found
+  - `references/contract-agent-backend.md` — 404 / not found
+  - `references/course-extraction-recipe.md` — 404 / not found
+  - `references/directory-csv-monetization.md` — 404 / not found
+  - `references/globals.css` — 404 / not found
+  - `references/hermes-provisioning.md` — 404 / not found
+  - `references/hyperframes-template.html` — 404 / not found
+  - `references/landing-pages.md` — 404 / not found
+  - `references/middleware-env-guard.md` — 404 / not found
+  - `references/modular-backend.md` — 404 / not found
+  - `references/multi-tenant-provisioning.md` — 404 / not found
+  - `references/onboarding-data-flow.md` — 404 / not found
+  - `references/pricing-model.md` — 404 / not found
+  - `references/supabase-removal-recipe.md` — 404 / not found
+- Relative references downloaded (0):
+  - none
+- Aliases collapsed into this copy (0):
+  - none

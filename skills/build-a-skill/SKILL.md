@@ -1,7 +1,6 @@
 ---
 name: build-a-skill
-description: Package a SKILL.md for preload. Use when the user wants: Build a Skill. NPAO P.
-allowed-tools: mcp__github
+description: "LLM-agnostic productivity and task automation skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to work with Package a SKILL.md for preload. Use when the user wants to build a skill."
 ---
 
 # Build a Skill

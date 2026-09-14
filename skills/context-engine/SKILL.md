@@ -1,72 +1,204 @@
-# context-engine
+---
+name: context-engine
+description: "LLM-agnostic AI agent development skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to work with context engine. Use when working with context engine."
+---
 
-> Feed the agent a memory. Ingest URLs and text into the project's knowledge
-> base; the Context Engine retrieves the right passages and injects them into
-> every worker prompt.
+# ContextEngine — Persistent Session Memory Layer
 
-**Price:** $15 · **Vertical:** developer · **Version:** 1.0.0
+A self-managing memory system that auto-caches, compresses, indexes, and retrieves session activity across conversations. Turns ephemeral Claude sessions into a durable, queryable knowledge base.
 
-## When to use
+---
 
-Any time an agent needs facts that are not in its instructions: product docs,
-API references, past decisions, research the project collected. If the worker
-would otherwise guess, ingest first.
+## Storage Layout
 
-## Inputs
+All state lives in `.context-engine/` relative to the active workspace root:
 
-- `source` (required) — an `https://` URL or pasted text.
-- `project_id` (required) — knowledge never crosses projects.
-- `tier` — 1 = official docs/APIs, 2 = reputable press, 3 = everything else
-  (default). Retrieval prefers lower tiers on ties.
-- `intent` — when retrieving: the goal text to match against.
+```
+.context-engine/
+├── sessions/           # Raw session summaries (one .json per session)
+├── index/
+│   └── master.jsonl    # Appended log of all compressed session records
+├── reports/            # Generated reports (markdown files)
+├── cache/
+│   └── last.json       # Most recent context snapshot (quick load)
+└── CONTEXT.md          # Running human-readable state document
+```
 
-## The flow: ingest → store → retrieve → inject
+Create this structure on first use if it doesn't exist:
+```bash
+mkdir -p .context-engine/sessions .context-engine/index .context-engine/reports .context-engine/cache
+```
 
-### 1. Ingest
+---
 
-- URL: fetch (30s timeout), strip to text, extract outbound links into the
-  link graph (`kb_links`), chunk into ~500-token paragraphs, store.
-- Pasted text: same pipeline minus the fetch. Give it a `title`.
-- Same content ingested twice is stored once (content-hash dedupe).
+## Session Record Schema
 
-### 2. Store
+Every cached session compresses to this JSON structure:
 
-- **Local (zero keys):** JSON files under `ROSTR_KB_PATH/<project_id>/`.
-- **Production:** Supabase tables `kb_sources`, `kb_chunks` (pgvector
-  embeddings via the Vercel AI Gateway), `kb_links`. Schema in
-  `supabase_schema.sql`. Enable with `SUPABASE_URL` +
-  `SUPABASE_SERVICE_KEY`.
+```json
+{
+  "session_id": "YYYYMMDD_HHMMSS",
+  "date": "ISO 8601 timestamp",
+  "project": "project or workspace name",
+  "duration_estimate": "short | medium | long",
+  "summary": "2-3 sentence narrative of what happened",
+  "tools_used": ["bash", "edit", "write", "..."],
+  "files_created": [],
+  "files_modified": [],
+  "skills_invoked": [],
+  "what_worked": ["bullet list of wins"],
+  "what_failed": ["bullet list of failures, errors, dead ends"],
+  "decisions_made": ["key choices made and why"],
+  "open_questions": ["unresolved items"],
+  "next_steps": ["recommended next actions"],
+  "tags": ["topic", "tool", "workflow"],
+  "blockers": ["anything that blocked progress"]
+}
+```
 
-### 3. Retrieve
+---
 
-`retrieve(query, project_id, top_k)` returns the best chunks with their
-source URL, tier, and score. Local backend uses honest keyword-overlap
-scoring; Supabase backend uses cosine similarity on embeddings.
+## Modes
 
-**Gap detection (hard rule):** if nothing scores above the threshold, the
-pack says so explicitly — "No stored knowledge matched this intent" — and
-the agent must note what is unknown instead of inventing facts.
+### 1. CACHE — Save Session Context
 
-### 4. Inject
+Triggered when the user says: "save this session", "cache what we did", "log progress", or at natural session end. Also triggered automatically by the scheduled memory report every 60 minutes.
 
-`assemble_pack(intent, project_id)` builds one string: top passages with
-tier + source labels, related links from the link graph, and relevant past
-decisions from the hub. PAL stage 2 injects it into every compiled prompt.
+Steps:
+1. Review the current conversation to extract session facts
+2. Populate the session record schema above — infer what you can, ask only if critical fields are ambiguous
+3. Generate a `session_id` using current timestamp
+4. Write to `.context-engine/sessions/{session_id}.json`
+5. Append the compressed record to `.context-engine/index/master.jsonl`
+6. Write the session summary to `.context-engine/cache/last.json` (overwrite)
+7. Update `.context-engine/CONTEXT.md` — see CONTEXT.md format below
+8. Confirm to the user: "Session cached. {N} total sessions in index."
 
-## Link-following rules
+### 2. RETRIEVE — Context Flash (Load Last Session)
 
-- Max **2 hops** from an ingested source when expanding the graph.
-- Same project only — links never pull another project's sources in.
-- A link is stored as metadata (URL + anchor text); following it means a
-  new ingest, which gets its own tier + provenance row.
+Triggered when the user says: "what did we work on", "context flash", "load context", "catch me up", "what's our current state".
 
-## Outputs
+Steps:
+1. Read `.context-engine/cache/last.json`
+2. Also read the last 3–5 records from `.context-engine/index/master.jsonl` for trend context
+3. Surface a clean, scannable recap:
+   - **Last session:** date, summary, what worked, what failed, next steps
+   - **Pattern across recent sessions:** any recurring blockers or themes
+   - **Recommended starting point:** top open item or next step
 
-- `pack_text` — the injectable context string.
-- Provenance on everything: every passage carries its source URL and tier.
+### 3. REPORT — Generate Progress Report
 
-## Pairs well with
+Triggered when the user says: "generate a report", "progress report", "troubleshooting log", "what have we been building", "weekly summary".
 
-- Any skill that answers from docs (`release-music-with-dsp`,
-  `register-with-pro`, `file-business-taxes`).
-- `build-a-skill` — ingest the docs first, then write the skill from them.
+Steps:
+1. Read all records from `.context-engine/index/master.jsonl`
+2. Filter by optional parameters the user provides (date range, tags, project)
+3. Generate a structured markdown report — see Report Format below
+4. Save to `.context-engine/reports/{date}_{type}_report.md`
+5. Link the file for the user to download
+
+### 4. QUERY — Search the Index
+
+Triggered when the user asks about specific past events: "when did we fix the Clay webhook", "what was the issue with n8n last week", "find all sessions tagged hubspot".
+
+Steps:
+1. Read `.context-engine/index/master.jsonl`
+2. Filter/search by: tags, date, keywords in summary/what_worked/what_failed, tools_used
+3. Return matching sessions in a scannable format with key facts surfaced
+4. Offer to expand any specific session
+
+### 5. SCHEDULE — Set Up Periodic Reports
+
+Triggered when the user says: "schedule a weekly report", "auto-report every Friday", "set up daily summaries".
+
+Steps:
+1. Confirm: frequency (daily, weekly), report type (progress, troubleshooting, full), delivery format
+2. Use the `schedule` skill to create the recurring task
+3. The scheduled prompt should be: "Run context-engine report mode for the past [N] days and save to .context-engine/reports/"
+4. Confirm schedule is set and what it will produce
+
+---
+
+## CONTEXT.md Format
+
+This is the always-current human-readable state doc. Overwrite it on every CACHE operation.
+
+```markdown
+# Project Context — Last Updated: {date}
+
+## Current State
+{2-3 sentences on where the project stands right now}
+
+## What's Working
+{bullet list from recent sessions: confirmed wins}
+
+## Active Blockers
+{bullet list of unresolved issues}
+
+## Open Next Steps
+{prioritized list of recommended next actions}
+
+## Recent Session Log
+| Date | Summary | Result |
+|------|---------|--------|
+| {date} | {one-line summary} | ✅ / ⚠️ / ❌ |
+| ... | ... | ... |
+
+## Tags in Use
+{comma-separated list of all tags seen across sessions}
+```
+
+---
+
+## Report Format
+
+```markdown
+# ContextEngine Report — {type} — {date range}
+
+## Executive Summary
+{3-5 sentence narrative of the period}
+
+## Progress Highlights
+{what shipped, what was solved, what advanced}
+
+## Troubleshooting Log
+{failures, errors, dead ends — grouped by tool or workflow}
+
+## Decisions Made
+{key choices and their rationale}
+
+## Open Items
+{ranked list of unresolved questions and next steps}
+
+## Session Timeline
+| Date | Summary | Tags | Result |
+|------|---------|------|--------|
+| ... | ... | ... | ✅ / ⚠️ / ❌ |
+
+## Patterns Observed
+{recurring themes, tools causing repeated friction, workflows that keep coming up}
+```
+
+---
+
+## Behavior Rules
+
+- Always infer session content from conversation history before asking the user to fill in blanks
+- Keep the `summary` field to 2–3 tight sentences — no bloat
+- Tags should be lowercase, consistent, reusable across sessions (e.g., `n8n`, `hubspot`, `clay`, `outreach`, `amplemarket`, `rfp`, `skill-build`)
+- When writing `what_failed`, be specific — "HTTP 401 on HubSpot auth endpoint" not "authentication issue"
+- CONTEXT.md should always be writable by a non-technical user and scannable in under 60 seconds
+- On RETRIEVE, lead with the most actionable thing — what to do next, not just what happened
+- Never overwrite or delete session files — the index is append-only; corrections go in a new session record
+
+---
+
+## Quick Reference
+
+| User says... | Mode triggered |
+|---|---|
+| "save this session" / "cache what we did" | CACHE |
+| "context flash" / "what did we work on" | RETRIEVE |
+| "generate a report" / "progress report" | REPORT |
+| "find when we fixed X" / "search sessions for..." | QUERY |
+| "schedule weekly report" | SCHEDULE |

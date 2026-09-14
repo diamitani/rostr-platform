@@ -1,17 +1,6 @@
 ---
 name: insurance-coverage-playbook
-description: >
-  Insurance industry operating knowledge for Patrick's coverage disputes: how auto insurers
-  actually work (underwriting, claims, cancellation vs nonrenewal), the Iowa regulatory
-  framework (Iowa Code chapter 515D cancellation rules including the under-60-day
-  new-policy exception; Iowa Insurance Division complaint process — 30–45 days, complaint
-  and attachments are forwarded to the insurer), coverage-dispute anatomy (garaging /
-  misrepresentation vs correct-and-rerate, estoppel and detrimental reliance, notice
-  defects, contradictory deadlines), and key Iowa doctrines (reasonable expectations).
-  Triggers: insurance dispute, coverage denial, cancellation, nonrenewal, underwriting,
-  garaging, misrepresentation, estoppel, bad faith, Iowa insurance law, IID complaint,
-  re-rate, rescission.
-tools: Read, Write, WebFetch
+description: "LLM-agnostic productivity and task automation skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to work with insurance coverage playbook. Use when working with insurance coverage playbook."
 ---
 
 # Insurance Coverage Playbook

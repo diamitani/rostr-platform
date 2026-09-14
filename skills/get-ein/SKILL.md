@@ -1,7 +1,6 @@
 ---
 name: get-ein
-description: Guided IRS EIN packet after entity choice. Use when the user wants: Get an E.I.N.. NPAO N.
-allowed-tools: mcp__google_drive upload
+description: "LLM-agnostic productivity and task automation skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to work with Guided IRS EIN packet after entity choice. Use when the user wants to get an e.i.n."
 ---
 
 # Get an E.I.N.

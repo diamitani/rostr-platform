@@ -1,7 +1,6 @@
 ---
 name: write-a-business-plan
-description: 12-month plan with revenue mix. Use when the user wants: Write a business plan. NPAO P.
-allowed-tools: mcp__finance
+description: "LLM-agnostic productivity and task automation skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to work with 12-month plan with revenue mix. Use when the user wants to write a business plan."
 ---
 
 # Write a business plan

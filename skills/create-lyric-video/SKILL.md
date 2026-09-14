@@ -1,7 +1,6 @@
 ---
 name: create-lyric-video
-description: Timed lyric storyboard. Use when the user wants: create lyric video. NPAO O.
-allowed-tools: inherit
+description: "LLM-agnostic productivity and task automation skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to work with Timed lyric storyboard. Use when the user wants to create lyric video."
 ---
 
 # create lyric video

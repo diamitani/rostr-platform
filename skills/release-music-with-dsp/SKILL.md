@@ -1,7 +1,6 @@
 ---
 name: release-music-with-dsp
-description: Release ticket, 21-day buffer. Use when the user wants: Release your music with a DSP. NPAO P.
-allowed-tools: mcp__supabase
+description: "LLM-agnostic music production and marketing skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to work with Release ticket, 21-day buffer. Use when the user wants to release your music with a dsp."
 ---
 
 # Release your music with a DSP

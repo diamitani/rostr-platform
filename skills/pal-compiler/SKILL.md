@@ -1,16 +1,6 @@
 ---
 name: pal-compiler
-description: ROSTR PAL (Prompt Abstraction Layer) — 5-stage compiler pipeline for transforming raw user intents into optimized, context-rich, executable prompts through Intent extraction, Context injection, Semantic enhancement, Runtime compilation, and Output routing.
-version: 1.0.0
-author: Patrick Diamitani
-tags: [rostr, pal, prompt-compiler, abstraction-layer, intent-extraction, semantic-enhancement, output-routing]
-dependencies:
-  - rostr-core>=0.1.0
-trigger_conditions:
-  - user provides a natural-language instruction
-  - user asks to compile, optimize, or enhance a prompt
-  - any ROSTR pipeline that requires PAL preprocessing
-  - agent initialization or intent routing
+description: "LLM-agnostic AI agent development skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to work with ROSTR PAL (Prompt Abstraction Layer) — 5-stage compiler pipeline for transforming raw user intents into optimized, context-rich, executable prompts through Intent extraction, Context injection, Semantic enhancement…. Use when working with rostr pal."
 ---
 
 # PAL Compiler — ROSTR Prompt Abstraction Layer

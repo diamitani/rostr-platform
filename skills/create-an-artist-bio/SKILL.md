@@ -1,7 +1,6 @@
 ---
 name: create-an-artist-bio
-description: 50/150/400 word bios. Use when the user wants: Create an artist bio. NPAO P.
-allowed-tools: inherit
+description: "LLM-agnostic music production and marketing skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to work with 50/150/400 word bios. Use when the user wants to create an artist bio."
 ---
 
 # Create an artist bio

@@ -1,12 +1,6 @@
 ---
 name: prospect-pal-master
-description: >
-  Master Prospect Automation Platform Agent. Orchestrates campaign creation, tool configuration, 
-  copy generation, and n8n workflow building. Use when setting up new outbound campaigns, 
-  configuring GTM automation, writing cold outreach copy, or generating n8n workflows.
-  Triggers: prospect automation, campaign setup, outbound workflow, gtm automation, n8n builder,
-  cold email, lead enrichment, crm integration, sequencer setup.
-tools: Read, Write, Edit, Bash, WebFetch, Agent
+description: "LLM-agnostic sales prospecting and go-to-market skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to work with prospect pal master. Use when working with prospect pal master."
 ---
 
 # Prospect PAL Master Agent

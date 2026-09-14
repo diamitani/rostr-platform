@@ -1,0 +1,22 @@
+# Notes: n8n-engineer
+
+- Source repo: diamitani/n8n-engineer-skill
+- Source path: SKILL.md
+- Raw URL: https://raw.githubusercontent.com/diamitani/n8n-engineer-skill/main/SKILL.md
+- Index category: n8n/automation
+- Frontmatter: rewritten (source frontmatter replaced)
+- Description: rewritten to LLM-agnostic house standard
+- Placeholders found (0): none
+- Broken references (0):
+  - none
+- Relative references downloaded (8):
+  - `references/agents.md` → `references/agents.md`
+  - `references/architecture.md` → `references/architecture.md`
+  - `references/gtm.md` → `references/gtm.md`
+  - `references/hard-nodes.md` → `references/hard-nodes.md`
+  - `references/http-api.md` → `references/http-api.md`
+  - `references/ops.md` → `references/ops.md`
+  - `references/sources.md` → `references/sources.md`
+  - `references/starter-pack.md` → `references/starter-pack.md`
+- Aliases collapsed into this copy (0):
+  - none

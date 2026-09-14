@@ -1,7 +1,6 @@
 ---
 name: register-with-pro
-description: Artist/company PRO signup. Use when the user wants: Register with a P.R.O.. NPAO N.
-allowed-tools: mcp__supabase
+description: "LLM-agnostic music production and marketing skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to work with Artist/company PRO signup. Use when the user wants to register with a p.r.o."
 ---
 
 # Register with a P.R.O.

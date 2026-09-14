@@ -1,0 +1,22 @@
+# Notes: tools
+
+- Source repo: diamitani/rostr-agent
+- Source path: Knowledge/Mac Mini archives/chatuitemplate/.agents/skills/tools/SKILL.md
+- Raw URL: https://raw.githubusercontent.com/diamitani/rostr-agent/main/Knowledge/Mac%20Mini%20archives/chatuitemplate/.agents/skills/tools/SKILL.md
+- Index category: other
+- Frontmatter: rewritten (source frontmatter replaced)
+- Description: rewritten to LLM-agnostic house standard
+- Placeholders found (0): none
+- Broken references (2):
+  - `app/api/chat/route.ts` — 404 / not found
+  - `assistant-ui.com/llms.txt` — 404 / not found
+- Relative references downloaded (7):
+  - `./references/generative-ui.md` → `references/generative-ui.md`
+  - `./references/human-in-loop.md` → `references/human-in-loop.md`
+  - `./references/make-tool.md` → `references/make-tool.md`
+  - `./references/mcp-server.md` → `references/mcp-server.md`
+  - `./references/registry-components.md` → `references/registry-components.md`
+  - `./references/tool-ui.md` → `references/tool-ui.md`
+  - `./references/toolkits.md` → `references/toolkits.md`
+- Aliases collapsed into this copy (0):
+  - none

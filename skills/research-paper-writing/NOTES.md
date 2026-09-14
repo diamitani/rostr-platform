@@ -1,0 +1,33 @@
+# Notes: research-paper-writing
+
+- Source repo: diamitani/hermes-agent-skills-marketplace
+- Source path: hermes-agent-community/research/research-paper-writing/SKILL.md
+- Raw URL: https://raw.githubusercontent.com/diamitani/hermes-agent-skills-marketplace/main/hermes-agent-community/research/research-paper-writing/SKILL.md
+- Index category: ai-agents
+- Frontmatter: rewritten (source frontmatter replaced)
+- Description: rewritten to LLM-agnostic house standard
+- Placeholders found (1): `{{cite}}`
+- Broken references (19):
+  - `figures/ablation.pdf` — 404 / not found
+  - `figures/exp003_convergence.pdf` — 404 / not found
+  - `figures/exp1_comparison.pdf` — 404 / not found
+  - `figures/main_comparison.pdf` — 404 / not found
+  - `paper/fig_results.pdf` — 404 / not found
+  - `references/autoreason-methodology.md` — 404 / not found
+  - `references/checklists.md` — 404 / not found
+  - `references/citation-workflow.md` — 404 / not found
+  - `references/experiment-patterns.md` — 404 / not found
+  - `references/human-evaluation.md` — 404 / not found
+  - `references/paper-types.md` — 404 / not found
+  - `references/reviewer-guidelines.md` — 404 / not found
+  - `references/sources.md` — 404 / not found
+  - `references/writing-guide.md` — 404 / not found
+  - `results/exp1/final_info.json` — 404 / not found
+  - `results/exp_003/experiment_snapshot.py` — 404 / not found
+  - `scripts/make_figure2.py` — 404 / not found
+  - `swanson/papers/science-of-writing.pdf` — 404 / not found
+  - `templates/README.md` — 404 / not found
+- Relative references downloaded (0):
+  - none
+- Aliases collapsed into this copy (0):
+  - none

@@ -1,0 +1,22 @@
+# Notes: gtm-architect-gtm-architect-skill-original-backup
+
+- Source repo: diamitani/gtm_architect_skill_original_backup-skill
+- Source path: SKILL.md
+- Raw URL: https://raw.githubusercontent.com/diamitani/gtm_architect_skill_original_backup-skill/main/SKILL.md
+- Index category: prospecting/GTM
+- Frontmatter: rewritten (source frontmatter replaced)
+- Description: rewritten to LLM-agnostic house standard
+- Placeholders found (1): `{{COMPANY_NAME}}`
+- Broken references (8):
+  - `references/amplemarket-api.md` — 404 / not found
+  - `references/clay-api.md` — 404 / not found
+  - `references/clay-columns.md` — 404 / not found
+  - `references/credentials.md` — 404 / not found
+  - `references/gtm-patterns.md` — 404 / not found
+  - `references/hubspot-api.md` — 404 / not found
+  - `references/mermaid-diagrams.md` — 404 / not found
+  - `references/n8n-api.md` — 404 / not found
+- Relative references downloaded (0):
+  - none
+- Aliases collapsed into this copy (0):
+  - none

@@ -1,6 +1,6 @@
 ---
 name: prospect-automation-engine
-description: "Master Autonomous GTM Architect, n8n Systems Engineer, and Execution Analyst. Unifies 5-Pillar Outbound Architecture (Trigger Ingest, CRM Shield & Dedupe, Data & Contact Reveal, AI PAS Copywriting, Sequencer Enrollment), production n8n JSON compilation & node authoring, sub-workflows, MCP integrations, and deep n8n Public API execution diagnostics & error triage."
+description: "LLM-agnostic workflow automation skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to master Autonomous GTM Architect, n8n Systems Engineer, and Execution Analyst. Unifies 5-Pillar Outbound Architecture (Trigger Ingest, CRM Shield & Dedupe, Data & Contact Reveal, AI PAS Copywriting, Sequencer Enrollment)…. Use when you need to master Autonomous GTM Architect, n8n Systems."
 ---
 
 # Master Prospect Automation Engine & n8n Systems Architect

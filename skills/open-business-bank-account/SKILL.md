@@ -1,7 +1,6 @@
 ---
 name: open-business-bank-account
-description: Docs list + bank comparison. Use when the user wants: open business bank account. NPAO N.
-allowed-tools: mcp__google_drive
+description: "LLM-agnostic productivity and task automation skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to work with Docs list + bank comparison. Use when the user wants to open business bank account."
 ---
 
 # open business bank account

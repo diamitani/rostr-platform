@@ -1,17 +1,6 @@
 ---
 name: rostr-agent-builder
-description: Complete ROSTR agent builder — 7-phase build pipeline from PAL intent compilation through JTBD system instructions, NPAO orchestration, state/context engineering, RAG DAL knowledge config, to multi-platform export and deployment. Covers Claude, Codex, OpenClaw, Hermes, and standalone exports.
-version: 1.0.0
-author: Patrick Diamitani
-tags: [rostr, agent-builder, multi-platform, export, deployment, jtbd, system-instructions, agent-engineering]
-dependencies:
-  - rostr-core>=0.1.0
-trigger_conditions:
-  - user requests building a new agent
-  - user wants to export a ROSTR pipeline as a standalone agent
-  - deploying ROSTR configurations to target platforms
-  - creating custom agents from ROSTR building blocks
-  - multi-platform agent distribution
+description: "LLM-agnostic workflow automation skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to work with Complete ROSTR agent builder — 7-phase build pipeline from PAL intent compilation through JTBD system instructions, NPAO orchestration, state/context engineering, RAG DAL knowledge config, to multi-platform export…. Use when working with complete rostr agent builder."
 ---
 
 # ROSTR Agent Builder — 7-Phase Build Pipeline

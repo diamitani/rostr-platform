@@ -1,7 +1,6 @@
 ---
 name: transcribe-lyrics
-description: Clean lyrics with section tags. Use when the user wants: transcribe lyrics. NPAO N.
-allowed-tools: inherit
+description: "LLM-agnostic productivity and task automation skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to clean lyrics with section tags. Use when the user wants to transcribe lyrics."
 ---
 
 # transcribe lyrics

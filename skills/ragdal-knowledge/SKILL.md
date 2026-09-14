@@ -1,17 +1,6 @@
 ---
 name: ragdal-knowledge
-description: ROSTR RAG DAL (Dynamic Acquisition Layer) — 3-tier source credibility system with multi-pass autonomous retrieval, confidence scoring, gap detection, and persistent knowledge base for retrieval-augmented intelligence.
-version: 1.0.0
-author: Patrick Diamitani
-tags: [rostr, rag, knowledge-retrieval, source-credibility, confidence-scoring, gap-detection, knowledge-base]
-dependencies:
-  - rostr-core>=0.1.0
-trigger_conditions:
-  - user query requires external knowledge or factual grounding
-  - agent encounters information gap during task execution
-  - PAL pipeline flags intent as requiring knowledge retrieval
-  - knowledge base update or refresh is triggered
-  - confidence score on existing knowledge falls below threshold
+description: "LLM-agnostic productivity and task automation skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to work with ROSTR RAG DAL (Dynamic Acquisition Layer) — 3-tier source credibility system with multi-pass autonomous retrieval, confidence scoring, gap detection, and persistent knowledge base for retrieval-augmented intelligence. Use when working with rostr rag dal."
 ---
 
 # RAG DAL — ROSTR Dynamic Acquisition Layer

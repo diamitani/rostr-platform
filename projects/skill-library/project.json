@@ -1,0 +1,2635 @@
+{
+  "id": "skill-library",
+  "name": "Master Skill Library",
+  "skills": {
+    "affli": {
+      "price_usd": 0,
+      "version": "1.0.0",
+      "vertical": "ai-agents",
+      "description": "LLM-agnostic AI agent development skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to guide product selection, content strategy, and commission optimization. Use when building and optimizing affiliate marketing strategies."
+    },
+    "agent-architect": {
+      "price_usd": 0,
+      "version": "1.0.0",
+      "vertical": "ai-agents",
+      "description": "LLM-agnostic AI agent development skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to work with Full-Stack Agent Architect for system instructions, tech stacks, and infrastructure blueprints. Use when working with full-stack agent architect for system instructions."
+    },
+    "agent-builder-guide": {
+      "price_usd": 0,
+      "version": "1.0.0",
+      "vertical": "ai-agents",
+      "description": "LLM-agnostic AI agent development skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to work with Consolidates Agent Builder Guide, FlowBud, and Relevance AI builders. Use when guiding users through building AI agents with SDKs, Restack, MCP, API integration, or platforms like Relevance.ai."
+    },
+    "agents-skill": {
+      "price_usd": 0,
+      "version": "1.0.0",
+      "vertical": "ai-agents",
+      "description": "LLM-agnostic AI agent development skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to work with AGENTS.md \u2014 Delali Planning Runtime. Use when working with agents.md."
+    },
+    "agreement-architect": {
+      "price_usd": 0,
+      "version": "1.0.0",
+      "vertical": "ai-agents",
+      "description": "LLM-agnostic AI agent development skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to generate tailored agreement documents from user requirements. Use when crafting custom partnership agreements, contracts, and legal document templates in Word format."
+    },
+    "ai-palmistry-guide": {
+      "price_usd": 0,
+      "version": "1.0.0",
+      "vertical": "ai-agents",
+      "description": "LLM-agnostic AI agent development skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to work with Offers insightful, personalized palm reading interpretations. Use when providing AI-powered virtual palm readings."
+    },
+    "airtable": {
+      "price_usd": 0,
+      "version": "1.0.0",
+      "vertical": "ai-agents",
+      "description": "LLM-agnostic AI agent development skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to work with Airtable REST API via curl. Records CRUD, filters, upserts. Use when working with airtable rest api via curl. records."
+    },
+    "algorithm-architect": {
+      "price_usd": 0,
+      "version": "1.0.0",
+      "vertical": "dev-tools",
+      "description": "LLM-agnostic developer tooling skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to help design and explain algorithmic approaches. Use when creating algorithms, code tutorials, and structured programming solutions."
+    },
+    "amplemarket-api-skill": {
+      "price_usd": 0,
+      "version": "1.0.0",
+      "vertical": "other",
+      "description": "LLM-agnostic productivity and task automation skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to work with Amplemarket API Reference. Use when working with amplemarket api reference."
+    },
+    "api-integration-architect": {
+      "price_usd": 0,
+      "version": "1.0.0",
+      "vertical": "dev-tools",
+      "description": "LLM-agnostic developer tooling skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to work with Consolidates API Integration Architect Pro, API Guide, and Funky. Use when designing API schemas, building integrations, generating JSON schemas, or deploying API templates for AI assistants."
+    },
+    "applygpt": {
+      "price_usd": 0,
+      "version": "1.0.0",
+      "vertical": "ai-agents",
+      "description": "LLM-agnostic AI agent development skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to work with applygpt. Use when guiding users in crafting job applications, tailoring resumes, and preparing for interviews."
+    },
+    "ar-campaign-architect": {
+      "price_usd": 0,
+      "version": "1.0.0",
+      "vertical": "music",
+      "description": "LLM-agnostic music production and marketing skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to plan multi-channel music promotion campaigns. Use when designing A&R strategies for artist campaigns across blogs, playlists, venues, and licensing platforms."
+    },
+    "archetypes-skill": {
+      "price_usd": 0,
+      "version": "1.0.0",
+      "vertical": "other",
+      "description": "LLM-agnostic productivity and task automation skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to work with Archetype deep dive. Use when working with archetype deep dive."
+    },
+    "architecture-diagram": {
+      "price_usd": 0,
+      "version": "1.0.0",
+      "vertical": "ai-agents",
+      "description": "LLM-agnostic AI agent development skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to work with Dark-themed SVG architecture/cloud/infra diagrams as HTML. Use when working with dark-themed svg architecture/cloud/infra diagrams as html."
+    },
+    "architecture-skill": {
+      "price_usd": 0,
+      "version": "1.0.0",
+      "vertical": "other",
+      "description": "LLM-agnostic productivity and task automation skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to work with Architecture \u2014 HubSpot Import Formatter. Use when working with architecture."
+    },
+    "armie": {
+      "price_usd": 0,
+      "version": "1.0.0",
+      "vertical": "music",
+      "description": "LLM-agnostic music production and marketing skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to work with armie. Use when providing advanced artist development and management guidance."
+    },
+    "artbeat-covers": {
+      "price_usd": 0,
+      "version": "1.0.0",
+      "vertical": "music",
+      "description": "LLM-agnostic music production and marketing skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to generate concepts, designs, and visual direction for album/single artwork. Use when helping artists create visually stunning cover art tailored to their music."
+    },
+    "artispreneur-ecosystem": {
+      "price_usd": 0,
+      "version": "1.0.0",
+      "vertical": "dev-tools",
+      "description": "LLM-agnostic developer tooling skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to build and deploy Artispreneur-branded sites (landing, academy, directory) using the shared dark luxury design system. Covers the design DNA, deployment flow, cross-linking, and adding new sites. Use when you need to build and deploy Artispreneur-branded sites (landing."
+    },
+    "artispreneur-email-generator": {
+      "price_usd": 0,
+      "version": "1.0.0",
+      "vertical": "prospecting/GTM",
+      "description": "LLM-agnostic sales prospecting and go-to-market skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to craft outreach, fan engagement, promo, and booking emails tailored to music marketing. Use when generating music campaign emails for artists."
+    },
+    "artispreneur-platform": {
+      "price_usd": 0,
+      "version": "1.0.0",
+      "vertical": "music",
+      "description": "LLM-agnostic music production and marketing skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to build and maintain the Artispreneur multi-product music business platform \u2014 agent workspaces, pricing, Stripe, AWS, Terraform, and the dark gold design system. Use when you need to build and maintain the Artispreneur multi-product."
+    },
+    "artist-bio-creator": {
+      "price_usd": 0,
+      "version": "1.0.0",
+      "vertical": "music",
+      "description": "LLM-agnostic music production and marketing skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to produce compelling narrative bios for different platforms and lengths. Use when guiding musicians through creating professional artist biographies."
+    },
+    "artist-budget-guide": {
+      "price_usd": 0,
+      "version": "1.0.0",
+      "vertical": "music",
+      "description": "LLM-agnostic music production and marketing skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to work with Covers recording, marketing, touring, and release expenses. Use when helping artists create realistic budgets for their projects."
+    },
+    "artist-business-plan": {
+      "price_usd": 0,
+      "version": "1.0.0",
+      "vertical": "music",
+      "description": "LLM-agnostic music production and marketing skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to transform artistic vision into actionable business frameworks. Use when guiding artists through building tailored business plans and growth strategies."
+    },
+    "artist-connect": {
+      "price_usd": 0,
+      "version": "1.0.0",
+      "vertical": "music",
+      "description": "LLM-agnostic music production and marketing skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to work with artist connect. Use when connecting artists with mentorship, coaching, and real advice from true artist journeys."
+    },
+    "artist-epk-suite": {
+      "price_usd": 0,
+      "version": "1.0.0",
+      "vertical": "music",
+      "description": "LLM-agnostic music production and marketing skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to use as the unified entry point for all Artispreneur music industry tools. Routes to: EPK Builder, Artist Bio Creator, ArtBeat Covers, SyncMaster, SongVid, MicSpot, Reggie P.R.O., Catana, VenYou, Tour Tracker, E-Milly, Music\u2026. Use when you need to use as the unified entry point."
+    },
+    "artist-resource-hub": {
+      "price_usd": 0,
+      "version": "1.0.0",
+      "vertical": "music",
+      "description": "LLM-agnostic music production and marketing skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to work with Acts as a comprehensive guide to industry opportunities. Use when providing music industry resources, deals, and news to artists."
+    },
+    "arxiv": {
+      "price_usd": 0,
+      "version": "1.0.0",
+      "vertical": "ai-agents",
+      "description": "LLM-agnostic AI agent development skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to search arXiv papers by keyword, author, category, or ID. Use when you need to search arXiv papers by keyword, author."
+    },
+    "asana": {
+      "price_usd": 0,
+      "version": "1.0.0",
+      "vertical": "ai-agents",
+      "description": "LLM-agnostic AI agent development skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to work with Asana Personal Access Token (stored in skill dir). Use when working with asana personal access token."
+    },
+    "asana-organizer": {
+      "price_usd": 0,
+      "version": "1.0.0",
+      "vertical": "prospecting/GTM",
+      "description": "LLM-agnostic sales prospecting and go-to-market skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to work with Asana project organizer. Give it any Asana project URL and requirements (audience, format, section structure) and it fetches all tasks, rewrites them for clear stakeholder communication, proposes a reorganized\u2026. Use when the user says: organize my Asana, clean up this project, rewrite tasks for leadership, sort through my tasks, group by status/team/priority."
+    },
+    "ascii-art": {
+      "price_usd": 0,
+      "version": "1.0.0",
+      "vertical": "dev-tools",
+      "description": "LLM-agnostic developer tooling skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to work with ASCII art: pyfiglet, cowsay, boxes, image-to-ascii. Use when working with ascii art."
+    },
+    "ascii-video": {
+      "price_usd": 0,
+      "version": "1.0.0",
+      "vertical": "music",
+      "description": "LLM-agnostic music production and marketing skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to work with ASCII video: convert video/audio to colored ASCII MP4/GIF. Use when working with ascii video."
+    },
+    "assistant-ui": {
+      "price_usd": 0,
+      "version": "1.0.0",
+      "vertical": "other",
+      "description": "LLM-agnostic productivity and task automation skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to work with Overview and router for assistant-ui, the React library for building AI chat interfaces from composable primitives. Covers the `@assistant-ui/react` core plus `@assistant-ui/react-ai-sdk`\u2026. Use when high-level, cross-cutting, or architecture-overview questions: choosing packages, picking a runtime, or understanding the layered model (RuntimeCore, Runtime, context\u2026."
+    },
+    "atlas-brand-skill": {
+      "price_usd": 0,
+      "version": "1.0.0",
+      "vertical": "other",
+      "description": "LLM-agnostic productivity and task automation skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to work with {{COMPANY_NAME}} Brand Guide for Presentations. Use when working with {{company_name}} brand guide for presentations."
+    },
+    "atlas-gtm-agent-os": {
+      "price_usd": 0,
+      "version": "1.0.0",
+      "vertical": "prospecting/GTM",
+      "description": "LLM-agnostic sales prospecting and go-to-market skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to work with atlas gtm agent os. Use when working with atlas gtm agent os."
+    },
+    "atlas-knowledge-skill": {
+      "price_usd": 0,
+      "version": "1.0.0",
+      "vertical": "other",
+      "description": "LLM-agnostic productivity and task automation skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to work with {{COMPANY_NAME}} \u2014 GTM Knowledge Base. Use when working with {{company_name}}."
+    },
+    "auctopilot": {
+      "price_usd": 0,
+      "version": "1.0.0",
+      "vertical": "prospecting/GTM",
+      "description": "LLM-agnostic sales prospecting and go-to-market skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to work with Discovers local buying opportunities. Use when finding auctions, foreclosures, and estate sales near any location."
+    },
+    "automation-architect": {
+      "price_usd": 0,
+      "version": "1.0.0",
+      "vertical": "n8n/automation",
+      "description": "LLM-agnostic workflow automation skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to produce step-by-step blueprints with runbooks and scenario configurations. Consolidates Automation Architect, Sixth Automation, and Business Automation Guide. Use when building custom automations with Make, Zapier, n8n, or Softr."
+    },
+    "azure-ai-foundry-skill": {
+      "price_usd": 0,
+      "version": "1.0.0",
+      "vertical": "other",
+      "description": "LLM-agnostic productivity and task automation skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to work with Azure AI Foundry. Use when working with azure ai foundry."
+    },
+    "backend-dev": {
+      "price_usd": 0,
+      "version": "1.0.0",
+      "vertical": "dev-tools",
+      "description": "LLM-agnostic developer tooling skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to work with Python + FastAPI + SQLAlchemy + pytest. Bootstrap, data layer, routes, testing, deployment \u2014 full lifecycle. Use when building a backend, REST API, web service, or web app server."
+    },
+    "baoyu-infographic": {
+      "price_usd": 0,
+      "version": "1.0.0",
+      "vertical": "ai-agents",
+      "description": "LLM-agnostic AI agent development skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to work with Infographics: 21 layouts x 21 styles (\u4fe1\u606f\u56fe, \u53ef\u89c6\u5316). Use when working with infographics."
+    },
+    "base64-translator": {
+      "price_usd": 0,
+      "version": "1.0.0",
+      "vertical": "data",
+      "description": "LLM-agnostic data engineering and analytics skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to work with Handles encoding/decoding for data interchange. Use when translating between Base64 and English text."
+    },
+    "blk-heights-career-coach": {
+      "price_usd": 0,
+      "version": "1.0.0",
+      "vertical": "ai-agents",
+      "description": "LLM-agnostic AI agent development skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to work with Powered by blkheights.com. Use when providing empowering career coaching and content guidance for tech-driven communities."
+    },
+    "blogwatcher": {
+      "price_usd": 0,
+      "version": "1.0.0",
+      "vertical": "dev-tools",
+      "description": "LLM-agnostic developer tooling skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to monitor blogs and RSS/Atom feeds via blogwatcher-cli tool. Use when you need to monitor blogs and RSS/Atom feeds."
+    },
+    "brand-system-skill": {
+      "price_usd": 0,
+      "version": "1.0.0",
+      "vertical": "other",
+      "description": "LLM-agnostic productivity and task automation skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to work with {{COMPANY_NAME}} Brand System \u2014 Dashboard Reference. Use when working with {{company_name}} brand system."
+    },
+    "brand-system-template-skill": {
+      "price_usd": 0,
+      "version": "1.0.0",
+      "vertical": "other",
+      "description": "LLM-agnostic productivity and task automation skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to work with Brand System Template \u2014 first-time user flow. Use when working with brand system template."
+    },
+    "business-audit": {
+      "price_usd": 0,
+      "version": "1.0.0",
+      "vertical": "ai-agents",
+      "description": "LLM-agnostic AI agent development skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to analyze business health and identifies growth opportunities. Use when performing dynamic business audits and strategic planning assessments."
+    },
+    "business-model-canvas-builder": {
+      "price_usd": 0,
+      "version": "1.0.0",
+      "vertical": "ai-agents",
+      "description": "LLM-agnostic AI agent development skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to use guided questions and NLP to produce structured BMC outputs. Use when generating a Business Model Canvas from an idea."
+    },
+    "buyer-persona-architect": {
+      "price_usd": 0,
+      "version": "1.0.0",
+      "vertical": "ai-agents",
+      "description": "LLM-agnostic AI agent development skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to work with Includes ICP definition and segmentation. Use when generating detailed user and buyer personas from documents, research, or prompts."
+    },
+    "call-insights-assistant": {
+      "price_usd": 0,
+      "version": "1.0.0",
+      "vertical": "dev-tools",
+      "description": "LLM-agnostic developer tooling skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to extract insights from conversation transcripts. Use when analyzing client calls, providing summaries, and updating tracking sheets."
+    },
+    "campaign-digital-director": {
+      "price_usd": 0,
+      "version": "1.0.0",
+      "vertical": "ai-agents",
+      "description": "LLM-agnostic AI agent development skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to work with Consolidates Campaign Digital Director Assistant, Campaign Speechwriter Assistant, and Donor Call Sheet Assistant. Use when creating elite political content strategy for digital mobilization."
+    },
+    "case-study-template-skill": {
+      "price_usd": 0,
+      "version": "1.0.0",
+      "vertical": "other",
+      "description": "LLM-agnostic productivity and task automation skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to work with Case Study / Project Overview \u2014 Template. Use when working with case study / project overview."
+    },
+    "catana": {
+      "price_usd": 0,
+      "version": "1.0.0",
+      "vertical": "music",
+      "description": "LLM-agnostic music production and marketing skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to organize files across platforms. Use when managing and enhancing music catalogues."
+    },
+    "centralized-systems-assistant": {
+      "price_usd": 0,
+      "version": "1.0.0",
+      "vertical": "n8n/automation",
+      "description": "LLM-agnostic workflow automation skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to work with Built for municipal/government systems operations. Use when assisting systems teams with documentation, automation, troubleshooting, and programming tasks."
+    },
+    "chatbot-architect": {
+      "price_usd": 0,
+      "version": "1.0.0",
+      "vertical": "dev-tools",
+      "description": "LLM-agnostic developer tooling skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to create downloadable config files and step-by-step platform guides. Consolidates Chatbot Architect, Chatbot Guide Bot, and Custom UI Chatbot Assistant. Use when building structured chatbot instructions or configuring no-code chatbot platforms (Voiceflow, etc.)."
+    },
+    "chatterbox-api-skill": {
+      "price_usd": 0,
+      "version": "1.0.0",
+      "vertical": "other",
+      "description": "LLM-agnostic productivity and task automation skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to work with Chatterbox TTS API \u2014 local endpoint reference. Use when working with chatterbox tts api."
+    },
+    "chicago-local": {
+      "price_usd": 0,
+      "version": "1.0.0",
+      "vertical": "dev-tools",
+      "description": "LLM-agnostic developer tooling skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to work with Consolidates Crime Tracker Chicago, ChicagoESQ (justice system), Tenny: Chicago (tenant rights), and Chicago 211 Resource Assistant. Use when accessing Chicago-specific resources."
+    },
+    "chunkmaster-pro": {
+      "price_usd": 0,
+      "version": "1.0.0",
+      "vertical": "ai-agents",
+      "description": "LLM-agnostic AI agent development skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to prepare documents for RAG pipelines, embeddings, and knowledge bases. Use when chunking, tagging, exporting, and indexing documents step-by-step."
+    },
+    "claude-design": {
+      "price_usd": 0,
+      "version": "1.0.0",
+      "vertical": "ai-agents",
+      "description": "LLM-agnostic AI agent development skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to design one-off HTML artifacts (landing, deck, prototype). Use when you need to design one-off HTML artifacts (landing, deck."
+    },
+    "cloud": {
+      "price_usd": 0,
+      "version": "1.0.0",
+      "vertical": "other",
+      "description": "LLM-agnostic productivity and task automation skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to work with Sets up assistant-ui Cloud persistence and authorization with the assistant-cloud package and AssistantCloud client. Covers cloud.threads.list/get/create/update/delete, cloud.threads.messages(threadId)\u2026. Use when adding cross-session thread/message persistence, multi-device chat history, file uploads, or auth to an assistant-ui app: passing the cloud option to useChatRuntime\u2026."
+    },
+    "cloud-course-assistant": {
+      "price_usd": 0,
+      "version": "1.0.0",
+      "vertical": "ai-agents",
+      "description": "LLM-agnostic AI agent development skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to work with Consolidates Study Coach (for AWS) and Cloud Course Assistant. Use when providing cloud study assistance, particularly for AWS certification prep."
+    },
+    "code-camp-mentor": {
+      "price_usd": 0,
+      "version": "1.0.0",
+      "vertical": "dev-tools",
+      "description": "LLM-agnostic developer tooling skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to work with Acts as a structured programming mentor. Use when providing personalized coding bootcamp tutoring for Python and AI."
+    },
+    "codebase-inspection": {
+      "price_usd": 0,
+      "version": "1.0.0",
+      "vertical": "dev-tools",
+      "description": "LLM-agnostic developer tooling skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to inspect codebases w/ pygount: LOC, languages, ratios. Use when you need to inspect codebases w/ pygount: LOC, languages."
+    },
+    "cof-cof": {
+      "price_usd": 0,
+      "version": "1.0.0",
+      "vertical": "other",
+      "description": "LLM-agnostic productivity and task automation skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to work with cof. Use when working with cof."
+    },
+    "cof-skill-cof": {
+      "price_usd": 0,
+      "version": "1.0.0",
+      "vertical": "other",
+      "description": "LLM-agnostic productivity and task automation skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to work with cof. Use when working with cof."
+    },
+    "comfyui": {
+      "price_usd": 0,
+      "version": "1.0.0",
+      "vertical": "n8n/automation",
+      "description": "LLM-agnostic workflow automation skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to generate images, video, and audio with ComfyUI \u2014 install, launch, manage nodes/models, run workflows with parameter injection. Uses the official comfy-cli for lifecycle and direct REST/WebSocket API for execution. Use when you need to generate images, video, and audio."
+    },
+    "comms-templates-skill": {
+      "price_usd": 0,
+      "version": "1.0.0",
+      "vertical": "other",
+      "description": "LLM-agnostic productivity and task automation skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to work with Stakeholder Communication Templates. Use when working with stakeholder communication templates."
+    },
+    "company-name-gtm-agent-os": {
+      "price_usd": 0,
+      "version": "1.0.0",
+      "vertical": "prospecting/GTM",
+      "description": "LLM-agnostic sales prospecting and go-to-market skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to work with company name gtm agent os. Use when working with company name gtm agent os."
+    },
+    "company-name-proposal-builder-v2": {
+      "price_usd": 0,
+      "version": "1.0.0",
+      "vertical": "other",
+      "description": "LLM-agnostic productivity and task automation skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to work with company name proposal builder v2. Use when working with company name proposal builder v2."
+    },
+    "components-skill": {
+      "price_usd": 0,
+      "version": "1.0.0",
+      "vertical": "other",
+      "description": "LLM-agnostic productivity and task automation skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to work with {{COMPANY_NAME}} Dashboard \u2014 Component Library. Use when working with {{company_name}} dashboard."
+    },
+    "computer-use": {
+      "price_usd": 0,
+      "version": "1.0.0",
+      "vertical": "ai-agents",
+      "description": "LLM-agnostic AI agent development skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to work with computer use. Use when working with computer use."
+    },
+    "context-engine-rostr-core": {
+      "price_usd": 0,
+      "version": "1.0.0",
+      "vertical": "ai-agents",
+      "description": "LLM-agnostic AI agent development skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to work with agent's memory. A loop that runs on EVERY session, in the background: it saves the session as a compressed `.md`, stores it, indexes it \u2014 and the next session pulls the last one (or all of them) back. Use when working with the agent's memory. a loop that."
+    },
+    "context-engine-rostr-platform": {
+      "price_usd": 0,
+      "version": "1.0.0",
+      "vertical": "ai-agents",
+      "description": "LLM-agnostic AI agent development skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to work with Feed the agent a memory. Ingest URLs and text into the project's knowledge base; the Context Engine retrieves the right passages and injects them into every worker prompt. Use when working with feed the agent a memory. ingest."
+    },
+    "copilots": {
+      "price_usd": 0,
+      "version": "1.0.0",
+      "vertical": "other",
+      "description": "LLM-agnostic productivity and task automation skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to work with Grounding an assistant in your app with assistant-ui copilots (@assistant-ui/react). Reach for this when the assistant should read the current page, click or edit UI, or read and update component state through\u2026. Use when steering assistant behavior with useAssistantInstructions, feeding lazy app-state context via useAssistantContext({ getContext }), exposing rendered components with\u2026."
+    },
+    "cosmic-oracle": {
+      "price_usd": 0,
+      "version": "1.0.0",
+      "vertical": "ai-agents",
+      "description": "LLM-agnostic AI agent development skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to generate birth chart interpretations and astrological readings. Use when providing personalized astrology insights and cosmic guidance."
+    },
+    "create-an-epk-rostr-core": {
+      "price_usd": 0,
+      "version": "1.0.0",
+      "vertical": "music",
+      "description": "LLM-agnostic music production and marketing skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to work with Description Build a complete electronic press kit for an independent artist: bio, press quotes, music links, photos, tour dates, and contact \u2014 assembled into a publishable page. Use when working with description build a complete electronic press."
+    },
+    "credentials-skill": {
+      "price_usd": 0,
+      "version": "1.0.0",
+      "vertical": "other",
+      "description": "LLM-agnostic productivity and task automation skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to work with GTM Architect \u2014 Credentials & Auth Config. Use when working with gtm architect."
+    },
+    "daily-report-workflow-spec-skill": {
+      "price_usd": 0,
+      "version": "1.0.0",
+      "vertical": "n8n/automation",
+      "description": "LLM-agnostic workflow automation skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to work with Spec \u2014 Maia Daily Report Workflow (hand to /n8n-engineer). Use when working with spec."
+    },
+    "data-sources-skill": {
+      "price_usd": 0,
+      "version": "1.0.0",
+      "vertical": "data",
+      "description": "LLM-agnostic data engineering and analytics skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to work with Maia Data Sources \u2014 Pull Recipes. Use when working with maia data sources."
+    },
+    "dc-312-political": {
+      "price_usd": 0,
+      "version": "1.0.0",
+      "vertical": "ai-agents",
+      "description": "LLM-agnostic AI agent development skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to work with Consolidates all political campaign GPTs. Use when providing comprehensive political campaign guidance including digital strategy, speechwriting, donor calls, and constituent engagement."
+    },
+    "dcase-312": {
+      "price_usd": 0,
+      "version": "1.0.0",
+      "vertical": "dev-tools",
+      "description": "LLM-agnostic developer tooling skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to find events, grant deadlines, city-wide programs, and cultural engagement opportunities. Use when accessing Chicago Department of Cultural Affairs and Special Events resources."
+    },
+    "ddc-announcements-skill": {
+      "price_usd": 0,
+      "version": "1.0.0",
+      "vertical": "other",
+      "description": "LLM-agnostic productivity and task automation skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to work with Delali Development Cycle \u2014 announcements. Use when working with delali development cycle."
+    },
+    "ddc-planning-harness-skill": {
+      "price_usd": 0,
+      "version": "1.0.0",
+      "vertical": "other",
+      "description": "LLM-agnostic productivity and task automation skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to work with Delali Development Cycle \u2014 Planning Harness. Use when working with delali development cycle."
+    },
+    "ddc-white-paper-skill": {
+      "price_usd": 0,
+      "version": "1.0.0",
+      "vertical": "other",
+      "description": "LLM-agnostic productivity and task automation skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to work with Delali Development Cycle. Use when working with the delali development cycle."
+    },
+    "decision-rules-skill": {
+      "price_usd": 0,
+      "version": "1.0.0",
+      "vertical": "dev-tools",
+      "description": "LLM-agnostic developer tooling skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to work with Decision Rules. Use when working with decision rules."
+    },
+    "design-image-prompting-skill": {
+      "price_usd": 0,
+      "version": "1.0.0",
+      "vertical": "ai-agents",
+      "description": "LLM-agnostic AI agent development skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to design Image Prompting. Use when you need to design Image Prompting."
+    },
+    "design-md": {
+      "price_usd": 0,
+      "version": "1.0.0",
+      "vertical": "ai-agents",
+      "description": "LLM-agnostic AI agent development skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to work with Author/validate/export Google's DESIGN.md token spec files. Use when working with author/validate/export google's design.md token spec files."
+    },
+    "diagram-types-skill": {
+      "price_usd": 0,
+      "version": "1.0.0",
+      "vertical": "other",
+      "description": "LLM-agnostic productivity and task automation skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to work with Diagram Type Selection. Use when working with diagram type selection."
+    },
+    "diamitani-agent-employee-product-to-production-delivery": {
+      "price_usd": 0,
+      "version": "1.0.0",
+      "vertical": "other",
+      "description": "LLM-agnostic productivity and task automation skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to work with id: diamitaniagentemployee name: Diamitani Agent Employee \u2014 ProducttoProduction Delivery version: 0.1.0 status: draft owner: rostrpalskillbuilder category: implementation trigger: Invoke for a bounded Diamitani web\u2026. Use when working with id."
+    },
+    "diamitani-agent-employee-product-to-production-delivery-rostr-agent": {
+      "price_usd": 0,
+      "version": "1.0.0",
+      "vertical": "ai-agents",
+      "description": "LLM-agnostic AI agent development skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to work with id: diamitaniagentemployee name: Diamitani Agent Employee \u2014 ProducttoProduction Delivery version: 0.1.0 status: draft owner: rostrpalskillbuilder category: implementation trigger: Invoke for a bounded Diamitani web\u2026. Use when working with id."
+    },
+    "director-readiness-framework-skill": {
+      "price_usd": 0,
+      "version": "1.0.0",
+      "vertical": "other",
+      "description": "LLM-agnostic productivity and task automation skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to work with Director Readiness Framework. Use when working with director readiness framework."
+    },
+    "docuscript": {
+      "price_usd": 0,
+      "version": "1.0.0",
+      "vertical": "ai-agents",
+      "description": "LLM-agnostic AI agent development skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to work with docuscript. Use when guiding users in creating documentaries, scripts, and storyboards from concept to completion."
+    },
+    "doger": {
+      "price_usd": 0,
+      "version": "1.0.0",
+      "vertical": "dev-tools",
+      "description": "LLM-agnostic developer tooling skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to work with doger. Use when analyzing budgets to find inefficiencies, propose AI solutions, and inspire community contributions toward government efficiency."
+    },
+    "dogfood": {
+      "price_usd": 0,
+      "version": "1.0.0",
+      "vertical": "data",
+      "description": "LLM-agnostic data engineering and analytics skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to work with Exploratory QA of web apps: find bugs, evidence, reports. Use when working with exploratory qa of web apps."
+    },
+    "driving-test-genius": {
+      "price_usd": 0,
+      "version": "1.0.0",
+      "vertical": "dev-tools",
+      "description": "LLM-agnostic developer tooling skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to provide state-specific practice questions and road rule guidance. Use when preparing for US driving tests across all states."
+    },
+    "dropshipping-ai-assistant": {
+      "price_usd": 0,
+      "version": "1.0.0",
+      "vertical": "n8n/automation",
+      "description": "LLM-agnostic workflow automation skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to work with dropshipping ai assistant. Use when automating dropshipping workflows and optimizing product strategy for e-commerce businesses."
+    },
+    "dynamic-resource-aggregator": {
+      "price_usd": 0,
+      "version": "1.0.0",
+      "vertical": "ai-agents",
+      "description": "LLM-agnostic AI agent development skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to parse links and create organized breakdowns of content. Use when aggregating resources from multiple sources into structured tables."
+    },
+    "e-milly": {
+      "price_usd": 0,
+      "version": "1.0.0",
+      "vertical": "music",
+      "description": "LLM-agnostic music production and marketing skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to work with e milly. Use when crafting data-driven email campaigns for music promotion."
+    },
+    "elite-design-studio": {
+      "price_usd": 0,
+      "version": "1.0.0",
+      "vertical": "ai-agents",
+      "description": "LLM-agnostic AI agent development skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to work with elite design studio. Use when creating agency-level branding, visual identity systems, and design direction."
+    },
+    "email-architect": {
+      "price_usd": 0,
+      "version": "1.0.0",
+      "vertical": "prospecting/GTM",
+      "description": "LLM-agnostic sales prospecting and go-to-market skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to generate polished, effective email copy. Use when crafting outreach emails, follow-ups, and email templates for sales, marketing, or campaigns."
+    },
+    "email-template-creator": {
+      "price_usd": 0,
+      "version": "1.0.0",
+      "vertical": "prospecting/GTM",
+      "description": "LLM-agnostic sales prospecting and go-to-market skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to work with email template creator. Use when creating custom email templates for marketing, outreach, or transactional communications."
+    },
+    "enably": {
+      "price_usd": 0,
+      "version": "1.0.0",
+      "vertical": "prospecting/GTM",
+      "description": "LLM-agnostic sales prospecting and go-to-market skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to optimize sales team performance, content, and training programs. Use when building advanced sales enablement strategies."
+    },
+    "entity-readiness-baseline-analyst": {
+      "price_usd": 0,
+      "version": "1.0.0",
+      "vertical": "n8n/automation",
+      "description": "LLM-agnostic workflow automation skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to analyze the {{COMPANY_NAME}} Entity Readiness Change Report baseline from an exported CSV or a run of its specific n8n workflow. Use when a user asks about the entity_readiness_baseline table, ready-country totals, status changes, baseline coverage, or Entity Readiness execution results without changing\u2026."
+    },
+    "entity-readiness-execution-health-entity-readiness-execution-health": {
+      "price_usd": 0,
+      "version": "1.0.0",
+      "vertical": "n8n/automation",
+      "description": "LLM-agnostic workflow automation skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to inspect the {{COMPANY_NAME}} Entity Readiness Change Report n8n workflow for execution success, errors, Onspring pull health, delivery completion, baseline writes, and activation state. Use when read-only post-run validation, error triage, or confirming that this specific weekly entity-readiness report is safe to deploy."
+    },
+    "entity-readiness-execution-health-skill-entity-readiness-execution-health": {
+      "price_usd": 0,
+      "version": "1.0.0",
+      "vertical": "n8n/automation",
+      "description": "LLM-agnostic workflow automation skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to inspect the Atlas Entity Readiness Change Report n8n workflow for execution success, errors, Onspring pull health, delivery completion, baseline writes, and activation state. Use when read-only post-run validation, error triage, or confirming that this specific weekly entity-readiness report is safe to deploy."
+    },
+    "eor-topics-skill": {
+      "price_usd": 0,
+      "version": "1.0.0",
+      "vertical": "other",
+      "description": "LLM-agnostic productivity and task automation skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to work with Common EOR Topics & Search Keywords. Use when working with common eor topics & search keywords."
+    },
+    "epk-builder-gpt": {
+      "price_usd": 0,
+      "version": "1.0.0",
+      "vertical": "music",
+      "description": "LLM-agnostic music production and marketing skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to craft engaging bios, media kits, and professional EPK content. Consolidates EPK Builder and EPK Creator. Use when creating Electronic Press Kits for musicians."
+    },
+    "examples-skill": {
+      "price_usd": 0,
+      "version": "1.0.0",
+      "vertical": "other",
+      "description": "LLM-agnostic productivity and task automation skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to work with Worked Example \u2014 full vs redacted (abbreviated). Use when working with worked example."
+    },
+    "excalidraw": {
+      "price_usd": 0,
+      "version": "1.0.0",
+      "vertical": "ai-agents",
+      "description": "LLM-agnostic AI agent development skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to work with Hand-drawn Excalidraw JSON diagrams (arch, flow, seq). Use when working with hand-drawn excalidraw json diagrams."
+    },
+    "exec-overview-skill": {
+      "price_usd": 0,
+      "version": "1.0.0",
+      "vertical": "other",
+      "description": "LLM-agnostic productivity and task automation skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to work with HubSpot Import Formatter \u2014 Executive Overview. Use when working with hubspot import formatter."
+    },
+    "factors-api-skill": {
+      "price_usd": 0,
+      "version": "1.0.0",
+      "vertical": "other",
+      "description": "LLM-agnostic productivity and task automation skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to work with Factors.ai REST API Reference. Use when working with factors.ai rest api reference."
+    },
+    "factors-to-hubspot-skill": {
+      "price_usd": 0,
+      "version": "1.0.0",
+      "vertical": "other",
+      "description": "LLM-agnostic productivity and task automation skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to work with Factors.ai \u2192 HubSpot Sync Reference. Use when working with factors.ai \u2192 hubspot sync reference."
+    },
+    "figma-mcp-skill": {
+      "price_usd": 0,
+      "version": "1.0.0",
+      "vertical": "ai-agents",
+      "description": "LLM-agnostic AI agent development skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to work with Figma MCP. Use when working with figma mcp."
+    },
+    "frameworks-skill": {
+      "price_usd": 0,
+      "version": "1.0.0",
+      "vertical": "other",
+      "description": "LLM-agnostic productivity and task automation skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to work with Frameworks (Reference). Use when working with frameworks."
+    },
+    "full-stack-copilot": {
+      "price_usd": 0,
+      "version": "1.0.0",
+      "vertical": "dev-tools",
+      "description": "LLM-agnostic developer tooling skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to generate deployment-ready code with modern stack defaults. Consolidates Full Stack Copilot, PlaceCode, and Horizon UI Copilot. Use when scaffolding React, Tailwind, shadcn/ui components or full-stack apps from prompts."
+    },
+    "git-recovery": {
+      "price_usd": 0,
+      "version": "1.0.0",
+      "vertical": "ai-agents",
+      "description": "LLM-agnostic AI agent development skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to work with Recover from broken git states: detached HEAD, stale locks, divergent remotes, force-push failures. Use when working with recover from broken git states."
+    },
+    "github-auth": {
+      "price_usd": 0,
+      "version": "1.0.0",
+      "vertical": "dev-tools",
+      "description": "LLM-agnostic developer tooling skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to work with GitHub auth setup: HTTPS tokens, SSH keys, gh CLI login. Use when working with github auth setup."
+    },
+    "github-catalogue-skill": {
+      "price_usd": 0,
+      "version": "1.0.0",
+      "vertical": "data",
+      "description": "LLM-agnostic data engineering and analytics skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to work with Automatically inventory GitHub repositories, categorize them, and generate organized catalogue reports with analysis. Use when working with automatically inventory github repositories."
+    },
+    "github-code-review": {
+      "price_usd": 0,
+      "version": "1.0.0",
+      "vertical": "dev-tools",
+      "description": "LLM-agnostic developer tooling skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to review PRs: diffs, inline comments via gh or REST. Use when you need to review PRs: diffs, inline comments."
+    },
+    "github-issues": {
+      "price_usd": 0,
+      "version": "1.0.0",
+      "vertical": "ai-agents",
+      "description": "LLM-agnostic AI agent development skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to create triage, label, assign GitHub issues via gh or REST. Use when you need to create triage, label, assign GitHub issues."
+    },
+    "github-pr-workflow": {
+      "price_usd": 0,
+      "version": "1.0.0",
+      "vertical": "n8n/automation",
+      "description": "LLM-agnostic workflow automation skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to work with GitHub PR lifecycle: branch, commit, open, CI, merge. Use when working with github pr lifecycle."
+    },
+    "github-repo-management": {
+      "price_usd": 0,
+      "version": "1.0.0",
+      "vertical": "ai-agents",
+      "description": "LLM-agnostic AI agent development skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to work with Clone/create/fork repos; manage remotes, releases. Use when working with clone/create/fork repos; manage remotes."
+    },
+    "google-workspace": {
+      "price_usd": 0,
+      "version": "1.0.0",
+      "vertical": "dev-tools",
+      "description": "LLM-agnostic developer tooling skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to work with Google OAuth2 client credentials (downloaded from Google Cloud Console). Use when working with google oauth2 client credentials."
+    },
+    "gpt-builder": {
+      "price_usd": 0,
+      "version": "1.0.0",
+      "vertical": "n8n/automation",
+      "description": "LLM-agnostic workflow automation skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to work with Covers system instructions, prompt engineering, optimization, and deployment. Consolidates Custom GPT Builder Guide, Compass GPT Builder, Custom GPT Guide, GPT Project Instructions Builder, GPT Creator Pro, and GPT\u2026. Use when designing, building, or refining custom GPTs."
+    },
+    "gpt-license-generator": {
+      "price_usd": 0,
+      "version": "1.0.0",
+      "vertical": "ai-agents",
+      "description": "LLM-agnostic AI agent development skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to work with gpt license generator. Use when generating tailored software licenses and terms for GPT-based solutions and AI applications."
+    },
+    "gpt-portfolio-index": {
+      "price_usd": 0,
+      "version": "1.0.0",
+      "vertical": "ai-agents",
+      "description": "LLM-agnostic AI agent development skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to use to navigate Pat's complete custom GPT portfolio, now mapped to Hermes Agent skills. Index of ~185 GPTs consolidated into ~130 skills across 10 categories. Use when you need to use to navigate Pat's complete custom."
+    },
+    "gtm-architect": {
+      "price_usd": 0,
+      "version": "1.0.0",
+      "vertical": "n8n/automation",
+      "description": "LLM-agnostic workflow automation skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to work with Consolidates GTM Engineer, GTM Playbook Architect, and Go To Market Architect. Use when designing go-to-market strategies, playbooks, BDR/AE bibles, sales playbooks, or GTM automations with Make/n8n blueprints."
+    },
+    "gtm-architect-factors-api-reference-skill": {
+      "price_usd": 0,
+      "version": "1.0.0",
+      "vertical": "prospecting/GTM",
+      "description": "LLM-agnostic sales prospecting and go-to-market skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to work with Factors.ai API \u2014 GTM Architect Reference. Use when working with factors.ai api."
+    },
+    "gtm-architect-gtm-architect-skill-original-backup": {
+      "price_usd": 0,
+      "version": "1.0.0",
+      "vertical": "prospecting/GTM",
+      "description": "LLM-agnostic sales prospecting and go-to-market skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to work with gtm architect. Use when working with gtm architect."
+    },
+    "gtm-architect-gtm-architect-updated-skill": {
+      "price_usd": 0,
+      "version": "1.0.0",
+      "vertical": "prospecting/GTM",
+      "description": "LLM-agnostic sales prospecting and go-to-market skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to work with gtm architect. Use when working with gtm architect."
+    },
+    "gtm-engineering": {
+      "price_usd": 0,
+      "version": "1.0.0",
+      "vertical": "n8n/automation",
+      "description": "LLM-agnostic workflow automation skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to work with When the user wants to build GTM automation with code, design workflow architectures, use AI agents for GTM tasks, or implement the 'architecture over tools' principle. Also use when the user mentions 'GTM\u2026. Use when working with when the user wants to build."
+    },
+    "gtm-patterns-skill": {
+      "price_usd": 0,
+      "version": "1.0.0",
+      "vertical": "prospecting/GTM",
+      "description": "LLM-agnostic sales prospecting and go-to-market skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to work with GTM Architect Patterns \u2014 {{COMPANY_NAME}}. Use when working with gtm architect patterns."
+    },
+    "healthie": {
+      "price_usd": 0,
+      "version": "1.0.0",
+      "vertical": "dev-tools",
+      "description": "LLM-agnostic developer tooling skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to analyze health data and financial wellness together. Use when providing expert medical and financial health analysis with clear, friendly guidance."
+    },
+    "hermes-agent-skill-authoring": {
+      "price_usd": 0,
+      "version": "1.0.0",
+      "vertical": "dev-tools",
+      "description": "LLM-agnostic developer tooling skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to author in-repo SKILL.md: frontmatter, validator, structure, and writing-quality principles. Use when you need to author in-repo SKILL.md: frontmatter, validator, structure."
+    },
+    "hermes-dependencies": {
+      "price_usd": 0,
+      "version": "1.0.0",
+      "vertical": "n8n/automation",
+      "description": "LLM-agnostic workflow automation skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to install and manage Python packages in the Hermes Agent virtual environment. Covers uv pip workflows, namespace-conflict recovery, disk space cleanup, and common packaging pitfalls. Use when you need to install and manage Python packages."
+    },
+    "highly-suggested-prompts": {
+      "price_usd": 0,
+      "version": "1.0.0",
+      "vertical": "dev-tools",
+      "description": "LLM-agnostic developer tooling skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to work with Expert prompt optimization and enhancement. Use when refining prompts with precision for optimal AI performance and clarity."
+    },
+    "himalaya": {
+      "price_usd": 0,
+      "version": "1.0.0",
+      "vertical": "dev-tools",
+      "description": "LLM-agnostic developer tooling skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to work with Himalaya CLI: IMAP/SMTP email from terminal. Use when working with himalaya cli."
+    },
+    "hoops-stats": {
+      "price_usd": 0,
+      "version": "1.0.0",
+      "vertical": "dev-tools",
+      "description": "LLM-agnostic developer tooling skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to analyze game data for informed decisions. Use when providing NBA stats, trends, betting analysis, and actionable basketball insights."
+    },
+    "houseofashburn": {
+      "price_usd": 0,
+      "version": "1.0.0",
+      "vertical": "ai-agents",
+      "description": "LLM-agnostic AI agent development skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to work with houseofashburn. Use when acting as a luxury brand executive assistant for HouseofAshburn."
+    },
+    "hubspot-chatbot-manager": {
+      "price_usd": 0,
+      "version": "1.0.0",
+      "vertical": "other",
+      "description": "LLM-agnostic productivity and task automation skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to work with hubspot chatbot manager. Use when working with hubspot chatbot manager."
+    },
+    "hubspot-lists-skill": {
+      "price_usd": 0,
+      "version": "1.0.0",
+      "vertical": "other",
+      "description": "LLM-agnostic productivity and task automation skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to work with HubSpot Lists \u2014 Static vs Active + Filter Format. Use when working with hubspot lists."
+    },
+    "hubspot-upload-skill": {
+      "price_usd": 0,
+      "version": "1.0.0",
+      "vertical": "other",
+      "description": "LLM-agnostic productivity and task automation skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to work with HubSpot Upload \u2014 Reference. Use when working with hubspot upload."
+    },
+    "humanizer": {
+      "price_usd": 0,
+      "version": "1.0.0",
+      "vertical": "ai-agents",
+      "description": "LLM-agnostic AI agent development skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to humanize text: strip AI-isms and add real voice. Use when you need to humanize text: strip AI-isms and add."
+    },
+    "humint": {
+      "price_usd": 0,
+      "version": "1.0.0",
+      "vertical": "ai-agents",
+      "description": "LLM-agnostic AI agent development skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to work with humint. Use when simulating and teaching human intelligence skills focused on self-awareness, empathy, and interpersonal understanding."
+    },
+    "image-scraper-pro": {
+      "price_usd": 0,
+      "version": "1.0.0",
+      "vertical": "data",
+      "description": "LLM-agnostic data engineering and analytics skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to work with image scraper pro. Use when scraping and extracting relevant images from websites for visual content enhancement."
+    },
+    "industry-mapping-skill": {
+      "price_usd": 0,
+      "version": "1.0.0",
+      "vertical": "other",
+      "description": "LLM-agnostic productivity and task automation skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to work with Semantic Industry Mapping \u2014 Reference. Use when working with semantic industry mapping."
+    },
+    "instruction-architect": {
+      "price_usd": 0,
+      "version": "1.0.0",
+      "vertical": "ai-agents",
+      "description": "LLM-agnostic AI agent development skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to work with Sets the gold standard for AI system instruction design with structured methodologies. Use when designing elite, production-grade system instructions for AI agents, assistants, and GPTs."
+    },
+    "intake-map-skill": {
+      "price_usd": 0,
+      "version": "1.0.0",
+      "vertical": "other",
+      "description": "LLM-agnostic productivity and task automation skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to work with Intake Map (Reference). Use when working with intake map."
+    },
+    "intake-questionnaire-skill": {
+      "price_usd": 0,
+      "version": "1.0.0",
+      "vertical": "other",
+      "description": "LLM-agnostic productivity and task automation skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to work with Intake Questionnaire \u2014 the 12 facts every case study needs. Use when working with intake questionnaire."
+    },
+    "irs-ein-registration": {
+      "price_usd": 0,
+      "version": "1.0.0",
+      "vertical": "n8n/automation",
+      "description": "LLM-agnostic workflow automation skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to work with Get an EIN via IRS.gov browser automation. Asks questions one at a time. Checks IRS hours. Encrypts SSN locally. Use when working with get an ein via irs.gov browser."
+    },
+    "jesus-guide-me": {
+      "price_usd": 0,
+      "version": "1.0.0",
+      "vertical": "ai-agents",
+      "description": "LLM-agnostic AI agent development skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to provide scripture-based spiritual guidance. Use when guiding users in Bible and Gnostic study with tailored questions and reflective notes."
+    },
+    "jo-kraft": {
+      "price_usd": 0,
+      "version": "1.0.0",
+      "vertical": "ai-agents",
+      "description": "LLM-agnostic AI agent development skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to work with jo kraft. Use when crafting and developing jokes based on a user's comedic style."
+    },
+    "job-search-assistant": {
+      "price_usd": 0,
+      "version": "1.0.0",
+      "vertical": "ai-agents",
+      "description": "LLM-agnostic AI agent development skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to work with Consolidates Job Search Assistant, ApplyGPT, InterviewGPT, and Job Link Parser & Tracker. Use when parsing job links, tracking applications, generating tailored resumes, and preparing for interviews."
+    },
+    "jobs-to-be-done": {
+      "price_usd": 0,
+      "version": "1.0.0",
+      "vertical": "ai-agents",
+      "description": "LLM-agnostic AI agent development skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to transform user needs into AI-ready JTBD blueprints with guided discovery flows. Use when applying the Jobs to Be Done framework."
+    },
+    "jsonl-converter": {
+      "price_usd": 0,
+      "version": "1.0.0",
+      "vertical": "data",
+      "description": "LLM-agnostic data engineering and analytics skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to work with jsonl converter. Use when converting uploaded documents to .jsonl format for AI training, fine-tuning, or data processing pipelines."
+    },
+    "knowledge-base-reference-skill": {
+      "price_usd": 0,
+      "version": "1.0.0",
+      "vertical": "other",
+      "description": "LLM-agnostic productivity and task automation skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to work with {{COMPANY_NAME}} Master Knowledge Base \u2014 Reference Guide. Use when working with {{company_name}} master knowledge base."
+    },
+    "kpi-architect": {
+      "price_usd": 0,
+      "version": "1.0.0",
+      "vertical": "ai-agents",
+      "description": "LLM-agnostic AI agent development skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to create measurable performance indicators tied to strategic objectives. Use when generating KPIs and activity metrics from business goals."
+    },
+    "landing-page-build": {
+      "price_usd": 0,
+      "version": "1.0.0",
+      "vertical": "ai-agents",
+      "description": "LLM-agnostic AI agent development skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to work with Brand-driven landing page construction with design system extraction and single-file HTML. Use when working with brand-driven landing page construction with design."
+    },
+    "layout-patterns-skill": {
+      "price_usd": 0,
+      "version": "1.0.0",
+      "vertical": "other",
+      "description": "LLM-agnostic productivity and task automation skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to work with {{COMPANY_NAME}} Dashboard \u2014 Layout Patterns. Use when working with {{company_name}} dashboard."
+    },
+    "link-folder": {
+      "price_usd": 0,
+      "version": "1.0.0",
+      "vertical": "dev-tools",
+      "description": "LLM-agnostic developer tooling skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to organize and categorize URLs for research and reference. Use when adding web links to a running database or spreadsheet."
+    },
+    "list-manager": {
+      "price_usd": 0,
+      "version": "1.0.0",
+      "vertical": "data",
+      "description": "LLM-agnostic data engineering and analytics skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to work with Handles apartment listings, inventory, and structured data. Use when organizing and managing categorized listings with search tools."
+    },
+    "list-questionnaire-skill": {
+      "price_usd": 0,
+      "version": "1.0.0",
+      "vertical": "other",
+      "description": "LLM-agnostic productivity and task automation skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to work with List Creation \u2014 Question Flow. Use when working with list creation."
+    },
+    "llm-wiki": {
+      "price_usd": 0,
+      "version": "1.0.0",
+      "vertical": "ai-agents",
+      "description": "LLM-agnostic AI agent development skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to work with Karpathy's LLM Wiki: build/query interlinked markdown KB. Use when working with karpathy's llm wiki."
+    },
+    "maia-chatbot-analyst": {
+      "price_usd": 0,
+      "version": "1.0.0",
+      "vertical": "other",
+      "description": "LLM-agnostic productivity and task automation skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to work with maia chatbot analyst. Use when working with maia chatbot analyst."
+    },
+    "maia-chatbot-marketer": {
+      "price_usd": 0,
+      "version": "1.0.0",
+      "vertical": "other",
+      "description": "LLM-agnostic productivity and task automation skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to work with maia chatbot marketer. Use when working with maia chatbot marketer."
+    },
+    "manim-video": {
+      "price_usd": 0,
+      "version": "1.0.0",
+      "vertical": "ai-agents",
+      "description": "LLM-agnostic AI agent development skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to work with Manim CE animations: 3Blue1Brown math/algo videos. Use when working with manim ce animations."
+    },
+    "maps": {
+      "price_usd": 0,
+      "version": "1.0.0",
+      "vertical": "dev-tools",
+      "description": "LLM-agnostic developer tooling skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to geocode POIs, routes, timezones via OpenStreetMap/OSRM. Use when you need to geocode POIs, routes, timezones via OpenStreetMap/OSRM."
+    },
+    "markdown": {
+      "price_usd": 0,
+      "version": "1.0.0",
+      "vertical": "other",
+      "description": "LLM-agnostic productivity and task automation skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to render and customize assistant message text as markdown in assistant-ui. Covers code-block syntax highlighting via react-shiki or react-syntax-highlighter registered as SyntaxHighlighter in components/componentsByLanguage\u2026. Use when displaying model output as formatted markdown with MarkdownTextPrimitive from @assistant-ui/react-markdown wired into the MessagePrimitive.Parts text branch, configuring\u2026."
+    },
+    "marketing-chatbot-execution-analyst-marketing-chatbot-execution-analyst": {
+      "price_usd": 0,
+      "version": "1.0.0",
+      "vertical": "other",
+      "description": "LLM-agnostic productivity and task automation skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to work with marketing chatbot execution analyst. Use when working with marketing chatbot execution analyst."
+    },
+    "marketing-chatbot-execution-analyst-skill-marketing-chatbot-execution-analyst": {
+      "price_usd": 0,
+      "version": "1.0.0",
+      "vertical": "other",
+      "description": "LLM-agnostic productivity and task automation skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to work with marketing chatbot execution analyst. Use when working with marketing chatbot execution analyst."
+    },
+    "mass-skill-creation": {
+      "price_usd": 0,
+      "version": "1.0.0",
+      "vertical": "dev-tools",
+      "description": "LLM-agnostic developer tooling skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to work with Covers the batch-delegation pattern, consolidation principles, and straggler cleanup. Use when converting a catalog, portfolio, or spreadsheet of items into Hermes Agent skills in bulk (>20 items)."
+    },
+    "master-calendar": {
+      "price_usd": 0,
+      "version": "1.0.0",
+      "vertical": "ai-agents",
+      "description": "LLM-agnostic AI agent development skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to master Calendar \u2014 unified task/meeting hub in Asana. NPAO-classified task creation from Hermes, email, and Google Calendar. Use when you need to master Calendar \u2014 unified task/meeting hub."
+    },
+    "mcp-guide-skill": {
+      "price_usd": 0,
+      "version": "1.0.0",
+      "vertical": "ai-agents",
+      "description": "LLM-agnostic AI agent development skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to work with MCP Guide: session_info Tools. Use when working with mcp guide."
+    },
+    "mermaid-diagrams-skill": {
+      "price_usd": 0,
+      "version": "1.0.0",
+      "vertical": "other",
+      "description": "LLM-agnostic productivity and task automation skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to work with Mermaid.js \u2014 Diagram & Workflow Creation. Use when working with mermaid.js."
+    },
+    "mermaid-theming-skill": {
+      "price_usd": 0,
+      "version": "1.0.0",
+      "vertical": "other",
+      "description": "LLM-agnostic productivity and task automation skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to work with Mermaid Theming \u2014 Editable Diagrams That Still Look Good. Use when working with mermaid theming."
+    },
+    "micspot": {
+      "price_usd": 0,
+      "version": "1.0.0",
+      "vertical": "music",
+      "description": "LLM-agnostic music production and marketing skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to work with micspot. Use when finding open mics in any area for comedy and music."
+    },
+    "mighty-oaks-capital": {
+      "price_usd": 0,
+      "version": "1.0.0",
+      "vertical": "ai-agents",
+      "description": "LLM-agnostic AI agent development skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to work with mighty oaks capital. Use when handling investor inquiries for MightyOaksCapitalPartners.com."
+    },
+    "modular-react-framework": {
+      "price_usd": 0,
+      "version": "1.0.0",
+      "vertical": "data",
+      "description": "LLM-agnostic data engineering and analytics skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to scaffold and build modular React+TypeScript dashboards, directories, and data tools. Layered architecture (core\u2192data\u2192features\u2192ui), Zod validation pipelines, taste-skill dial adaptation for data-dense UIs, Vite+Tailwind v4\u2026. Use when any data-rich React application, not just landing pages."
+    },
+    "monarch-art-vault": {
+      "price_usd": 0,
+      "version": "1.0.0",
+      "vertical": "music",
+      "description": "LLM-agnostic music production and marketing skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to work with Preserve, deduplicate, catalog, visually enrich with AI-generated titles and descriptions, embed metadata into EXIF, organize enriched files, prepare, and approval-gate publishing of artist photo and artwork assets. Use when working with preserve."
+    },
+    "monarch-video": {
+      "price_usd": 0,
+      "version": "1.0.0",
+      "vertical": "prospecting/GTM",
+      "description": "LLM-agnostic sales prospecting and go-to-market skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to work with Turn any document (deck, PDF, brief, one-pager) or plain-English prompt into a professional MP4 with neural voiceover, on-brand photography, and storyboard-driven sequencing \u2014 locked to your own brand kit (logo\u2026. Use when someone says \"make a video\", \"turn this deck into a video\", \"explainer video\", \"product video\", \"prospect video\", \"add a voiceover\", or \"render this to MP4\"."
+    },
+    "music-biz-daily-digest": {
+      "price_usd": 0,
+      "version": "1.0.0",
+      "vertical": "music",
+      "description": "LLM-agnostic music production and marketing skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to curate and summarize industry developments. Use when creating a daily digest of top music industry business news."
+    },
+    "music-contract-agent-artispreneur-music-contract": {
+      "price_usd": 0,
+      "version": "1.0.0",
+      "vertical": "music",
+      "description": "LLM-agnostic music production and marketing skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to work with It covers management, booking, label and recording, producer, songwriter and split-sheet, publishing, sync/master and beat licenses, DJ/live bookings, venue and studio rentals, sponsorships, releases, work-for-hire\u2026. Use when use this skill for any music-business agreement: draft, review, explain clauses, negotiate terms, or convert informal deal terms into a signable document."
+    },
+    "music-contract-agent-music-contract-agent": {
+      "price_usd": 0,
+      "version": "1.0.0",
+      "vertical": "music",
+      "description": "LLM-agnostic music production and marketing skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to work with Covers artist management, booking/agent, recording/label, producer/production deals, songwriter and split-sheet agreements, publishing and sync/master licenses, beat licenses, DJ and live-performance bookings, venue\u2026. Use when use this skill for any music-business agreement \u2014 drafting a new contract, reviewing one received, explaining a clause in plain English, negotiating terms, or turning\u2026."
+    },
+    "music-contract-assistant": {
+      "price_usd": 0,
+      "version": "1.0.0",
+      "vertical": "music",
+      "description": "LLM-agnostic music production and marketing skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to work with music contract assistant. Use when generating music contracts, reviewing agreements, or creating split sheet agreements."
+    },
+    "musk-insights-tracker": {
+      "price_usd": 0,
+      "version": "1.0.0",
+      "vertical": "dev-tools",
+      "description": "LLM-agnostic developer tooling skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to work with musk insights tracker. Use when tracking Elon Musk's social, financial, and political influence."
+    },
+    "n8n-engineer-skill": {
+      "price_usd": 0,
+      "version": "1.0.0",
+      "vertical": "n8n/automation",
+      "description": "LLM-agnostic workflow automation skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to work with LLM-agnostic systems engineering skill that instructs any AI model (Claude, GPT-4o, Gemini, Antigravity, Cursor) to design, compile, and validate production-ready n8n JSON workflows with sovereign architecture\u2026. Use when working with llm-agnostic systems engineering skill that instructs."
+    },
+    "n8n-execution-analyst": {
+      "price_usd": 0,
+      "version": "1.0.0",
+      "vertical": "n8n/automation",
+      "description": "LLM-agnostic workflow automation skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to work with n8n execution analyst. Use when working with n8n execution analyst."
+    },
+    "nano-pdf": {
+      "price_usd": 0,
+      "version": "1.0.0",
+      "vertical": "dev-tools",
+      "description": "LLM-agnostic developer tooling skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to edit PDF text/typos/titles via nano-pdf CLI (NL prompts). Use when you need to edit PDF text/typos/titles via nano-pdf CLI."
+    },
+    "neon": {
+      "price_usd": 0,
+      "version": "1.0.0",
+      "vertical": "other",
+      "description": "LLM-agnostic productivity and task automation skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to get an overview of the Neon platform for apps and agents, spanning Postgres, Auth, the Data API, Object Storage, Compute Functions, and the AI Gateway. Start here to route to the right Neon skill, set up the CLI or MCP server\u2026. Use when \"Neon\" is mentioned, or when any."
+    },
+    "neon-postgres": {
+      "price_usd": 0,
+      "version": "1.0.0",
+      "vertical": "other",
+      "description": "LLM-agnostic productivity and task automation skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to guide and best practices for working with Neon Serverless Postgres. Covers setup, connection methods and drivers, pooled vs direct connections, branching, autoscaling, scale-to-zero, instant restore, read replicas, connection\u2026. Use when users ask abou."
+    },
+    "new-project-automation-jtbd-builder": {
+      "price_usd": 0,
+      "version": "1.0.0",
+      "vertical": "n8n/automation",
+      "description": "LLM-agnostic workflow automation skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to work with new project automation jtbd builder. Use when working with new project automation jtbd builder."
+    },
+    "new-project-scheduler": {
+      "price_usd": 0,
+      "version": "1.0.0",
+      "vertical": "other",
+      "description": "LLM-agnostic productivity and task automation skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to work with new project scheduler. Use when working with new project scheduler."
+    },
+    "new-project-system": {
+      "price_usd": 0,
+      "version": "1.0.0",
+      "vertical": "other",
+      "description": "LLM-agnostic productivity and task automation skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to work with new project system. Use when working with new project system."
+    },
+    "newsletter-assistant": {
+      "price_usd": 0,
+      "version": "1.0.0",
+      "vertical": "dev-tools",
+      "description": "LLM-agnostic developer tooling skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to curate content and write in specified voices. Consolidates Unstuck Newsletter Assistant and AI Newsletter Assistant. Use when creating bold, high-impact newsletters or daily AI/industry digests."
+    },
+    "nextjs-app-router": {
+      "price_usd": 0,
+      "version": "1.0.0",
+      "vertical": "dev-tools",
+      "description": "LLM-agnostic developer tooling skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to build debug, and deploy Next.js 14+ App Router applications. Covers SSG pitfalls, Link+event handler patterns, static generation timeouts, and production-readiness gaps. Use when you need to build debug, and deploy Next.js 14+."
+    },
+    "nlp-intake-skill": {
+      "price_usd": 0,
+      "version": "1.0.0",
+      "vertical": "other",
+      "description": "LLM-agnostic productivity and task automation skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to work with NLP Intake Playbook \u2014 PAL for {{COMPANY_NAME}} Video Studio. Use when working with nlp intake playbook."
+    },
+    "node-inspect-debugger": {
+      "price_usd": 0,
+      "version": "1.0.0",
+      "vertical": "dev-tools",
+      "description": "LLM-agnostic developer tooling skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to debug Node.js via --inspect + Chrome DevTools Protocol CLI. Use when you need to debug Node.js via --inspect + Chrome."
+    },
+    "notion": {
+      "price_usd": 0,
+      "version": "1.0.0",
+      "vertical": "dev-tools",
+      "description": "LLM-agnostic developer tooling skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to work with Notion API + ntn CLI: pages, databases, markdown, Workers. Use when working with notion api + ntn cli."
+    },
+    "npao-4ds-framework-skill": {
+      "price_usd": 0,
+      "version": "1.0.0",
+      "vertical": "other",
+      "description": "LLM-agnostic productivity and task automation skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to work with NPAO Priority Framework + 4Ds Lifecycle. Use when working with npao priority framework + 4ds lifecycle."
+    },
+    "npao-bot": {
+      "price_usd": 0,
+      "version": "1.0.0",
+      "vertical": "n8n/automation",
+      "description": "LLM-agnostic workflow automation skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to provide clarity and growth-oriented task management. Use when helping users prioritize and analyze tasks using the NPAO framework (Navigate, Prioritize, Allocate, Orchestrate)."
+    },
+    "observability": {
+      "price_usd": 0,
+      "version": "1.0.0",
+      "vertical": "other",
+      "description": "LLM-agnostic productivity and task automation skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to work with Adds tracing, telemetry, and observability to an assistant-ui backend. Also covers rendering collected spans with @assistant-ui/react-o11y headless primitives (SpanResource, SpanPrimitive\u2026. Use when wiring an AI SDK route handler (streamText/generateText, toUIMessageStreamResponse) to a tracing backend: Langfuse via OpenTelemetry (LangfuseSpanProcessor and NodeSDK\u2026."
+    },
+    "ocr-and-documents": {
+      "price_usd": 0,
+      "version": "1.0.0",
+      "vertical": "ai-agents",
+      "description": "LLM-agnostic AI agent development skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to extract text from PDFs/scans (pymupdf, marker-pdf). Use when you need to extract text from PDFs/scans (pymupdf, marker-pdf)."
+    },
+    "omni-architect": {
+      "price_usd": 0,
+      "version": "1.0.0",
+      "vertical": "n8n/automation",
+      "description": "LLM-agnostic workflow automation skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to work with General-purpose architect for complex cross-domain challenges. Use when acting as a master problem solver and workflow designer across all domains."
+    },
+    "onboarding-expert": {
+      "price_usd": 0,
+      "version": "1.0.0",
+      "vertical": "prospecting/GTM",
+      "description": "LLM-agnostic sales prospecting and go-to-market skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to guide new clients through systematic onboarding. Use when designing structured client onboarding flows from Sales Enablement Plans."
+    },
+    "openhue": {
+      "price_usd": 0,
+      "version": "1.0.0",
+      "vertical": "dev-tools",
+      "description": "LLM-agnostic developer tooling skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to control Philips Hue lights, scenes, rooms via OpenHue CLI. Use when you need to control Philips Hue lights, scenes, rooms."
+    },
+    "output-spec-skill": {
+      "price_usd": 0,
+      "version": "1.0.0",
+      "vertical": "other",
+      "description": "LLM-agnostic productivity and task automation skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to work with Output Specification. Use when working with output specification."
+    },
+    "outreach-automator": {
+      "price_usd": 0,
+      "version": "1.0.0",
+      "vertical": "n8n/automation",
+      "description": "LLM-agnostic workflow automation skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to generate personalized outreach sequences at scale. Use when automating email outreach tasks and CRM workflows."
+    },
+    "overview-template-skill": {
+      "price_usd": 0,
+      "version": "1.0.0",
+      "vertical": "other",
+      "description": "LLM-agnostic productivity and task automation skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to work with Overview Document Template. Use when working with overview document template."
+    },
+    "p5js": {
+      "price_usd": 0,
+      "version": "1.0.0",
+      "vertical": "ai-agents",
+      "description": "LLM-agnostic AI agent development skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to work with p5.js sketches: gen art, shaders, interactive, 3D. Use when working with p5.js sketches."
+    },
+    "pal-depth-guide-skill": {
+      "price_usd": 0,
+      "version": "1.0.0",
+      "vertical": "ai-agents",
+      "description": "LLM-agnostic AI agent development skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to work with PAL Depth Guide \u2014 name-then-translate. Use when working with pal depth guide."
+    },
+    "pal-framework-skill": {
+      "price_usd": 0,
+      "version": "1.0.0",
+      "vertical": "ai-agents",
+      "description": "LLM-agnostic AI agent development skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to work with PAL \u2014 Prompt Abstraction Layer. Use when working with pal."
+    },
+    "partner-pql-manager-partner-pql-manager": {
+      "price_usd": 0,
+      "version": "1.0.0",
+      "vertical": "other",
+      "description": "LLM-agnostic productivity and task automation skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to work with partner pql manager. Use when working with partner pql manager."
+    },
+    "partner-pql-manager-skill-partner-pql-manager": {
+      "price_usd": 0,
+      "version": "1.0.0",
+      "vertical": "other",
+      "description": "LLM-agnostic productivity and task automation skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to work with partner pql manager. Use when working with partner pql manager."
+    },
+    "pats-tap": {
+      "price_usd": 0,
+      "version": "1.0.0",
+      "vertical": "ai-agents",
+      "description": "LLM-agnostic AI agent development skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to work with General-purpose business assistant for solopreneurs. Use when providing private entrepreneurial assistance for all business tasks."
+    },
+    "personal-video-coach": {
+      "price_usd": 0,
+      "version": "1.0.0",
+      "vertical": "ai-agents",
+      "description": "LLM-agnostic AI agent development skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to work with personal video coach. Use when creating professional video scripts for job pitches, introductions, or any subject requiring a personal video presentation."
+    },
+    "petdex": {
+      "price_usd": 0,
+      "version": "1.0.0",
+      "vertical": "ai-agents",
+      "description": "LLM-agnostic AI agent development skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to install and select animated petdex mascots for Hermes. Use when you need to install and select animated petdex mascots."
+    },
+    "plan": {
+      "price_usd": 0,
+      "version": "1.0.0",
+      "vertical": "dev-tools",
+      "description": "LLM-agnostic developer tooling skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to plan mode: write an actionable markdown plan to .hermes/plans/, no execution. Bite-sized tasks, exact paths, complete code. Use when you need to plan mode: write an actionable markdown."
+    },
+    "political-campaign-architect": {
+      "price_usd": 0,
+      "version": "1.0.0",
+      "vertical": "n8n/automation",
+      "description": "LLM-agnostic workflow automation skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to work with Consolidates Political Campaign Architect, Political Campaign Guide, and Candidate Insight GPT. Use when planning political campaigns, digital strategy, and election automation."
+    },
+    "polymarket": {
+      "price_usd": 0,
+      "version": "1.0.0",
+      "vertical": "ai-agents",
+      "description": "LLM-agnostic AI agent development skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to query Polymarket: markets, prices, orderbooks, history. Use when you need to query Polymarket: markets, prices, orderbooks, history."
+    },
+    "poor-richards-gpt": {
+      "price_usd": 0,
+      "version": "1.0.0",
+      "vertical": "ai-agents",
+      "description": "LLM-agnostic AI agent development skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to work with Offers historical wisdom for modern contexts. Use when providing quotes, insights, and wisdom from Benjamin Franklin's Poor Richard's Almanack."
+    },
+    "pop-pop": {
+      "price_usd": 0,
+      "version": "1.0.0",
+      "vertical": "other",
+      "description": "LLM-agnostic productivity and task automation skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to work with pop. Use when working with pop."
+    },
+    "pop-skill-pop": {
+      "price_usd": 0,
+      "version": "1.0.0",
+      "vertical": "other",
+      "description": "LLM-agnostic productivity and task automation skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to work with pop. Use when working with pop."
+    },
+    "popular-web-designs": {
+      "price_usd": 0,
+      "version": "1.0.0",
+      "vertical": "dev-tools",
+      "description": "LLM-agnostic developer tooling skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to work with 54 real design systems (Stripe, Linear, Vercel) as HTML/CSS. Use when working with 54 real design systems."
+    },
+    "powerpoint": {
+      "price_usd": 0,
+      "version": "1.0.0",
+      "vertical": "ai-agents",
+      "description": "LLM-agnostic AI agent development skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to create read, edit .pptx decks, slides, notes, templates. Use when you need to create read, edit .pptx decks, slides."
+    },
+    "pptx-design-system-skill": {
+      "price_usd": 0,
+      "version": "1.0.0",
+      "vertical": "other",
+      "description": "LLM-agnostic productivity and task automation skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to work with {{COMPANY_NAME}} PPTX Design System. Use when working with {{company_name}} pptx design system."
+    },
+    "prayer-companion": {
+      "price_usd": 0,
+      "version": "1.0.0",
+      "vertical": "ai-agents",
+      "description": "LLM-agnostic AI agent development skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to provide spiritual comfort through guided prayer. Use when transforming worries and concerns into heartfelt, personalized prayers."
+    },
+    "prd-builder": {
+      "price_usd": 0,
+      "version": "1.0.0",
+      "vertical": "ai-agents",
+      "description": "LLM-agnostic AI agent development skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to transform ideas into structured, actionable PRDs. Use when generating Product Requirements Documents, project instructions, and custom development resources."
+    },
+    "predeploy-qa-team": {
+      "price_usd": 0,
+      "version": "1.0.0",
+      "vertical": "dev-tools",
+      "description": "LLM-agnostic developer tooling skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to work with ROSTR UI+backend+integrity QA team; blocks on P0/P1. Use when predeploy/go-no-go/ready to ship."
+    },
+    "premium-site-build-os-skill": {
+      "price_usd": 0,
+      "version": "1.0.0",
+      "vertical": "other",
+      "description": "LLM-agnostic productivity and task automation skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to work with Premium Site Build Operating System. Use when working with premium site build operating system."
+    },
+    "pretext": {
+      "price_usd": 0,
+      "version": "1.0.0",
+      "vertical": "dev-tools",
+      "description": "LLM-agnostic developer tooling skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to produce single-file HTML demos by default. Use when building creative browser demos with @chenglou/pretext \u2014 DOM-free text layout for ASCII art, typographic flow around obstacles, text-as-geometry games, kinetic\u2026."
+    },
+    "primitives": {
+      "price_usd": 0,
+      "version": "1.0.0",
+      "vertical": "other",
+      "description": "LLM-agnostic productivity and task automation skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to build and customizes assistant-ui chat UI from composable, unstyled @assistant-ui/react primitives that follow Radix-style part composition. Covers MessagePrimitive.Parts children render functions for text, image, reasoning\u2026. Use when assembling or styling a custom Thread, Composer, message rendering, action bar, or branch picker from building blocks: ThreadPrimitive (.Root, .Viewport, .Messages\u2026."
+    },
+    "product-description-editor": {
+      "price_usd": 0,
+      "version": "1.0.0",
+      "vertical": "ai-agents",
+      "description": "LLM-agnostic AI agent development skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to work with product description editor. Use when creating polished product descriptions for ecommerce platforms."
+    },
+    "profile-wingman": {
+      "price_usd": 0,
+      "version": "1.0.0",
+      "vertical": "dev-tools",
+      "description": "LLM-agnostic developer tooling skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to tailor profiles for Tinder, Hinge, Bumble, etc. Use when optimizing dating profiles with engaging, app-specific content."
+    },
+    "project-structure-architect": {
+      "price_usd": 0,
+      "version": "1.0.0",
+      "vertical": "dev-tools",
+      "description": "LLM-agnostic developer tooling skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to produce folder hierarchies, component maps, page specs, and site maps for code/design handoff. Consolidates Project Structure Architect and Site Mapper. Use when generating dynamic project structures from PRDs or app ideas."
+    },
+    "promo-code-finder": {
+      "price_usd": 0,
+      "version": "1.0.0",
+      "vertical": "dev-tools",
+      "description": "LLM-agnostic developer tooling skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to work with Consolidates ProMe and 1Promo GPTs for discovering company promotions. Use when finding new user codes, promo codes, and signup discounts before registering for services."
+    },
+    "prompt-builder-architect": {
+      "price_usd": 0,
+      "version": "1.0.0",
+      "vertical": "dev-tools",
+      "description": "LLM-agnostic developer tooling skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to create prompt sets covering UI, backend, and deploy flows tailored by plan tier. Consolidates PromptBuilder Architect V1/V2, Replit Builder, and v0.dev Full Stack App Builder. Use when breaking down app ideas into modular prompts for v0.dev, Cursor, Replit, and lovable.dev."
+    },
+    "prossley": {
+      "price_usd": 0,
+      "version": "1.0.0",
+      "vertical": "prospecting/GTM",
+      "description": "LLM-agnostic sales prospecting and go-to-market skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to work with prossley. Use when providing AI-powered sales architecture with actionable, data-driven insights for optimized client engagement."
+    },
+    "python-debugpy": {
+      "price_usd": 0,
+      "version": "1.0.0",
+      "vertical": "dev-tools",
+      "description": "LLM-agnostic developer tooling skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to debug Python: pdb REPL + debugpy remote (DAP). Use when you need to debug Python: pdb REPL + debugpy."
+    },
+    "rag-dal": {
+      "price_usd": 0,
+      "version": "1.0.0",
+      "vertical": "ai-agents",
+      "description": "LLM-agnostic AI agent development skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to work with Implements dynamic acquisition layer (DAL) for RAG systems. Use when building autonomous knowledge bases for Retrieval-Augmented Generation."
+    },
+    "ragdal-framework-skill": {
+      "price_usd": 0,
+      "version": "1.0.0",
+      "vertical": "other",
+      "description": "LLM-agnostic productivity and task automation skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to work with RAG DAL \u2014 Retrieval / Data Abstraction Layer. Use when working with rag dal."
+    },
+    "react-mcp": {
+      "price_usd": 0,
+      "version": "1.0.0",
+      "vertical": "other",
+      "description": "LLM-agnostic productivity and task automation skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to work with Lets end users add, authenticate, and manage MCP servers from the browser in assistant-ui apps with @assistant-ui/react-mcp. Covers auth modes none/bearer/oauth, the OAuth flow with McpOAuthCallback, connection\u2026. Use when building user-managed MCP server UIs: mounting McpManagerResource via useAui({ mcp }), declaring presets with defineConnector, dropping in McpConfigDialog, or composing\u2026."
+    },
+    "readme-skill": {
+      "price_usd": 0,
+      "version": "1.0.0",
+      "vertical": "other",
+      "description": "LLM-agnostic productivity and task automation skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to work with HubSpot Import Formatter. Use when working with hubspot import formatter."
+    },
+    "recalla": {
+      "price_usd": 0,
+      "version": "1.0.0",
+      "vertical": "ai-agents",
+      "description": "LLM-agnostic AI agent development skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to generate detailed recall lists and memory aids for personal productivity. Use when providing intuitive recall assistance."
+    },
+    "redaction-rules-skill": {
+      "price_usd": 0,
+      "version": "1.0.0",
+      "vertical": "other",
+      "description": "LLM-agnostic productivity and task automation skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to work with Redaction Rules \u2014 full vs redacted, and secret scrubbing. Use when working with redaction rules."
+    },
+    "reggie-pro": {
+      "price_usd": 0,
+      "version": "1.0.0",
+      "vertical": "music",
+      "description": "LLM-agnostic music production and marketing skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to work with reggie pro. Use when helping artists register for Performance Rights Organizations (ASCAP, BMI, SESAC) and manage music portfolios."
+    },
+    "report-template-skill": {
+      "price_usd": 0,
+      "version": "1.0.0",
+      "vertical": "data",
+      "description": "LLM-agnostic data engineering and analytics skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to work with Daily Session Recap \u2014 Report Template. Use when working with daily session recap."
+    },
+    "report-templates-skill": {
+      "price_usd": 0,
+      "version": "1.0.0",
+      "vertical": "data",
+      "description": "LLM-agnostic data engineering and analytics skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to work with Maia Report Templates. Use when working with maia report templates."
+    },
+    "reporting-framework-skill": {
+      "price_usd": 0,
+      "version": "1.0.0",
+      "vertical": "data",
+      "description": "LLM-agnostic data engineering and analytics skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to work with Marketing Chatbot \u2014 Reporting Framework (Patrick's canonical asset registry, 2026-07-15). Use when working with marketing chatbot."
+    },
+    "requesting-code-review": {
+      "price_usd": 0,
+      "version": "1.0.0",
+      "vertical": "dev-tools",
+      "description": "LLM-agnostic developer tooling skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to work with Pre-commit review: security scan, quality gates, auto-fix. Use when working with pre-commit review."
+    },
+    "research-paper-writing": {
+      "price_usd": 0,
+      "version": "1.0.0",
+      "vertical": "ai-agents",
+      "description": "LLM-agnostic AI agent development skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to write ML papers for NeurIPS/ICML/ICLR: design\u2192submit. Use when you need to write ML papers for NeurIPS/ICML/ICLR: design\u2192submit."
+    },
+    "response-structure-skill": {
+      "price_usd": 0,
+      "version": "1.0.0",
+      "vertical": "other",
+      "description": "LLM-agnostic productivity and task automation skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to work with RFP Response Structure. Use when working with rfp response structure."
+    },
+    "revenue-strategist": {
+      "price_usd": 0,
+      "version": "1.0.0",
+      "vertical": "prospecting/GTM",
+      "description": "LLM-agnostic sales prospecting and go-to-market skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to guide businesses in predictable revenue growth. Use when crafting custom sales strategies using Predictable Revenue Modeling."
+    },
+    "rfp-answer-retriever": {
+      "price_usd": 0,
+      "version": "1.0.0",
+      "vertical": "other",
+      "description": "LLM-agnostic productivity and task automation skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to work with rfp answer retriever. Use when working with rfp answer retriever."
+    },
+    "rostr-hub-contextengine-skill": {
+      "price_usd": 0,
+      "version": "1.0.0",
+      "vertical": "ai-agents",
+      "description": "LLM-agnostic AI agent development skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to work with ROSTR Hub + ContextEngine. Use when working with rostr hub + contextengine."
+    },
+    "rss-assist": {
+      "price_usd": 0,
+      "version": "1.0.0",
+      "vertical": "ai-agents",
+      "description": "LLM-agnostic AI agent development skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to work with Consolidates RSS Assist and RSS Aggregator. Use when transforming RSS feeds into engaging SEO-optimized blogs, curating RSS feed lists, or aggregating content from feeds."
+    },
+    "runtime": {
+      "price_usd": 0,
+      "version": "1.0.0",
+      "vertical": "other",
+      "description": "LLM-agnostic productivity and task automation skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to guide to the assistant-ui runtime system, single-thread state, and the imperative runtime API in @assistant-ui/react. Covers the unified hooks useAui, useAuiState, useAuiEvent (composer.send, thread.runStart, thread.runEnd)\u2026. Use when creating a runtime (useLocalRuntime with a ChatModelAdapter, useExternalStoreRuntime for Redux/Zustand, useRemoteThreadListRuntime), wiring AssistantRuntimeProvider, or\u2026."
+    },
+    "saas-landing-pages": {
+      "price_usd": 0,
+      "version": "1.0.0",
+      "vertical": "dev-tools",
+      "description": "LLM-agnostic developer tooling skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to build marketing/landing pages for niche SaaS products. Hybridize design templates for industry-specific branding. Use when you need to build marketing/landing pages for niche SaaS."
+    },
+    "saas-platform-builder": {
+      "price_usd": 0,
+      "version": "1.0.0",
+      "vertical": "dev-tools",
+      "description": "LLM-agnostic developer tooling skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to build full SaaS platforms: marketing site + auth-gated app + backend API + Stripe payments. Next.js 15 monorepo pattern with FastAPI backend, JWT auth, Vercel deployment. Use when you need to build full SaaS platforms: marketing site."
+    },
+    "sales-commander": {
+      "price_usd": 0,
+      "version": "1.0.0",
+      "vertical": "prospecting/GTM",
+      "description": "LLM-agnostic sales prospecting and go-to-market skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to work with Acts as a general commanding sales operations, team structure, and process design. Use when building or optimizing a sales strategy."
+    },
+    "sales-process-assistant": {
+      "price_usd": 0,
+      "version": "1.0.0",
+      "vertical": "n8n/automation",
+      "description": "LLM-agnostic workflow automation skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to work with Consolidates Sales Process Assistant and Prossley. Use when automating sales workflows, CRM integration, and generating actionable sales insights."
+    },
+    "script-craft": {
+      "price_usd": 0,
+      "version": "1.0.0",
+      "vertical": "ai-agents",
+      "description": "LLM-agnostic AI agent development skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to work with Consolidates ScriptCraft and Script Savvy. Use when crafting assistant scripts, action scripts, and function schemas for GPTs and AI agents."
+    },
+    "session-overview": {
+      "price_usd": 0,
+      "version": "1.0.0",
+      "vertical": "other",
+      "description": "LLM-agnostic productivity and task automation skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to work with session overview. Use when working with session overview."
+    },
+    "setup": {
+      "price_usd": 0,
+      "version": "1.0.0",
+      "vertical": "other",
+      "description": "LLM-agnostic productivity and task automation skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to install and configures assistant-ui in a project via the CLI, and picks the right runtime for a backend. Also use to choose a runtime hook for a backend: useChatRuntime (AI SDK), useLangGraphRuntime, useAgUiRuntime\u2026. Use when first-time install, scaffold, or config: `npx assistant-ui@latest create my-app` (templates default, minimal, cloud, cloud-clerk, langgraph, mcp), `npx\u2026."
+    },
+    "setup-skill": {
+      "price_usd": 0,
+      "version": "1.0.0",
+      "vertical": "other",
+      "description": "LLM-agnostic productivity and task automation skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to work with MSA DocuSign Skill \u2014 One-Time Setup (per seller). Use when working with msa docusign skill."
+    },
+    "shadcn-app-design": {
+      "price_usd": 0,
+      "version": "1.0.0",
+      "vertical": "ai-agents",
+      "description": "LLM-agnostic AI agent development skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to build clean, minimal tool/utility/dashboard UIs using the shadcn/ui dark aesthetic (21st.dev style). Use when the brief is a tool, app, utility, or dashboard \u2014 NOT a landing page or marketing site."
+    },
+    "showcase": {
+      "price_usd": 0,
+      "version": "1.0.0",
+      "vertical": "music",
+      "description": "LLM-agnostic music production and marketing skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to work with showcase. Use when planning open mics, showcases, or release parties for artists."
+    },
+    "side-hustle-finder": {
+      "price_usd": 0,
+      "version": "1.0.0",
+      "vertical": "ai-agents",
+      "description": "LLM-agnostic AI agent development skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to work with Matches skills to gig economy options. Use when helping users discover quick side hustle opportunities via mobile apps and platforms."
+    },
+    "simplify-code": {
+      "price_usd": 0,
+      "version": "1.0.0",
+      "vertical": "dev-tools",
+      "description": "LLM-agnostic developer tooling skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to work with Parallel 3-agent cleanup of recent code changes. Use when working with parallel 3-agent cleanup of recent code."
+    },
+    "site-mapper": {
+      "price_usd": 0,
+      "version": "1.0.0",
+      "vertical": "dev-tools",
+      "description": "LLM-agnostic developer tooling skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to plan web application structure. Use when converting app ideas into site maps, page specifications, and prompts for code/design tools."
+    },
+    "sketch": {
+      "price_usd": 0,
+      "version": "1.0.0",
+      "vertical": "ai-agents",
+      "description": "LLM-agnostic AI agent development skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to work with Throwaway HTML mockups: 2-3 design variants to compare. Use when working with throwaway html mockups."
+    },
+    "skill-ddc-plan-skill": {
+      "price_usd": 0,
+      "version": "1.0.0",
+      "vertical": "other",
+      "description": "LLM-agnostic productivity and task automation skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to work with Skill: ddc-plan. Use when working with skill."
+    },
+    "skill-rostr-agent-builder": {
+      "price_usd": 0,
+      "version": "1.0.0",
+      "vertical": "ai-agents",
+      "description": "LLM-agnostic AI agent development skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to work with Purpose: Scaffold productionready multiagent Python systems from agent specifications. Use when working with purpose."
+    },
+    "skill-soul-builder": {
+      "price_usd": 0,
+      "version": "1.0.0",
+      "vertical": "other",
+      "description": "LLM-agnostic productivity and task automation skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to work with Purpose: Define agent personality, values, behavior constraints, and response templates\u2014then inject into running agents. Use when working with purpose."
+    },
+    "social-dm-architect": {
+      "price_usd": 0,
+      "version": "1.0.0",
+      "vertical": "prospecting/GTM",
+      "description": "LLM-agnostic sales prospecting and go-to-market skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to tailor messaging to platform and context. Use when generating LinkedIn, Twitter/X, and social media DMs for outreach, follow-ups, and networking."
+    },
+    "songbyrd": {
+      "price_usd": 0,
+      "version": "1.0.0",
+      "vertical": "music",
+      "description": "LLM-agnostic music production and marketing skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to generate verses, choruses, bridges, and full song structures. Use when writing song lyrics, developing song concepts, or acting as an AI-powered songwriting assistant."
+    },
+    "songvid": {
+      "price_usd": 0,
+      "version": "1.0.0",
+      "vertical": "music",
+      "description": "LLM-agnostic music production and marketing skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to work with songvid. Use when creating music video concepts using stock footage based on song uploads."
+    },
+    "songwriting-and-ai-music": {
+      "price_usd": 0,
+      "version": "1.0.0",
+      "vertical": "music",
+      "description": "LLM-agnostic music production and marketing skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to work with Songwriting craft and Suno AI music prompts. Use when working with songwriting craft and suno ai music."
+    },
+    "sop-architect": {
+      "price_usd": 0,
+      "version": "1.0.0",
+      "vertical": "ai-agents",
+      "description": "LLM-agnostic AI agent development skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to generate structured SOPs from process descriptions, identifies gaps, and format for team adoption. Use when building or improving Standard Operating Procedures."
+    },
+    "soul-skill": {
+      "price_usd": 0,
+      "version": "1.0.0",
+      "vertical": "other",
+      "description": "LLM-agnostic productivity and task automation skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to work with Agent Soul \u2014 Premium Site Builder. Use when working with agent soul."
+    },
+    "spike": {
+      "price_usd": 0,
+      "version": "1.0.0",
+      "vertical": "ai-agents",
+      "description": "LLM-agnostic AI agent development skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to work with Throwaway experiments to validate an idea before build. Use when working with throwaway experiments to validate an idea."
+    },
+    "static-site-qa": {
+      "price_usd": 0,
+      "version": "1.0.0",
+      "vertical": "dev-tools",
+      "description": "LLM-agnostic developer tooling skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to work with Post-deploy QA verification loop for static HTML sites. Verify every page returns 200 OK, nav links are consistent across all pages, internal links resolve, and key content markers are present. Use after every deploy\u2026. Use when working with post-deploy qa verification loop for static."
+    },
+    "strategic-business-architect": {
+      "price_usd": 0,
+      "version": "1.0.0",
+      "vertical": "prospecting/GTM",
+      "description": "LLM-agnostic sales prospecting and go-to-market skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to work with Acts as an expert strategist for business architecture. Use when providing strategic growth guidance, sales optimization, and business model innovation."
+    },
+    "streaming": {
+      "price_usd": 0,
+      "version": "1.0.0",
+      "vertical": "other",
+      "description": "LLM-agnostic productivity and task automation skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to work with Streaming backends and wire protocols for assistant-ui via the assistant-stream package. Use specifically for debugging stream wire issues: text-delta, part-start, result events, text/event-stream content-type, SSE\u2026. Use when building a custom (non-AI-SDK) streaming endpoint with createAssistantStreamResponse or createAssistantStreamController, emitting parts through\u2026."
+    },
+    "syncmaster": {
+      "price_usd": 0,
+      "version": "1.0.0",
+      "vertical": "music",
+      "description": "LLM-agnostic music production and marketing skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to help artists submit music for TV, film, and commercial placement. Use when finding music supervisors, libraries, and sync licensing opportunities."
+    },
+    "systematic-debugging": {
+      "price_usd": 0,
+      "version": "1.0.0",
+      "vertical": "dev-tools",
+      "description": "LLM-agnostic developer tooling skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to work with 4-phase root cause debugging: understand bugs before fixing. Use when working with 4-phase root cause debugging."
+    },
+    "table-schema-skill": {
+      "price_usd": 0,
+      "version": "1.0.0",
+      "vertical": "other",
+      "description": "LLM-agnostic productivity and task automation skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to work with Clay Table Schema Reference. Use when working with clay table schema reference."
+    },
+    "taste-frontend-redesign": {
+      "price_usd": 0,
+      "version": "1.0.0",
+      "vertical": "ai-agents",
+      "description": "LLM-agnostic AI agent development skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to work with Taste-driven frontend redesign with dual quality-control agents. Use when the user asks to redesign, restyle, or apply \"taste\", \"taste-skill\", \"high-end\", or \"aesthetic\" directives to an existing frontend project."
+    },
+    "tax-assistant-pro": {
+      "price_usd": 0,
+      "version": "1.0.0",
+      "vertical": "ai-agents",
+      "description": "LLM-agnostic AI agent development skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to work with Consolidates Tax Assistant Pro, My Smart Tax Advisor, ERC Assistant, and IRS Form 7202 Assistant. Use when guiding users through personal and business tax preparation."
+    },
+    "teams-meeting-pipeline": {
+      "price_usd": 0,
+      "version": "1.0.0",
+      "vertical": "dev-tools",
+      "description": "LLM-agnostic developer tooling skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to work with Operate the Teams meeting summary pipeline via Hermes CLI \u2014 summarize meetings, inspect pipeline status, replay jobs, manage Microsoft Graph subscriptions. Use when working with operate the teams meeting summary pipeline."
+    },
+    "tech-stack-architect": {
+      "price_usd": 0,
+      "version": "1.0.0",
+      "vertical": "ai-agents",
+      "description": "LLM-agnostic AI agent development skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to work with Evaluates tools against requirements and produce implementation blueprints. Use when researching, recommending, or generating setup guides for technology stacks."
+    },
+    "technical-writing-pro": {
+      "price_usd": 0,
+      "version": "1.0.0",
+      "vertical": "ai-agents",
+      "description": "LLM-agnostic AI agent development skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to work with technical writing pro. Use when refining technical copy, creating processes, and crafting goal-oriented documents."
+    },
+    "templates-skill": {
+      "price_usd": 0,
+      "version": "1.0.0",
+      "vertical": "other",
+      "description": "LLM-agnostic productivity and task automation skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to work with {{COMPANY_NAME}} HubSpot Import Templates \u2014 Reference. Use when working with {{company_name}} hubspot import templates."
+    },
+    "tenny-search": {
+      "price_usd": 0,
+      "version": "1.0.0",
+      "vertical": "data",
+      "description": "LLM-agnostic data engineering and analytics skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to work with Structures real estate data for comparison. Use when saving apartment listing links and parsing them into organized CSV format."
+    },
+    "test-driven-development": {
+      "price_usd": 0,
+      "version": "1.0.0",
+      "vertical": "dev-tools",
+      "description": "LLM-agnostic developer tooling skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to work with TDD: enforce RED-GREEN-REFACTOR, tests before code. Use when working with tdd."
+    },
+    "texts-not-to-send": {
+      "price_usd": 0,
+      "version": "1.0.0",
+      "vertical": "ai-agents",
+      "description": "LLM-agnostic AI agent development skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to work with Acts as a buffer for emotional communication \u2014 'send messages to me, not your ex. Use when helping users process difficult messages before sending."
+    },
+    "textvi": {
+      "price_usd": 0,
+      "version": "1.0.0",
+      "vertical": "ai-agents",
+      "description": "LLM-agnostic AI agent development skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to transform written content into video scripts and production plans. Use when converting uploaded text into video content."
+    },
+    "the-tie-breaker": {
+      "price_usd": 0,
+      "version": "1.0.0",
+      "vertical": "dev-tools",
+      "description": "LLM-agnostic developer tooling skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to design decentralized decision systems. Use when building futuristic voting platforms driven by AI and blockchain for smart governance."
+    },
+    "theory-formulation-assistant": {
+      "price_usd": 0,
+      "version": "1.0.0",
+      "vertical": "ai-agents",
+      "description": "LLM-agnostic AI agent development skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to work with theory formulation assistant. Use when assisting in theory formulation using the nx framework where x=known and n=unknown possibilities."
+    },
+    "thread-list": {
+      "price_usd": 0,
+      "version": "1.0.0",
+      "vertical": "other",
+      "description": "LLM-agnostic productivity and task automation skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to work with Implements multi-thread (conversation history) management in assistant-ui apps: rendering the prebuilt `ThreadList` next to `Thread`, or build a custom sidebar with `ThreadListPrimitive` and `ThreadListItemPrimitive`\u2026. Use when a user wants a thread list/sidebar, switching, searching, sorting, drag-and-drop, or renaming/archiving/deleting conversations."
+    },
+    "tools": {
+      "price_usd": 0,
+      "version": "1.0.0",
+      "vertical": "other",
+      "description": "LLM-agnostic productivity and task automation skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to register LLM tools and render custom tool-call UI in assistant-ui (@assistant-ui/react). Covers registering tool components inside AssistantRuntimeProvider and the case-sensitive toolName matching that connects a tool to its\u2026. Use when adding frontend-only tools with makeAssistantTool / useAssistantTool (browser actions like clipboard, navigation, localStorage, async-generator streaming, AbortSignal)\u2026."
+    },
+    "touchdesigner-mcp": {
+      "price_usd": 0,
+      "version": "1.0.0",
+      "vertical": "ai-agents",
+      "description": "LLM-agnostic AI agent development skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to control a running TouchDesigner instance via twozero MCP \u2014 create operators, set parameters, wire connections, execute Python, build real-time visuals. 36 native tools. Use when you need to control a running TouchDesigner instance."
+    },
+    "tour-tracker": {
+      "price_usd": 0,
+      "version": "1.0.0",
+      "vertical": "music",
+      "description": "LLM-agnostic music production and marketing skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to work with tour tracker. Use when discovering live music tours, booking venues, and planning tour logistics."
+    },
+    "troubleshooting-template-skill": {
+      "price_usd": 0,
+      "version": "1.0.0",
+      "vertical": "other",
+      "description": "LLM-agnostic productivity and task automation skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to work with Troubleshooting Report \u2014 Template. Use when working with troubleshooting report."
+    },
+    "ultimate-survival-ai": {
+      "price_usd": 0,
+      "version": "1.0.0",
+      "vertical": "ai-agents",
+      "description": "LLM-agnostic AI agent development skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to work with Covers wilderness, urban, and emergency preparedness scenarios. Use when providing survival guidance for any environment."
+    },
+    "uney-illinois-unemployment": {
+      "price_usd": 0,
+      "version": "1.0.0",
+      "vertical": "dev-tools",
+      "description": "LLM-agnostic developer tooling skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to work with Expert on IDES claims, benefits, eligibility, appeals, and Illinois-specific unemployment procedures. Use when guiding users through Illinois unemployment insurance."
+    },
+    "universal-agent-factory-checklist-skill": {
+      "price_usd": 0,
+      "version": "1.0.0",
+      "vertical": "ai-agents",
+      "description": "LLM-agnostic AI agent development skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to work with Universal Agent Factory Checklist. Use when working with universal agent factory checklist."
+    },
+    "unleash-sales-greatness": {
+      "price_usd": 0,
+      "version": "1.0.0",
+      "vertical": "prospecting/GTM",
+      "description": "LLM-agnostic sales prospecting and go-to-market skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to work with Powered by unleashyoursalesgreatness.com methodology. Use when providing practical, empathetic sales training and growth strategies."
+    },
+    "unstuck-master-plan": {
+      "price_usd": 0,
+      "version": "1.0.0",
+      "vertical": "ai-agents",
+      "description": "LLM-agnostic AI agent development skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to guide users step-by-step through personal development and getting unstuck. Use when providing conversational AI coaching through the Power Assessment framework."
+    },
+    "update": {
+      "price_usd": 0,
+      "version": "1.0.0",
+      "vertical": "other",
+      "description": "LLM-agnostic productivity and task automation skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to work with Upgrades an existing assistant-ui project to current releases and executes the resulting migrations. Detects installed versus latest versions via npm ls / npm view, then routes through breaking-change references for\u2026. Use when the user wants to update, upgrade, bump, or migrate @assistant-ui/react, @assistant-ui/react-ai-sdk, ai, or @ai-sdk/react, hits peer-dependency conflicts or post-upgrade\u2026."
+    },
+    "use-case-architect": {
+      "price_usd": 0,
+      "version": "1.0.0",
+      "vertical": "n8n/automation",
+      "description": "LLM-agnostic workflow automation skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to work with Identifies high-value applications, scopes requirements, and prioritize implementation order. Use when defining and structuring AI/automation use cases."
+    },
+    "value-proposition-architect": {
+      "price_usd": 0,
+      "version": "1.0.0",
+      "vertical": "prospecting/GTM",
+      "description": "LLM-agnostic sales prospecting and go-to-market skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to work with value proposition architect. Use when crafting value propositions, USPs, and positioning statements tailored to product, audience, and GTM strategy."
+    },
+    "venyou": {
+      "price_usd": 0,
+      "version": "1.0.0",
+      "vertical": "music",
+      "description": "LLM-agnostic music production and marketing skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to work with venyou. Use when finding and organizing music venue contact information."
+    },
+    "visual-content-studio": {
+      "price_usd": 0,
+      "version": "1.0.0",
+      "vertical": "n8n/automation",
+      "description": "LLM-agnostic workflow automation skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to work with visual content studio. Use when converting text into visual formats, automating creative workflows, or generating videos."
+    },
+    "visual-style-guide-skill": {
+      "price_usd": 0,
+      "version": "1.0.0",
+      "vertical": "other",
+      "description": "LLM-agnostic productivity and task automation skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to work with Visual Style Guide \u2014 Hand-Crafted SVG Diagrams. Use when working with visual style guide."
+    },
+    "wealthmind-ai": {
+      "price_usd": 0,
+      "version": "1.0.0",
+      "vertical": "dev-tools",
+      "description": "LLM-agnostic developer tooling skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to work with Consolidates WealthMind AI, AlgoVest, and Munger Inspired Investing Pro. Use when providing personal budget tracking and financial guidance."
+    },
+    "web-scraping-assistant": {
+      "price_usd": 0,
+      "version": "1.0.0",
+      "vertical": "n8n/automation",
+      "description": "LLM-agnostic workflow automation skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to guide scraper construction and data extraction workflows. Use when helping build and use web scrapers, particularly on the Apify platform."
+    },
+    "what-is-the-software-life-cycle-development-proces-skill": {
+      "price_usd": 0,
+      "version": "1.0.0",
+      "vertical": "other",
+      "description": "LLM-agnostic productivity and task automation skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to work with what_is_the_software_life_cycle_development_proces. Use when working with what_is_the_software_life_cycle_development_proces."
+    },
+    "wordpress-assistant": {
+      "price_usd": 0,
+      "version": "1.0.0",
+      "vertical": "ai-agents",
+      "description": "LLM-agnostic AI agent development skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to work with Handles themes, plugins, and site management. Use when assisting with WordPress development, configuration, and troubleshooting."
+    },
+    "xurl": {
+      "price_usd": 0,
+      "version": "1.0.0",
+      "vertical": "dev-tools",
+      "description": "LLM-agnostic developer tooling skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to work with X/Twitter via xurl CLI: post, search, DM, media, v2 API. Use when working with x/twitter via xurl cli."
+    },
+    "add-music-to-collaborative-playlist": {
+      "price_usd": 0,
+      "version": "1.0.0",
+      "vertical": "prospecting/GTM",
+      "description": "LLM-agnostic sales prospecting and go-to-market skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to work with Playlist pitch, Indie Bible tone, part of Messaging/Sequences. Use when the user wants to add music to collaborative playlist."
+    },
+    "analyze-social-media-engagement": {
+      "price_usd": 0,
+      "version": "1.0.0",
+      "vertical": "dev-tools",
+      "description": "LLM-agnostic developer tooling skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to work with Hook rate, saves, posting windows feeding paid media decisions. Use when the user wants to analyze social media engagement skill."
+    },
+    "build-a-skill": {
+      "price_usd": 0,
+      "version": "1.0.0",
+      "vertical": "other",
+      "description": "LLM-agnostic productivity and task automation skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to work with Package a SKILL.md for preload. Use when the user wants to build a skill."
+    },
+    "build-an-agent": {
+      "price_usd": 0,
+      "version": "1.0.0",
+      "vertical": "dev-tools",
+      "description": "LLM-agnostic developer tooling skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to compile a Claude Code subagent markdown file. Use when the user wants to build an agent."
+    },
+    "case-intake-organizer": {
+      "price_usd": 0,
+      "version": "1.0.0",
+      "vertical": "other",
+      "description": "LLM-agnostic productivity and task automation skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to work with case intake organizer. Use when working with case intake organizer."
+    },
+    "case-law-research": {
+      "price_usd": 0,
+      "version": "1.0.0",
+      "vertical": "other",
+      "description": "LLM-agnostic productivity and task automation skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to work with case law research. Use when working with case law research."
+    },
+    "claim-tracks-with-pro": {
+      "price_usd": 0,
+      "version": "1.0.0",
+      "vertical": "other",
+      "description": "LLM-agnostic productivity and task automation skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to work with Claim unmatched performances/digital uses. Use when the user wants to claim tracks with a p.r.o."
+    },
+    "context-engine": {
+      "price_usd": 0,
+      "version": "1.0.0",
+      "vertical": "ai-agents",
+      "description": "LLM-agnostic AI agent development skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to work with context engine. Use when working with context engine."
+    },
+    "correspondence-drafter": {
+      "price_usd": 0,
+      "version": "1.0.0",
+      "vertical": "other",
+      "description": "LLM-agnostic productivity and task automation skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to work with correspondence drafter. Use when working with correspondence drafter."
+    },
+    "create-an-artist-bio": {
+      "price_usd": 0,
+      "version": "1.0.0",
+      "vertical": "music",
+      "description": "LLM-agnostic music production and marketing skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to work with 50/150/400 word bios. Use when the user wants to create an artist bio."
+    },
+    "create-an-epk": {
+      "price_usd": 0,
+      "version": "1.0.0",
+      "vertical": "music",
+      "description": "LLM-agnostic music production and marketing skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to work with Full media kit / EPK. Use when the user wants to create an epk."
+    },
+    "create-brand-logo": {
+      "price_usd": 0,
+      "version": "1.0.0",
+      "vertical": "other",
+      "description": "LLM-agnostic productivity and task automation skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to work with Wordmark/lockup brief. Use when the user wants to create brand logo."
+    },
+    "create-c-corp": {
+      "price_usd": 0,
+      "version": "1.0.0",
+      "vertical": "other",
+      "description": "LLM-agnostic productivity and task automation skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to work with C-Corp outline for scale or investors. Use when the user wants to create a c-corp."
+    },
+    "create-content-calendar": {
+      "price_usd": 0,
+      "version": "1.0.0",
+      "vertical": "other",
+      "description": "LLM-agnostic productivity and task automation skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to work with 30-day calendar for Scheduling and Posting. Use when the user wants to create content calendar."
+    },
+    "create-llc": {
+      "price_usd": 0,
+      "version": "1.0.0",
+      "vertical": "other",
+      "description": "LLM-agnostic productivity and task automation skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to work with State LLC formation brief and operating agreement draft. Use when the user wants to create an llc."
+    },
+    "create-lyric-video": {
+      "price_usd": 0,
+      "version": "1.0.0",
+      "vertical": "other",
+      "description": "LLM-agnostic productivity and task automation skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to work with Timed lyric storyboard. Use when the user wants to create lyric video."
+    },
+    "create-merch-designs": {
+      "price_usd": 0,
+      "version": "1.0.0",
+      "vertical": "other",
+      "description": "LLM-agnostic productivity and task automation skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to work with SKU concepts for E-Commerce/Merch. Use when the user wants to create merch designs."
+    },
+    "create-split-sheet-agreement": {
+      "price_usd": 0,
+      "version": "1.0.0",
+      "vertical": "other",
+      "description": "LLM-agnostic productivity and task automation skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to work with Writer/producer splits before submission or distribution. Use when the user wants to create split sheet agreement."
+    },
+    "deadline-tracker": {
+      "price_usd": 0,
+      "version": "1.0.0",
+      "vertical": "other",
+      "description": "LLM-agnostic productivity and task automation skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to work with deadline tracker. Use when working with deadline tracker."
+    },
+    "extract-metadata-from-track": {
+      "price_usd": 0,
+      "version": "1.0.0",
+      "vertical": "data",
+      "description": "LLM-agnostic data engineering and analytics skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to work with ISRC/writers/BPM/key JSON. Use when the user wants to extract metadata from track."
+    },
+    "file-business-taxes": {
+      "price_usd": 0,
+      "version": "1.0.0",
+      "vertical": "other",
+      "description": "LLM-agnostic productivity and task automation skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to work with Quarterly estimate + tax folder. Use when the user wants to file business taxes."
+    },
+    "find-outreach-targets": {
+      "price_usd": 0,
+      "version": "1.0.0",
+      "vertical": "prospecting/GTM",
+      "description": "LLM-agnostic sales prospecting and go-to-market skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to work with Tell it your goal in plain words \u2014 \\\"I need to get on a playlist\\\" or \\\"book me gigs in Chicago\\\" \u2014 and it finds the bestmatched playlists, venues, curators, and promoters "
+    },
+    "generate-social-media-content": {
+      "price_usd": 0,
+      "version": "1.0.0",
+      "vertical": "dev-tools",
+      "description": "LLM-agnostic developer tooling skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to work with Hooks/captions for Content Creation. Use when the user wants to generate social media content."
+    },
+    "get-ein": {
+      "price_usd": 0,
+      "version": "1.0.0",
+      "vertical": "other",
+      "description": "LLM-agnostic productivity and task automation skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to work with Guided IRS EIN packet after entity choice. Use when the user wants to get an e.i.n."
+    },
+    "insurance-coverage-playbook": {
+      "price_usd": 0,
+      "version": "1.0.0",
+      "vertical": "other",
+      "description": "LLM-agnostic productivity and task automation skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to work with insurance coverage playbook. Use when working with insurance coverage playbook."
+    },
+    "license-music": {
+      "price_usd": 0,
+      "version": "1.0.0",
+      "vertical": "music",
+      "description": "LLM-agnostic music production and marketing skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to work with Sync/license brief, licensing sub-capability. Use when the user wants to license your music."
+    },
+    "manage-business-expenses": {
+      "price_usd": 0,
+      "version": "1.0.0",
+      "vertical": "other",
+      "description": "LLM-agnostic productivity and task automation skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to work with Studio/ads/travel ledger. Use when the user wants to manage business expenes."
+    },
+    "n8n-engineer": {
+      "price_usd": 0,
+      "version": "1.0.0",
+      "vertical": "n8n/automation",
+      "description": "LLM-agnostic workflow automation skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to work with Covers official n8n patterns for instance-level MCP, MCP Server Trigger, MCP Client Tool, Call n8n Workflow Tool, HTTP Request, evaluations, error handling, and production rollout. Use wh"
+    },
+    "npao-orchestrator": {
+      "price_usd": 0,
+      "version": "1.0.0",
+      "vertical": "n8n/automation",
+      "description": "LLM-agnostic workflow automation skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to work with ROSTR NPAO (Navigate, Prioritize, Allocate, Orchestrate) \u2014 5D Phase Taxonomy with 4D Priority scoring, intelligent agent allocation, and 4 production-ready orchestration patterns for mult"
+    },
+    "open-business-bank-account": {
+      "price_usd": 0,
+      "version": "1.0.0",
+      "vertical": "other",
+      "description": "LLM-agnostic productivity and task automation skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to work with Docs list + bank comparison. Use when the user wants to open business bank account."
+    },
+    "pal-compiler": {
+      "price_usd": 0,
+      "version": "1.0.0",
+      "vertical": "ai-agents",
+      "description": "LLM-agnostic AI agent development skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to work with ROSTR PAL (Prompt Abstraction Layer) \u2014 5-stage compiler pipeline for transforming raw user intents into optimized, context-rich, executable prompts through Intent extraction, Context inj"
+    },
+    "prospect-automation-engine": {
+      "price_usd": 0,
+      "version": "1.0.0",
+      "vertical": "n8n/automation",
+      "description": "LLM-agnostic workflow automation skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to master Autonomous GTM Architect, n8n Systems Engineer, and Execution Analyst. Unifies 5-Pillar Outbound Architecture (Trigger Ingest, CRM Shield & Dedupe, Data & Contact Reveal, AI PAS Copywriting,"
+    },
+    "prospect-pal-master": {
+      "price_usd": 0,
+      "version": "1.0.0",
+      "vertical": "prospecting/GTM",
+      "description": "LLM-agnostic sales prospecting and go-to-market skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to work with prospect pal master. Use when working with prospect pal master."
+    },
+    "prospect-pal-n8n-engineer": {
+      "price_usd": 0,
+      "version": "1.0.0",
+      "vertical": "n8n/automation",
+      "description": "LLM-agnostic workflow automation skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to work with prospect pal n8n engineer. Use when working with prospect pal n8n engineer."
+    },
+    "prospect-pal-workflow": {
+      "price_usd": 0,
+      "version": "1.0.0",
+      "vertical": "n8n/automation",
+      "description": "LLM-agnostic workflow automation skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to work with prospect pal workflow. Use when working with prospect pal workflow."
+    },
+    "ragdal-knowledge": {
+      "price_usd": 0,
+      "version": "1.0.0",
+      "vertical": "other",
+      "description": "LLM-agnostic productivity and task automation skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to work with ROSTR RAG DAL (Dynamic Acquisition Layer) \u2014 3-tier source credibility system with multi-pass autonomous retrieval, confidence scoring, gap detection, and persistent knowledge"
+    },
+    "register-tracks-with-pro": {
+      "price_usd": 0,
+      "version": "1.0.0",
+      "vertical": "other",
+      "description": "LLM-agnostic productivity and task automation skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to work with Batch work registration + key sheet entry. Use when the user wants to register your tracks with a p.r.o."
+    },
+    "register-with-pro": {
+      "price_usd": 0,
+      "version": "1.0.0",
+      "vertical": "music",
+      "description": "LLM-agnostic music production and marketing skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to work with Artist/company PRO signup. Use when the user wants to register with a p.r.o."
+    },
+    "release-music-with-dsp": {
+      "price_usd": 0,
+      "version": "1.0.0",
+      "vertical": "music",
+      "description": "LLM-agnostic music production and marketing skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to work with Release ticket, 21-day buffer. Use when the user wants to release your music with a dsp."
+    },
+    "rostr-agent-builder": {
+      "price_usd": 0,
+      "version": "1.0.0",
+      "vertical": "n8n/automation",
+      "description": "LLM-agnostic workflow automation skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to work with Complete ROSTR agent builder \u2014 7-phase build pipeline from PAL intent compilation through JTBD system instructions, NPAO orchestration, state/context engineering, RAG DAL knowledge config"
+    },
+    "rostr-hub": {
+      "price_usd": 0,
+      "version": "1.0.0",
+      "vertical": "dev-tools",
+      "description": "LLM-agnostic developer tooling skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to work with ROSTR Hub \u2014 Central state management with 4-level persistence, multi-namespace architecture, agent registry, decision/learning logging, knowledge compounding, and cross-namespace access con"
+    },
+    "set-up-dsp": {
+      "price_usd": 0,
+      "version": "1.0.0",
+      "vertical": "music",
+      "description": "LLM-agnostic music production and marketing skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to work with Spotify/Apple/YouTube artist profile claim. Use when the user wants to set up dsp."
+    },
+    "set-up-merch-drop-shipping": {
+      "price_usd": 0,
+      "version": "1.0.0",
+      "vertical": "other",
+      "description": "LLM-agnostic productivity and task automation skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to work with POD vs warehouse for E-Commerce/Merch. Use when the user wants to set up merch drop shipping."
+    },
+    "track-royalties-on-dsps": {
+      "price_usd": 0,
+      "version": "1.0.0",
+      "vertical": "other",
+      "description": "LLM-agnostic productivity and task automation skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to work with Key-sheet-linked royalty pulse and gap alerts. Use when the user wants to track your royalties on dsps."
+    },
+    "transcribe-lyrics": {
+      "price_usd": 0,
+      "version": "1.0.0",
+      "vertical": "other",
+      "description": "LLM-agnostic productivity and task automation skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to clean lyrics with section tags. Use when the user wants to transcribe lyrics."
+    },
+    "upload-music-video-to-youtube": {
+      "price_usd": 0,
+      "version": "1.0.0",
+      "vertical": "music",
+      "description": "LLM-agnostic music production and marketing skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to work with YouTube packet: title/desc/chapters, confirmed via API. Use when the user wants to upload music video to youtube."
+    },
+    "upload-track-to-catalogue": {
+      "price_usd": 0,
+      "version": "1.0.0",
+      "vertical": "other",
+      "description": "LLM-agnostic productivity and task automation skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to work with Vault master with provenance. Use when the user wants to upload track to catalogue."
+    },
+    "write-a-business-plan": {
+      "price_usd": 0,
+      "version": "1.0.0",
+      "vertical": "other",
+      "description": "LLM-agnostic productivity and task automation skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to work with 12-month plan with revenue mix. Use when the user wants to write a business plan."
+    },
+    "write-brand-guidelines": {
+      "price_usd": 0,
+      "version": "1.0.0",
+      "vertical": "ai-agents",
+      "description": "LLM-agnostic AI agent development skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to work with Voice/palette/type/merch rules enforced across marketing. Use when the user wants to write brand guidelines."
+    },
+    "write-music-video-treatment": {
+      "price_usd": 0,
+      "version": "1.0.0",
+      "vertical": "music",
+      "description": "LLM-agnostic music production and marketing skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to work with Scene-by-scene treatment with budget bands. Use when the user wants to write a music video treatment."
+    },
+    "yuanbao": {
+      "price_usd": 0,
+      "version": "1.0.0",
+      "vertical": "ai-agents",
+      "description": "LLM-agnostic AI agent development skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to work with Yuanbao (\u5143\u5b9d) groups: @mention users, query info/members. Use when working with yuanbao."
+    }
+  },
+  "workspaces": [
+    {
+      "id": "ai-agents",
+      "name": "AI Agents",
+      "skills": [
+        "affli",
+        "agent-architect",
+        "agent-builder-guide",
+        "agents-skill",
+        "agreement-architect",
+        "ai-palmistry-guide",
+        "airtable",
+        "applygpt",
+        "architecture-diagram",
+        "arxiv",
+        "asana",
+        "baoyu-infographic",
+        "blk-heights-career-coach",
+        "business-audit",
+        "business-model-canvas-builder",
+        "buyer-persona-architect",
+        "campaign-digital-director",
+        "chunkmaster-pro",
+        "claude-design",
+        "cloud-course-assistant",
+        "computer-use",
+        "context-engine-rostr-core",
+        "context-engine-rostr-platform",
+        "cosmic-oracle",
+        "dc-312-political",
+        "design-image-prompting-skill",
+        "design-md",
+        "diamitani-agent-employee-product-to-production-delivery-rostr-agent",
+        "docuscript",
+        "dynamic-resource-aggregator",
+        "elite-design-studio",
+        "excalidraw",
+        "figma-mcp-skill",
+        "git-recovery",
+        "github-issues",
+        "github-repo-management",
+        "gpt-license-generator",
+        "gpt-portfolio-index",
+        "houseofashburn",
+        "humanizer",
+        "humint",
+        "instruction-architect",
+        "jesus-guide-me",
+        "jo-kraft",
+        "job-search-assistant",
+        "jobs-to-be-done",
+        "kpi-architect",
+        "landing-page-build",
+        "llm-wiki",
+        "manim-video",
+        "master-calendar",
+        "mcp-guide-skill",
+        "mighty-oaks-capital",
+        "ocr-and-documents",
+        "p5js",
+        "pal-depth-guide-skill",
+        "pal-framework-skill",
+        "pats-tap",
+        "personal-video-coach",
+        "petdex",
+        "polymarket",
+        "poor-richards-gpt",
+        "powerpoint",
+        "prayer-companion",
+        "prd-builder",
+        "product-description-editor",
+        "rag-dal",
+        "recalla",
+        "research-paper-writing",
+        "rostr-hub-contextengine-skill",
+        "rss-assist",
+        "script-craft",
+        "shadcn-app-design",
+        "side-hustle-finder",
+        "sketch",
+        "skill-rostr-agent-builder",
+        "sop-architect",
+        "spike",
+        "taste-frontend-redesign",
+        "tax-assistant-pro",
+        "tech-stack-architect",
+        "technical-writing-pro",
+        "texts-not-to-send",
+        "textvi",
+        "theory-formulation-assistant",
+        "touchdesigner-mcp",
+        "ultimate-survival-ai",
+        "universal-agent-factory-checklist-skill",
+        "unstuck-master-plan",
+        "wordpress-assistant",
+        "context-engine",
+        "pal-compiler",
+        "write-brand-guidelines",
+        "yuanbao"
+      ]
+    },
+    {
+      "id": "dev-tools",
+      "name": "Dev Tools",
+      "skills": [
+        "algorithm-architect",
+        "api-integration-architect",
+        "artispreneur-ecosystem",
+        "ascii-art",
+        "backend-dev",
+        "blogwatcher",
+        "call-insights-assistant",
+        "chatbot-architect",
+        "chicago-local",
+        "code-camp-mentor",
+        "codebase-inspection",
+        "dcase-312",
+        "decision-rules-skill",
+        "doger",
+        "driving-test-genius",
+        "full-stack-copilot",
+        "github-auth",
+        "github-code-review",
+        "google-workspace",
+        "healthie",
+        "hermes-agent-skill-authoring",
+        "highly-suggested-prompts",
+        "himalaya",
+        "hoops-stats",
+        "link-folder",
+        "maps",
+        "mass-skill-creation",
+        "musk-insights-tracker",
+        "nano-pdf",
+        "newsletter-assistant",
+        "nextjs-app-router",
+        "node-inspect-debugger",
+        "notion",
+        "openhue",
+        "plan",
+        "popular-web-designs",
+        "predeploy-qa-team",
+        "pretext",
+        "profile-wingman",
+        "project-structure-architect",
+        "promo-code-finder",
+        "prompt-builder-architect",
+        "python-debugpy",
+        "requesting-code-review",
+        "saas-landing-pages",
+        "saas-platform-builder",
+        "simplify-code",
+        "site-mapper",
+        "static-site-qa",
+        "systematic-debugging",
+        "teams-meeting-pipeline",
+        "test-driven-development",
+        "the-tie-breaker",
+        "uney-illinois-unemployment",
+        "wealthmind-ai",
+        "xurl",
+        "analyze-social-media-engagement",
+        "build-an-agent",
+        "generate-social-media-content",
+        "rostr-hub"
+      ]
+    },
+    {
+      "id": "music",
+      "name": "Music",
+      "skills": [
+        "ar-campaign-architect",
+        "armie",
+        "artbeat-covers",
+        "artispreneur-platform",
+        "artist-bio-creator",
+        "artist-budget-guide",
+        "artist-business-plan",
+        "artist-connect",
+        "artist-epk-suite",
+        "artist-resource-hub",
+        "ascii-video",
+        "catana",
+        "create-an-epk-rostr-core",
+        "e-milly",
+        "epk-builder-gpt",
+        "micspot",
+        "monarch-art-vault",
+        "music-biz-daily-digest",
+        "music-contract-agent-artispreneur-music-contract",
+        "music-contract-agent-music-contract-agent",
+        "music-contract-assistant",
+        "reggie-pro",
+        "showcase",
+        "songbyrd",
+        "songvid",
+        "songwriting-and-ai-music",
+        "syncmaster",
+        "tour-tracker",
+        "venyou",
+        "create-an-artist-bio",
+        "create-an-epk",
+        "license-music",
+        "register-with-pro",
+        "release-music-with-dsp",
+        "set-up-dsp",
+        "upload-music-video-to-youtube",
+        "write-music-video-treatment"
+      ]
+    },
+    {
+      "id": "automation",
+      "name": "Automation",
+      "skills": [
+        "automation-architect",
+        "centralized-systems-assistant",
+        "comfyui",
+        "daily-report-workflow-spec-skill",
+        "dropshipping-ai-assistant",
+        "entity-readiness-baseline-analyst",
+        "entity-readiness-execution-health-entity-readiness-execution-health",
+        "entity-readiness-execution-health-skill-entity-readiness-execution-health",
+        "github-pr-workflow",
+        "gpt-builder",
+        "gtm-architect",
+        "gtm-engineering",
+        "hermes-dependencies",
+        "irs-ein-registration",
+        "n8n-engineer-skill",
+        "n8n-execution-analyst",
+        "new-project-automation-jtbd-builder",
+        "npao-bot",
+        "omni-architect",
+        "outreach-automator",
+        "political-campaign-architect",
+        "sales-process-assistant",
+        "use-case-architect",
+        "visual-content-studio",
+        "web-scraping-assistant",
+        "n8n-engineer",
+        "npao-orchestrator",
+        "prospect-automation-engine",
+        "prospect-pal-n8n-engineer",
+        "prospect-pal-workflow",
+        "rostr-agent-builder"
+      ]
+    },
+    {
+      "id": "gtm",
+      "name": "GTM & Prospecting",
+      "skills": [
+        "artispreneur-email-generator",
+        "asana-organizer",
+        "atlas-gtm-agent-os",
+        "auctopilot",
+        "company-name-gtm-agent-os",
+        "email-architect",
+        "email-template-creator",
+        "enably",
+        "gtm-architect-factors-api-reference-skill",
+        "gtm-architect-gtm-architect-skill-original-backup",
+        "gtm-architect-gtm-architect-updated-skill",
+        "gtm-patterns-skill",
+        "monarch-video",
+        "onboarding-expert",
+        "prossley",
+        "revenue-strategist",
+        "sales-commander",
+        "social-dm-architect",
+        "strategic-business-architect",
+        "unleash-sales-greatness",
+        "value-proposition-architect",
+        "add-music-to-collaborative-playlist",
+        "find-outreach-targets",
+        "prospect-pal-master"
+      ]
+    },
+    {
+      "id": "data",
+      "name": "Data",
+      "skills": [
+        "base64-translator",
+        "data-sources-skill",
+        "dogfood",
+        "github-catalogue-skill",
+        "image-scraper-pro",
+        "jsonl-converter",
+        "list-manager",
+        "modular-react-framework",
+        "report-template-skill",
+        "report-templates-skill",
+        "reporting-framework-skill",
+        "tenny-search",
+        "extract-metadata-from-track"
+      ]
+    },
+    {
+      "id": "other",
+      "name": "Other",
+      "skills": [
+        "amplemarket-api-skill",
+        "archetypes-skill",
+        "architecture-skill",
+        "assistant-ui",
+        "atlas-brand-skill",
+        "atlas-knowledge-skill",
+        "azure-ai-foundry-skill",
+        "brand-system-skill",
+        "brand-system-template-skill",
+        "case-study-template-skill",
+        "chatterbox-api-skill",
+        "cloud",
+        "cof-cof",
+        "cof-skill-cof",
+        "comms-templates-skill",
+        "company-name-proposal-builder-v2",
+        "components-skill",
+        "copilots",
+        "credentials-skill",
+        "ddc-announcements-skill",
+        "ddc-planning-harness-skill",
+        "ddc-white-paper-skill",
+        "diagram-types-skill",
+        "diamitani-agent-employee-product-to-production-delivery",
+        "director-readiness-framework-skill",
+        "eor-topics-skill",
+        "examples-skill",
+        "exec-overview-skill",
+        "factors-api-skill",
+        "factors-to-hubspot-skill",
+        "frameworks-skill",
+        "hubspot-chatbot-manager",
+        "hubspot-lists-skill",
+        "hubspot-upload-skill",
+        "industry-mapping-skill",
+        "intake-map-skill",
+        "intake-questionnaire-skill",
+        "knowledge-base-reference-skill",
+        "layout-patterns-skill",
+        "list-questionnaire-skill",
+        "maia-chatbot-analyst",
+        "maia-chatbot-marketer",
+        "markdown",
+        "marketing-chatbot-execution-analyst-marketing-chatbot-execution-analyst",
+        "marketing-chatbot-execution-analyst-skill-marketing-chatbot-execution-analyst",
+        "mermaid-diagrams-skill",
+        "mermaid-theming-skill",
+        "neon",
+        "neon-postgres",
+        "new-project-scheduler",
+        "new-project-system",
+        "nlp-intake-skill",
+        "npao-4ds-framework-skill",
+        "observability",
+        "output-spec-skill",
+        "overview-template-skill",
+        "partner-pql-manager-partner-pql-manager",
+        "partner-pql-manager-skill-partner-pql-manager",
+        "pop-pop",
+        "pop-skill-pop",
+        "pptx-design-system-skill",
+        "premium-site-build-os-skill",
+        "primitives",
+        "ragdal-framework-skill",
+        "react-mcp",
+        "readme-skill",
+        "redaction-rules-skill",
+        "response-structure-skill",
+        "rfp-answer-retriever",
+        "runtime",
+        "session-overview",
+        "setup",
+        "setup-skill",
+        "skill-ddc-plan-skill",
+        "skill-soul-builder",
+        "soul-skill",
+        "streaming",
+        "table-schema-skill",
+        "templates-skill",
+        "thread-list",
+        "tools",
+        "troubleshooting-template-skill",
+        "update",
+        "visual-style-guide-skill",
+        "what-is-the-software-life-cycle-development-proces-skill",
+        "build-a-skill",
+        "case-intake-organizer",
+        "case-law-research",
+        "claim-tracks-with-pro",
+        "correspondence-drafter",
+        "create-brand-logo",
+        "create-c-corp",
+        "create-content-calendar",
+        "create-llc",
+        "create-lyric-video",
+        "create-merch-designs",
+        "create-split-sheet-agreement",
+        "deadline-tracker",
+        "file-business-taxes",
+        "get-ein",
+        "insurance-coverage-playbook",
+        "manage-business-expenses",
+        "open-business-bank-account",
+        "ragdal-knowledge",
+        "register-tracks-with-pro",
+        "set-up-merch-drop-shipping",
+        "track-royalties-on-dsps",
+        "transcribe-lyrics",
+        "upload-track-to-catalogue",
+        "write-a-business-plan"
+      ]
+    }
+  ],
+  "agents": [],
+  "catalog_total_usd": 0
+}

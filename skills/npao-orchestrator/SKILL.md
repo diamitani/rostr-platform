@@ -1,17 +1,6 @@
 ---
 name: npao-orchestrator
-description: ROSTR NPAO (Navigate, Prioritize, Allocate, Orchestrate) — 5D Phase Taxonomy with 4D Priority scoring, intelligent agent allocation, and 4 production-ready orchestration patterns for multi-agent coordination.
-version: 1.0.0
-author: Patrick Diamitani
-tags: [rostr, npao, orchestrator, multi-agent, priority-scoring, phase-taxonomy, agent-allocation]
-dependencies:
-  - rostr-core>=0.1.0
-trigger_conditions:
-  - multi-step or multi-agent task is detected by PAL
-  - user request involves coordination of multiple subtasks
-  - task complexity exceeds single-agent capacity
-  - workflow requires phased execution with dependencies
-  - agent allocation decisions needed
+description: "LLM-agnostic workflow automation skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to work with ROSTR NPAO (Navigate, Prioritize, Allocate, Orchestrate) — 5D Phase Taxonomy with 4D Priority scoring, intelligent agent allocation, and 4 production-ready orchestration patterns for multi-agent coordination. Use when working with rostr npao."
 ---
 
 # NPAO Orchestrator — ROSTR Navigate, Prioritize, Allocate, Orchestrate

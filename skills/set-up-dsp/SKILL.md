@@ -1,7 +1,6 @@
 ---
 name: set-up-dsp
-description: Spotify/Apple/YouTube artist profile claim. Use when the user wants: set up DSP. NPAO N.
-allowed-tools: mcp__youtube_data_api
+description: "LLM-agnostic music production and marketing skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to work with Spotify/Apple/YouTube artist profile claim. Use when the user wants to set up dsp."
 ---
 
 # set up DSP

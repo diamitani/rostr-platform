@@ -1,7 +1,6 @@
 ---
 name: create-c-corp
-description: C-Corp outline for scale or investors. Use when the user wants: Create a C-Corp. NPAO O.
-allowed-tools: mcp__google_drive upload
+description: "LLM-agnostic productivity and task automation skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to work with C-Corp outline for scale or investors. Use when the user wants to create a c-corp."
 ---
 
 # Create a C-Corp

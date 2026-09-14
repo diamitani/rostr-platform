@@ -1,0 +1,23 @@
+# Notes: music-contract-agent-artispreneur-music-contract
+
+- Source repo: diamitani/artispreneur-music-contract-skill
+- Source path: SKILL.md
+- Raw URL: https://raw.githubusercontent.com/diamitani/artispreneur-music-contract-skill/main/SKILL.md
+- Index category: music
+- Frontmatter: rewritten (source frontmatter replaced)
+- Description: rewritten to LLM-agnostic house standard
+- Placeholders found (0): none
+- Broken references (3):
+  - `schema/contract.schema.json` — 404 / not found
+  - `scripts/generate_index.py` — 404 / not found
+  - `scripts/render_docx.py` — 404 / not found
+- Relative references downloaded (7):
+  - `references/00-contract-library-index.md` → `references/00-contract-library-index.md`
+  - `references/01-intake-workflow.md` → `references/01-intake-workflow.md`
+  - `references/02-drafting-rules-and-defaults.md` → `references/02-drafting-rules-and-defaults.md`
+  - `references/03-review-and-missing-template-modes.md` → `references/03-review-and-missing-template-modes.md`
+  - `references/04-explain-mode.md` → `references/04-explain-mode.md`
+  - `references/05-safety-and-legal-boundaries.md` → `references/05-safety-and-legal-boundaries.md`
+  - `references/06-output-requirements-and-qa.md` → `references/06-output-requirements-and-qa.md`
+- Aliases collapsed into this copy (0):
+  - none

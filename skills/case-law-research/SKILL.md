@@ -1,13 +1,6 @@
 ---
 name: case-law-research
-description: >
-  Download and analyze real case law per state for Patrick's cases. Searches the free
-  CourtListener API v3 (no key required), filters by jurisdiction (e.g., Iowa state courts,
-  8th Circuit), downloads full opinion text, and produces a structured, citation-verified
-  memo per case. Fallbacks: Justia, Google Scholar.
-  Triggers: case law, precedent, research opinion, court ruling, holding, case citation,
-  what does the law say, find cases, Shepardize, appellate decision.
-tools: Read, Write, Bash, WebFetch
+description: "LLM-agnostic productivity and task automation skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to work with case law research. Use when working with case law research."
 ---
 
 # Case Law Research

@@ -1,7 +1,6 @@
 ---
 name: create-content-calendar
-description: 30-day calendar for Scheduling and Posting. Use when the user wants: create content calendar. NPAO P.
-allowed-tools: inherit
+description: "LLM-agnostic productivity and task automation skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to work with 30-day calendar for Scheduling and Posting. Use when the user wants to create content calendar."
 ---
 
 # create content calendar

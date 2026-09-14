@@ -1,0 +1,22 @@
+# Notes: ascii-video
+
+- Source repo: diamitani/hermes-agent-skills-marketplace
+- Source path: hermes-agent-creative/creative/ascii-video/SKILL.md
+- Raw URL: https://raw.githubusercontent.com/diamitani/hermes-agent-skills-marketplace/main/hermes-agent-creative/creative/ascii-video/SKILL.md
+- Index category: music
+- Frontmatter: rewritten (source frontmatter replaced)
+- Description: rewritten to LLM-agnostic house standard
+- Placeholders found (0): none
+- Broken references (8):
+  - `references/architecture.md` — 404 / not found
+  - `references/composition.md` — 404 / not found
+  - `references/effects.md` — 404 / not found
+  - `references/inputs.md` — 404 / not found
+  - `references/optimization.md` — 404 / not found
+  - `references/scenes.md` — 404 / not found
+  - `references/shaders.md` — 404 / not found
+  - `references/troubleshooting.md` — 404 / not found
+- Relative references downloaded (0):
+  - none
+- Aliases collapsed into this copy (0):
+  - none

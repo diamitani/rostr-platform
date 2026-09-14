@@ -1,18 +1,6 @@
 ---
 name: rostr-hub
-description: ROSTR Hub — Central state management with 4-level persistence, multi-namespace architecture, agent registry, decision/learning logging, knowledge compounding, and cross-namespace access control for the entire ROSTR ecosystem.
-version: 1.0.0
-author: Patrick Diamitani
-tags: [rostr, hub, state-management, agent-registry, decision-logging, knowledge-compounding, access-control, namespaces]
-dependencies:
-  - rostr-core>=0.1.0
-trigger_conditions:
-  - any ROSTR component needs state persistence
-  - agent registration or discovery
-  - decision logging or audit trail requirements
-  - cross-namespace access or collaboration
-  - knowledge compounding or learning from past executions
-  - system initialization or recovery
+description: "LLM-agnostic developer tooling skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to work with ROSTR Hub — Central state management with 4-level persistence, multi-namespace architecture, agent registry, decision/learning logging, knowledge compounding, and cross-namespace access control for the entire ROSTR…. Use when working with rostr hub."
 ---
 
 # ROSTR Hub — Central State Management & Coordination

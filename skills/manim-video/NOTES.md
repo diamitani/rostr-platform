@@ -1,0 +1,28 @@
+# Notes: manim-video
+
+- Source repo: diamitani/hermes-agent-skills-marketplace
+- Source path: hermes-agent-creative/creative/manim-video/SKILL.md
+- Raw URL: https://raw.githubusercontent.com/diamitani/hermes-agent-skills-marketplace/main/hermes-agent-creative/creative/manim-video/SKILL.md
+- Index category: ai-agents
+- Frontmatter: rewritten (source frontmatter replaced)
+- Description: rewritten to LLM-agnostic house standard
+- Placeholders found (0): none
+- Broken references (14):
+  - `references/animation-design-thinking.md` — 404 / not found
+  - `references/animations.md` — 404 / not found
+  - `references/camera-and-3d.md` — 404 / not found
+  - `references/decorations.md` — 404 / not found
+  - `references/equations.md` — 404 / not found
+  - `references/graphs-and-data.md` — 404 / not found
+  - `references/mobjects.md` — 404 / not found
+  - `references/paper-explainer.md` — 404 / not found
+  - `references/production-quality.md` — 404 / not found
+  - `references/rendering.md` — 404 / not found
+  - `references/scene-planning.md` — 404 / not found
+  - `references/troubleshooting.md` — 404 / not found
+  - `references/updaters-and-trackers.md` — 404 / not found
+  - `references/visual-design.md` — 404 / not found
+- Relative references downloaded (0):
+  - none
+- Aliases collapsed into this copy (0):
+  - none

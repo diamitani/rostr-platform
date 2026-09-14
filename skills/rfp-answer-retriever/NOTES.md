@@ -1,0 +1,24 @@
+# Notes: rfp-answer-retriever
+
+- Source repo: diamitani/rfp_answer_retriever-skill
+- Source path: SKILL.md
+- Raw URL: https://raw.githubusercontent.com/diamitani/rfp_answer_retriever-skill/main/SKILL.md
+- Index category: other
+- Frontmatter: rewritten (source frontmatter replaced)
+- Description: rewritten to LLM-agnostic house standard
+- Placeholders found (2): `{{COMPANY_FILE}}`, `{{COMPANY_NAME}}`
+- Broken references (10):
+  - `references/hubspot-tickets.md` — 404 / not found
+  - `references/knowledge-base-reference.md` — 404 / not found
+  - `references/master_kb_confirmed.json` — 404 / not found
+  - `references/master_kb_facts.json` — 404 / not found
+  - `references/matching-rules.md` — 404 / not found
+  - `scripts/build_rfp_response.py` — 404 / not found
+  - `scripts/create_hubspot_ticket.py` — 404 / not found
+  - `scripts/kb_matcher.py` — 404 / not found
+  - `scripts/rfp_parser.py` — 404 / not found
+  - `scripts/rfp_retriever.py` — 404 / not found
+- Relative references downloaded (0):
+  - none
+- Aliases collapsed into this copy (0):
+  - none

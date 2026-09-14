@@ -1,7 +1,6 @@
 ---
 name: claim-tracks-with-pro
-description: Claim unmatched performances/digital uses. Use when the user wants: Claim tracks with a P.R.O.. NPAO A.
-allowed-tools: mcp__supabase update status
+description: "LLM-agnostic productivity and task automation skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to work with Claim unmatched performances/digital uses. Use when the user wants to claim tracks with a p.r.o."
 ---
 
 # Claim tracks with a P.R.O.

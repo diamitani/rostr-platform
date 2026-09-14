@@ -1,3 +1,8 @@
+---
+name: find-outreach-targets
+description: "LLM-agnostic sales prospecting and go-to-market skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to work with Tell it your goal in plain words — \"I need to get on a playlist\" or \"book me gigs in Chicago\" — and it finds the bestmatched playlists, venues, curators, and promoters in the directory, then writes a tailored outreach. Use when working with tell it your goal in plain."
+---
+
 # find-outreach-targets
 
 > Tell it your goal in plain words — "I need to get on a playlist" or "book

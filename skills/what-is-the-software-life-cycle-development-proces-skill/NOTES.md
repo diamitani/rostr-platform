@@ -1,0 +1,24 @@
+# Notes: what-is-the-software-life-cycle-development-proces-skill
+
+- Source repo: diamitani/what_is_the_software_life_cycle_development_proces-skill
+- Source path: SKILL.md
+- Raw URL: https://raw.githubusercontent.com/diamitani/what_is_the_software_life_cycle_development_proces-skill/main/SKILL.md
+- Index category: other
+- Frontmatter: added (source had no frontmatter)
+- Description: rewritten to LLM-agnostic house standard
+- Placeholders found (0): none
+- Broken references (10):
+  - `palbuild/architecture-blueprint.md` — 404 / not found
+  - `palbuild/architecture.md` — 404 / not found
+  - `palbuild/build-playbook.md` — 404 / not found
+  - `palbuild/continuous-production-loop.md` — 404 / not found
+  - `palbuild/intent-spec.md` — 404 / not found
+  - `palbuild/jtbd-report.md` — 404 / not found
+  - `palbuild/pal-runs-orchestrator.soul.md` — 404 / not found
+  - `palbuild/rostr-core-principles.md` — 404 / not found
+  - `palbuild/runtime-contract.json` — 404 / not found
+  - `palbuild/stack-decision-record.md` — 404 / not found
+- Relative references downloaded (0):
+  - none
+- Aliases collapsed into this copy (0):
+  - none

@@ -1,7 +1,6 @@
 ---
 name: create-brand-logo
-description: Wordmark/lockup brief. Use when the user wants: create brand logo. NPAO P.
-allowed-tools: inherit
+description: "LLM-agnostic productivity and task automation skill that instructs any AI model (Claude, GPT-4o, Gemini, Cursor) to work with Wordmark/lockup brief. Use when the user wants to create brand logo."
 ---
 
 # create brand logo

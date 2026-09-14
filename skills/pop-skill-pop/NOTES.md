@@ -1,0 +1,23 @@
+# Notes: pop-skill-pop
+
+- Source repo: diamitani/skill-pop
+- Source path: SKILL.md
+- Raw URL: https://raw.githubusercontent.com/diamitani/skill-pop/main/SKILL.md
+- Index category: other
+- Scan flagged duplicate_of: pop
+- Frontmatter: rewritten (source frontmatter replaced)
+- Description: rewritten to LLM-agnostic house standard
+- Placeholders found (0): none
+- Broken references (8):
+  - `scopes/personas.md` — 404 / not found
+  - `templates/ASANA_EXPORT_TEMPLATE.md` — 404 / not found
+  - `templates/BUILD_GUIDE_TEMPLATE.md` — 404 / not found
+  - `templates/EXECUTION_HANDOFF_TEMPLATE.md` — 404 / not found
+  - `templates/KPI_TRACKING_TEMPLATE.md` — 404 / not found
+  - `templates/PRD_TEMPLATE.md` — 404 / not found
+  - `templates/PROJECT_MASTER_DOC_TEMPLATE.md` — 404 / not found
+  - `templates/PROJECT_OVERVIEW_TEMPLATE.md` — 404 / not found
+- Relative references downloaded (0):
+  - none
+- Aliases collapsed into this copy (0):
+  - none

@@ -1,0 +1,21 @@
+# Notes: modular-react-framework
+
+- Source repo: diamitani/hermes-agent-skills-marketplace
+- Source path: hermes-agent-foundation/web-development/modular-react-framework/SKILL.md
+- Raw URL: https://raw.githubusercontent.com/diamitani/hermes-agent-skills-marketplace/main/hermes-agent-foundation/web-development/modular-react-framework/SKILL.md
+- Index category: data
+- Frontmatter: rewritten (source frontmatter replaced)
+- Description: rewritten to LLM-agnostic house standard
+- Placeholders found (1): `{{fontFamily: "'Geist Sans', 'Geist', sans-serif"}}`
+- Broken references (7):
+  - `./node_modules/vite/bin/vite.js` — 404 / not found
+  - `core/schema/validation.ts` — 404 / not found
+  - `core/types/models.ts` — 404 / not found
+  - `references/chicago-data-portal-fields.md` — 404 / not found
+  - `references/dark-tool-page-with-taste-skill.md` — 404 / not found
+  - `references/taste-skill-installation.md` — 404 / not found
+  - `src/index.css` — 404 / not found
+- Relative references downloaded (0):
+  - none
+- Aliases collapsed into this copy (0):
+  - none

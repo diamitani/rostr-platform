@@ -1,0 +1,35 @@
+# Notes: touchdesigner-mcp
+
+- Source repo: diamitani/hermes-agent-skills-marketplace
+- Source path: hermes-agent-creative/creative/touchdesigner-mcp/SKILL.md
+- Raw URL: https://raw.githubusercontent.com/diamitani/hermes-agent-skills-marketplace/main/hermes-agent-creative/creative/touchdesigner-mcp/SKILL.md
+- Index category: ai-agents
+- Frontmatter: rewritten (source frontmatter replaced)
+- Description: rewritten to LLM-agnostic house standard
+- Placeholders found (0): none
+- Broken references (21):
+  - `references/3d-scene.md` — 404 / not found
+  - `references/animation.md` — 404 / not found
+  - `references/audio-reactive.md` — 404 / not found
+  - `references/dat-scripting.md` — 404 / not found
+  - `references/external-data.md` — 404 / not found
+  - `references/geometry-comp.md` — 404 / not found
+  - `references/glsl.md` — 404 / not found
+  - `references/layout-compositor.md` — 404 / not found
+  - `references/mcp-tools.md` — 404 / not found
+  - `references/midi-osc.md` — 404 / not found
+  - `references/network-patterns.md` — 404 / not found
+  - `references/operator-tips.md` — 404 / not found
+  - `references/operators.md` — 404 / not found
+  - `references/panel-ui.md` — 404 / not found
+  - `references/particles.md` — 404 / not found
+  - `references/pitfalls.md` — 404 / not found
+  - `references/postfx.md` — 404 / not found
+  - `references/projection-mapping.md` — 404 / not found
+  - `references/python-api.md` — 404 / not found
+  - `references/replicator.md` — 404 / not found
+  - `references/troubleshooting.md` — 404 / not found
+- Relative references downloaded (0):
+  - none
+- Aliases collapsed into this copy (0):
+  - none
