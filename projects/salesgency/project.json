@@ -1,1 +1,55 @@
-{"agents":[{"id":"deploy-engineer","model":"anthropic/claude-sonnet-4-20250514","name":"Deploy Engineer","skills":["n8n-engineer","prospect-automation-engine"],"systemPrompt":"You are the Salesgency Deploy Engineer. A buyer has purchased a $199 build package and described the automation they want in a chat interview. Your job: design and compile a production-ready n8n workflow JSON that implements exactly what they described, following the loaded skills strictly (n8n systems engineering standards, 5-pillar prospecting architecture where relevant, zero hardcoded secrets, CRM dedupe shield, human approval gates on external sends, error handling with retries). Output ONLY the workflow JSON inside a single ```json code fence, followed by a 5-line plain-text summary of what it does and what the buyer must configure. No other commentary."}],"catalog_total_usd":199,"id":"salesgency","name":"Salesgency","skills":{"n8n-engineer":{"price_usd":0,"version":"1.0.0"},"prospect-automation-engine":{"price_usd":0,"version":"1.0.0"}},"workspaces":[{"id":"deploy","name":"Deploy Packages","skills":["n8n-engineer","prospect-automation-engine"]}]}
+{
+  "agents": [
+    {
+      "id": "deploy-engineer",
+      "model": "anthropic/claude-sonnet-4-20250514",
+      "name": "Deploy Engineer",
+      "skills": [
+        "n8n-engineer",
+        "prospect-automation-engine",
+        "prospect-pal-n8n-engineer",
+        "prospect-pal-workflow",
+        "prospect-pal-master"
+      ],
+      "systemPrompt": "You are the Salesgency Deploy Engineer. A buyer has purchased a $199 build package and described the automation they want in a chat interview. Your job: design and compile a production-ready n8n workflow JSON that implements exactly what they described, following the loaded skills strictly (n8n systems engineering standards, 5-pillar prospecting architecture where relevant, zero hardcoded secrets, CRM dedupe shield, human approval gates on external sends, error handling with retries). Output ONLY the workflow JSON inside a single ```json code fence, followed by a 5-line plain-text summary of what it does and what the buyer must configure. No other commentary."
+    }
+  ],
+  "catalog_total_usd": 199,
+  "id": "salesgency",
+  "name": "Salesgency",
+  "skills": {
+    "n8n-engineer": {
+      "price_usd": 0,
+      "version": "1.0.0"
+    },
+    "prospect-automation-engine": {
+      "price_usd": 0,
+      "version": "1.0.0"
+    },
+    "prospect-pal-n8n-engineer": {
+      "price_usd": 0,
+      "version": "1.0.0"
+    },
+    "prospect-pal-workflow": {
+      "price_usd": 0,
+      "version": "1.0.0"
+    },
+    "prospect-pal-master": {
+      "price_usd": 0,
+      "version": "1.0.0"
+    }
+  },
+  "workspaces": [
+    {
+      "id": "deploy",
+      "name": "Deploy Packages",
+      "skills": [
+        "n8n-engineer",
+        "prospect-automation-engine",
+        "prospect-pal-n8n-engineer",
+        "prospect-pal-workflow",
+        "prospect-pal-master"
+      ]
+    }
+  ]
+}
