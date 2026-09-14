@@ -1,0 +1,389 @@
+{
+  "name": "OnTheStage - Autonomous Prospect Automation Engine",
+  "nodes": [
+    {
+      "parameters": {
+        "content": "## OnTheStage — Prospect Automation Engine\n**Website:** https://onthestage.com\n**Services & Pricing:** $0 upfront software costs (ticketing fees passed to ticket buyers); optional premium add-ons for marketing automation & fundraising starting at $499/season.\n**Stack:** HubSpot + Clay + Claude 3.5 Sonnet (Anthropic) + Smartlead\n**Target Persona:** Drama Teachers, Theatre Directors, Fine Arts Department Chairs\n**Current Process Replaced:** Currently, 2 SDRs manually search state high school theatre festival directories, look up upcoming musicals on Google, write 1:1 cold emails in Gmail, and log contacts in HubSpot losing 20+ hours per week per rep."
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -120,
+        80
+      ],
+      "typeVersion": 1,
+      "id": "sticky-note-spec",
+      "name": "Architecture & Intake Summary"
+    },
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "field": "hours",
+              "triggerAtHour": 2
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.2,
+      "position": [
+        -120,
+        280
+      ],
+      "id": "node-01-cron",
+      "name": "01 Daily Schedule Trigger (2:00 AM)"
+    },
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "prospect-automation-intake",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 1.1,
+      "position": [
+        -120,
+        460
+      ],
+      "id": "node-01-webhook",
+      "name": "01 Webhook Intake (Claude Code Skills)",
+      "webhookId": "onthestage-intake-id"
+    },
+    {
+      "parameters": {
+        "jsCode": "const items = $input.all();\nconst now = new Date();\nconst startTs = new Date(now.getTime() - 24 * 60 * 60 * 1000).getTime();\nconst endTs = now.getTime();\n\nreturn items.map(item => {\n  const payload = item.json.body || item.json;\n  return {\n    json: {\n      ...payload,\n      startTs,\n      endTs,\n      ingest_timestamp: now.toISOString(),\n      company_source: 'OnTheStage_gtm_engine'\n    }\n  };\n});"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        120,
+        360
+      ],
+      "id": "node-02-normalizer",
+      "name": "02 Calculate Date Ranges & Normalize Input"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.hubapi.com/crm/v3/objects/companies/search",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "Bearer {{ $env.HUBSPOT_API_KEY }}"
+            },
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"query\": \"{{ $json.domain || $json.company_name }}\",\n  \"limit\": 50\n}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.3,
+      "position": [
+        340,
+        360
+      ],
+      "id": "node-03-crm-dedupe",
+      "name": "03 HubSpot Intent Query & Deduplication Shield"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.clay.com/v3/workspaces/enrich/people",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "Bearer {{ $env.CLAY_API_KEY }}"
+            },
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"company_name\": \"{{ $json.company_name }}\",\n  \"target_persona\": \"Drama Teachers, Theatre Directors, Fine Arts Department Chairs\",\n  \"limit\": 25\n}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.3,
+      "position": [
+        560,
+        360
+      ],
+      "id": "node-04-data-enrichment",
+      "name": "04 Clay Contact & Faculty Finder"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.anthropic.com/v1/messages",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "x-api-key",
+              "value": "={{ $env.ANTHROPIC_API_KEY }}"
+            },
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "{\n  \"model\": \"claude-3-5-sonnet-20241022\",\n  \"max_tokens\": 1024,\n  \"messages\": [\n    {\n      \"role\": \"user\",\n      \"content\": \"You are an elite B2B sales strategist representing OnTheStage (https://onthestage.com). Offering: All-in-one ticketing, marketing, fundraising, and box office platform built specifically for school theatre departments and performing arts organizations.. Pricing Model: $0 upfront software costs (ticketing fees passed to ticket buyers); optional premium add-ons for marketing automation & fundraising starting at $499/season.. Target Persona: Drama Teachers, Theatre Directors, Fine Arts Department Chairs. Conduct a rapid pain point analysis for prospect {{ $json.first_name }} {{ $json.last_name }} ({{ $json.title }}) at company {{ $json.company_name }} (Domain: {{ $json.domain }}). Write a compelling, natural 3-sentence cold email using the Problem-Agitate-Solve (PAS) copywriting framework. Return valid JSON with keys: 'pain_point', 'email_subject', 'email_body', 'linkedin_dm'.\"\n    }\n  ]\n}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.3,
+      "position": [
+        780,
+        360
+      ],
+      "id": "node-05-ai-reasoning",
+      "name": "05 Claude 3.5 Sonnet (Anthropic) Pain-Point Reasoner & PAS Copywriter"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "cond-approval",
+              "leftValue": "={{ $env.REQUIRE_HUMAN_APPROVAL || true }}",
+              "rightValue": true,
+              "operator": {
+                "type": "boolean",
+                "operation": "equals",
+                "name": "filter.operator.equals"
+              }
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2,
+      "position": [
+        1000,
+        360
+      ],
+      "id": "node-06-approval-gate",
+      "name": "06 Approval Gate (Slack Review)"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.hubapi.com/crm/v3/objects/contacts",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "Bearer {{ $env.HUBSPOT_API_KEY }}"
+            },
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"email\": \"{{ $json.email }}\",\n  \"first_name\": \"{{ $json.first_name }}\",\n  \"company\": \"{{ $json.company_name }}\",\n  \"status\": \"IN_PROGRESS\",\n  \"generated_copy\": \"{{ $node['05 AI Reasoning & Copywriter'].json.body }}\"\n}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.3,
+      "position": [
+        1220,
+        260
+      ],
+      "id": "node-07-crm-upsert",
+      "name": "07 HubSpot Contact & Opportunity Upsert"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://server.smartlead.ai/api/v1/campaigns/{{ $env.SMARTLEAD_CAMPAIGN_ID }}/leads",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "Bearer {{ $env.SMARTLEAD_API_KEY }}"
+            },
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"email\": \"{{ $json.email }}\",\n  \"first_name\": \"{{ $json.first_name }}\",\n  \"custom_intro\": \"{{ $node['05 AI Reasoning & Copywriter'].json.email_body }}\"\n}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.3,
+      "position": [
+        1440,
+        260
+      ],
+      "id": "node-08-sequencer-enroll",
+      "name": "08 Smartlead Sequence Enrollment"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://hooks.slack.com/services/{{ $env.SLACK_WEBHOOK_KEY }}",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"text\": \"*[OnTheStage GTM Engine]* New lead drafted for {{ $json.first_name }} at {{ $json.company_name }} for review.\"\n}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.3,
+      "position": [
+        1220,
+        480
+      ],
+      "id": "node-09-slack-alert",
+      "name": "09 Slack Approval Review Alert"
+    }
+  ],
+  "connections": {
+    "01 Daily Schedule Trigger (2:00 AM)": {
+      "main": [
+        [
+          {
+            "node": "02 Calculate Date Ranges & Normalize Input",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "01 Webhook Intake (Claude Code Skills)": {
+      "main": [
+        [
+          {
+            "node": "02 Calculate Date Ranges & Normalize Input",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "02 Calculate Date Ranges & Normalize Input": {
+      "main": [
+        [
+          {
+            "node": "03 HubSpot Intent Query & Deduplication Shield",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "03 HubSpot Intent Query & Deduplication Shield": {
+      "main": [
+        [
+          {
+            "node": "04 Clay Contact & Faculty Finder",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "04 Clay Contact & Faculty Finder": {
+      "main": [
+        [
+          {
+            "node": "05 Claude 3.5 Sonnet (Anthropic) Pain-Point Reasoner & PAS Copywriter",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "05 Claude 3.5 Sonnet (Anthropic) Pain-Point Reasoner & PAS Copywriter": {
+      "main": [
+        [
+          {
+            "node": "06 Approval Gate (Slack Review)",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "06 Approval Gate (Slack Review)": {
+      "main": [
+        [
+          {
+            "node": "09 Slack Approval Review Alert",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "07 HubSpot Contact & Opportunity Upsert",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "07 HubSpot Contact & Opportunity Upsert": {
+      "main": [
+        [
+          {
+            "node": "08 Smartlead Sequence Enrollment",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "pinData": {},
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "versionId": "1.0.0",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "onthestageProductionInstance"
+  }
+}
