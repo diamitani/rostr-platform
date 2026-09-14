@@ -13,6 +13,7 @@
 
 import { randomUUID } from "node:crypto";
 import type {
+  AgentDef,
   Manifest,
   Project,
   RunRecord,
@@ -241,6 +242,53 @@ export async function runWorker(
 }
 
 // ---------------------------------------------------------------------------
+// Voice reply — render a finished run as a user-facing message in the
+// agent's own voice (its project.json systemPrompt). The worker tool loop
+// keeps its machine contract; only this final, free-text call speaks as
+// the agent. Best-effort: any failure is swallowed by the caller so the
+// run record itself is never at risk.
+// ---------------------------------------------------------------------------
+
+async function synthesizeReply(
+  gateway: GatewayClient,
+  agent: AgentDef,
+  run: RunRecord
+): Promise<string> {
+  const taskLines = run.tasks.map((t) => {
+    const detail =
+      t.status === "done"
+        ? (t.output ?? "").slice(0, 500)
+        : `FAILED: ${(t.error ?? "unknown error").slice(0, 300)}`;
+    return `- [${t.status}] ${t.title}${detail ? `: ${detail}` : ""}`;
+  });
+  const decisionLines = run.decisions
+    .slice(-8)
+    .map((d) => `- ${d.text.slice(0, 200)}`);
+
+  const record =
+    `GOAL: ${run.goal}\n\n` +
+    `TASKS:\n${taskLines.join("\n") || "(none)"}\n\n` +
+    `DECISIONS:\n${decisionLines.join("\n") || "(none)"}`;
+
+  return gateway.chat(
+    [
+      { role: "system", content: agent.systemPrompt },
+      {
+        role: "user",
+        content:
+          `The run is complete. Below is the run record. Write the reply to ` +
+          `the person you serve, in your own voice and following the reply ` +
+          `conventions in your instructions. Report honestly: what got done, ` +
+          `what didn't, and anything they still need to approve or decide. ` +
+          `Do not invent results beyond what the record shows. If a task ` +
+          `failed, say so plainly and say what would unblock it.\n\n${record}`,
+      },
+    ],
+    { maxTokens: 1024 }
+  );
+}
+
+// ---------------------------------------------------------------------------
 // Master
 // ---------------------------------------------------------------------------
 
@@ -336,6 +384,8 @@ export async function runMaster(
       current.status = r.ok ? "done" : "failed";
       if (!r.ok) {
         current.error = r.output.slice(0, 500);
+      } else {
+        current.output = r.output.slice(0, 2000);
       }
       pushDecision(
         `Task "${current.title.slice(0, 60)}" ${current.status}: ${r.output.slice(0, 160)}`
@@ -348,6 +398,22 @@ export async function runMaster(
     pushDecision(
       `${done}/${run.tasks.length} tasks done — master verification pass`
     );
+
+    // 5. Voice reply (opt-in). If the agent defines a voice, render the run
+    //    record as a user-facing reply in that voice. Best-effort: never
+    //    fails the run.
+    if (agent.voice_reply && agent.systemPrompt?.trim()) {
+      try {
+        const reply = await synthesizeReply(gateway, agent, run);
+        pushStep("result", `Voice reply (${reply.length} chars)`);
+        await save();
+        emit({ type: "reply", text: reply });
+      } catch {
+        pushDecision("Voice reply synthesis failed — run record stands");
+        await save();
+      }
+    }
+
     run.status = "done";
     await save();
     emit({ type: "done", data: run });

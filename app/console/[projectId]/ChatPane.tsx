@@ -29,6 +29,8 @@ function labelFor(type: SseEvent["type"]): string {
       return "Done";
     case "error":
       return "Error";
+    case "reply":
+      return "Reply";
   }
 }
 

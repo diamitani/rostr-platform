@@ -17,6 +17,13 @@ export interface AgentDef {
   systemPrompt: string;
   skills: string[];
   model?: string;
+  /**
+   * When true and systemPrompt is non-empty, the platform renders the
+   * finished run as a user-facing reply in the agent's voice and emits it
+   * as a `reply` SSE event. Opt-in: existing agents without this flag are
+   * unaffected. The worker tool loop always keeps its machine contract.
+   */
+  voice_reply?: boolean;
 }
 
 export interface Workspace {
@@ -62,6 +69,8 @@ export interface TaskRecord {
   status: "pending" | "running" | "done" | "failed";
   manifest?: Manifest;
   error?: string;
+  /** Truncated worker result on success — feeds the voice reply. */
+  output?: string;
 }
 
 export interface Decision {
@@ -91,7 +100,7 @@ export interface Entitlement {
 }
 
 export type SseEvent = {
-  type: "thought" | "action" | "result" | "done" | "error";
+  type: "thought" | "action" | "result" | "done" | "error" | "reply";
   runId?: string;
   text?: string;
   data?: unknown;
