@@ -16,6 +16,8 @@ Read these references only when relevant:
 - `references/ops.md` for scaling, error workflows, monitoring, rollout, and rollback
 - `references/starter-pack.md` for the bundled workflow starter pack and how to use it
 - `references/sources.md` for the official source index and URLs
+- `references/openai-agent.yaml` for the agent interface config (display name, default prompt)
+- `templates/` for importable starter workflow JSONs (GTM account research copilot, deal acceleration orchestrator, outbound personalization gateway, MCP server skeleton)
 
 ## Operating stance
 
