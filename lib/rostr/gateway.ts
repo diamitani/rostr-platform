@@ -7,7 +7,12 @@ export interface ChatMessage {
   content: string;
 }
 
-const GATEWAY_URL = "https://ai-gateway.vercel.sh/v1/chat/completions";
+// Gateway endpoint: Vercel AI Gateway by default; override with
+// ROSTR_GATEWAY_URL for any OpenAI-compatible endpoint (e.g. OpenRouter:
+// https://openrouter.ai/api/v1/chat/completions). The key always comes
+// from AI_GATEWAY_API_KEY.
+const GATEWAY_URL =
+  process.env.ROSTR_GATEWAY_URL ?? "https://ai-gateway.vercel.sh/v1/chat/completions";
 const DEFAULT_MODEL = "anthropic/claude-sonnet-4-20250514";
 
 // ---------------------------------------------------------------------------
