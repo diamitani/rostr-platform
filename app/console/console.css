@@ -512,6 +512,45 @@
   font-size: 0.9rem;
 }
 
+/* ---------- Monarch brand theme ----------
+   Deep navy ground (#0A1730), gold accent (#C6A247), winged-lion blue
+   (#A0C0F0) for secondary highlights. Applied per-project via
+   .theme-monarch on the shell. */
+
+.theme-monarch {
+  --rc-bg: #0a1730;
+  --rc-bg-alt: #0d1c3a;
+  --rc-surface: #10234c;
+  --rc-surface-2: #15305f;
+  --rc-border: #21407a;
+  --rc-border-soft: #182c55;
+  --rc-text: #f2f5fb;
+  --rc-muted: #bcc9e4;
+  --rc-faint: #7e90b6;
+  --rc-accent: #c6a247;
+  --rc-accent-soft: rgba(198, 162, 71, 0.12);
+  --rc-accent-text: #e6cd85;
+}
+
+.rc-monarch-hero {
+  margin: 0 0 4px;
+}
+
+.rc-monarch-lockup {
+  height: 132px;
+  width: auto;
+  display: block;
+}
+
+.rc-brand-img {
+  width: 34px;
+  height: 34px;
+  border-radius: 9px;
+  object-fit: contain;
+  flex: 0 0 34px;
+  background: #0a1730;
+}
+
 /* ---------- Responsive ---------- */
 
 @media (max-width: 900px) {

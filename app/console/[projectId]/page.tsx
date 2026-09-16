@@ -17,6 +17,10 @@ export default async function ProjectConsole({ params }: ProjectPageProps) {
   const project = await loadProject(params.projectId);
   if (!project) notFound();
 
+  // Monarch ships with its own brand: the blue winged-lion mark and gold
+  // accents from the monarch-workspace identity, on the deep navy ground.
+  const isMonarch = project.id === "monarch";
+
   // Recent session memory from the context engine. The JSON-backed index is
   // the supported read path; anything else (disabled memory, a Supabase
   // index without a local blob reader) yields an empty list rather than a
@@ -29,11 +33,19 @@ export default async function ProjectConsole({ params }: ProjectPageProps) {
   }
 
   return (
-    <div className="rc-shell">
+    <div className={`rc-shell${isMonarch ? " theme-monarch" : ""}`}>
       <aside className="rc-sidebar">
         <Link className="rc-brand" href="/console">
-          <span className="rc-brand-mark">R</span>
-          <span className="rc-brand-name">Rostr Console</span>
+          {isMonarch ? (
+            <img
+              src="/branding/monarch/logo-mark.png"
+              alt=""
+              className="rc-brand-img"
+            />
+          ) : (
+            <span className="rc-brand-mark">R</span>
+          )}
+          <span className="rc-brand-name">{isMonarch ? "Monarch" : "Rostr Console"}</span>
         </Link>
         <nav className="rc-nav">
           <span className="rc-nav-label">Project</span>
@@ -52,7 +64,17 @@ export default async function ProjectConsole({ params }: ProjectPageProps) {
       </aside>
 
       <main className="rc-main">
-        <h1 className="rc-h1">{project.name}</h1>
+        {isMonarch ? (
+          <div className="rc-monarch-hero">
+            <img
+              src="/branding/monarch/logo-lockup.png"
+              alt="Monarch — the winged lion"
+              className="rc-monarch-lockup"
+            />
+          </div>
+        ) : (
+          <h1 className="rc-h1">{project.name}</h1>
+        )}
         <p className="rc-lede">
           This chat runs through the real Rostr runtime for this project. Your goal is compiled
           by PAL, triaged by NPAO, executed by workers, and the session is remembered by the
