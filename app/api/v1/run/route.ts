@@ -1,6 +1,12 @@
 import { z } from "zod";
-import { gatewayFromEnv } from "@/lib/rostr/gateway";
+import { GatewayClient, type UsageReport } from "@/lib/rostr/gateway";
 import { hubFromEnv } from "@/lib/rostr/hub";
+import {
+  checkQuota,
+  customerIdFor,
+  usageStoreFromEnv,
+  type UsageEvent,
+} from "@/lib/rostr/billing";
 import { defaultRegistry } from "@/lib/rostr/tools";
 import { attachComposioTools } from "@/lib/rostr/tools-composio";
 import { resolveAuth } from "@/lib/rostr/auth";
@@ -62,7 +68,36 @@ export async function POST(req: Request) {
     return Response.json({ error: "agent_not_found" }, { status: 404 });
   }
 
-  const gateway = gatewayFromEnv();
+  // Billing v1: quota is per customer per calendar month. Over quota the
+  // run never starts — 402 with a machine-readable code and an upgrade URL.
+  const customerId = customerIdFor(auth.auth, req);
+  const quota = await checkQuota(customerId);
+  if (!quota.ok) {
+    const origin = new URL(req.url).origin;
+    return Response.json(
+      {
+        code: "quota_exceeded",
+        error: "Monthly run quota exceeded for this plan.",
+        plan: quota.plan,
+        runs_this_month: quota.runsThisMonth,
+        runs_quota: quota.quota,
+        upgrade_url: `${origin}/api/v1/billing/plans`,
+      },
+      { status: 402 }
+    );
+  }
+
+  // Metering: every gateway.chat call in this run reports usage into
+  // usageCalls; the runId is captured from the first streamed event and the
+  // whole batch (calls + one aggregate "run" event) is flushed when the
+  // stream closes. Flush failures never break the response.
+  const usageCalls: UsageReport[] = [];
+  let seenRunId: string | null = null;
+  const gateway = new GatewayClient({
+    onUsage: (u) => {
+      usageCalls.push(u);
+    },
+  });
   const hub = hubFromEnv();
 
   // Entitlement gate: in live mode a paid skill needs an entitlement.
@@ -147,6 +182,9 @@ export async function POST(req: Request) {
     async start(controller) {
       const enqueue = (event: SseEvent) => {
         controller.enqueue(encoder.encode(`data: ${JSON.stringify(event)}\n\n`));
+        if (!seenRunId && (event as { runId?: string }).runId) {
+          seenRunId = (event as { runId?: string }).runId ?? null;
+        }
         // Track the stream for the checkpoint loop: approximate tokens as
         // emitted text length / 4, plus a running transcript.
         approxTokens += JSON.stringify(event).length / 4;
@@ -180,6 +218,41 @@ export async function POST(req: Request) {
       } finally {
         // At minimum one checkpoint per run, with the final transcript.
         checkpoint("final");
+        // Flush metering: one event per LLM call plus an aggregate "run"
+        // event that quota counting is based on.
+        try {
+          const at = new Date().toISOString();
+          const runId = seenRunId ?? `orphan_${Date.now().toString(36)}`;
+          const events: UsageEvent[] = usageCalls.map((u) => ({
+            kind: "call",
+            customer_id: customerId,
+            project_id: resolvedProjectId,
+            run_id: runId,
+            agent_id: agent,
+            model: u.model,
+            input_tokens: u.inputTokens,
+            output_tokens: u.outputTokens,
+            cost_usd: u.costUsd,
+            estimated: u.estimated,
+            at,
+          }));
+          events.push({
+            kind: "run",
+            customer_id: customerId,
+            project_id: resolvedProjectId,
+            run_id: runId,
+            agent_id: agent,
+            model: null,
+            input_tokens: usageCalls.reduce((s, u) => s + u.inputTokens, 0),
+            output_tokens: usageCalls.reduce((s, u) => s + u.outputTokens, 0),
+            cost_usd: usageCalls.reduce((s, u) => s + u.costUsd, 0),
+            estimated: usageCalls.some((u) => u.estimated),
+            at,
+          });
+          await usageStoreFromEnv().recordEvents(events);
+        } catch {
+          // Metering must never break the response.
+        }
         controller.close();
       }
     },

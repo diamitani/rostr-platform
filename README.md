@@ -144,6 +144,47 @@ curl -X POST http://localhost:3000/api/v1/context/assemble \
 curl "http://localhost:3000/api/v1/context/assemble?project_id=artispreneur"
 ```
 
+### Billing v1 — metering, quotas, Stripe
+
+Every `gateway.chat()` call reports usage (model, input/output tokens, USD
+cost — the real cost from the AI Gateway response when present, otherwise a
+token x price-table estimate). `/api/v1/run` flushes one event per call plus
+an aggregate "run" event when the stream closes. Quotas are per customer per
+calendar month and enforced before the run starts: over quota you get
+HTTP 402 `{ code: "quota_exceeded", upgrade_url }`.
+
+Identity: Supabase JWT -> `user:<uid>`; project API key ->
+`key:<sha256[:16]>`; dev mode -> `dev:<user_id>`.
+
+```bash
+# Plans (public — the 402 upgrade_url points here)
+curl http://localhost:3000/api/v1/billing/plans
+
+# This customer's usage this month
+curl "http://localhost:3000/api/v1/usage?project_id=fcra&user_id=user_123"
+
+# Sell the pro plan (needs STRIPE_SECRET_KEY + STRIPE_PRICE_ID)
+curl -X POST http://localhost:3000/api/v1/billing/checkout \
+  -H "Content-Type: application/json" \
+  -d '{"project_id": "fcra", "user_id": "user_123"}'
+
+# Billing portal link
+curl -X POST http://localhost:3000/api/v1/billing/portal \
+  -H "Content-Type: application/json" \
+  -d '{"project_id": "fcra", "user_id": "user_123"}'
+```
+
+Plans live in `lib/rostr/billing.ts` (`PLANS`; `free` = 10 runs/month,
+`pro` = 500 runs/month — overridable with `ROSTR_FREE_PLAN_RUNS` /
+`ROSTR_PRO_PLAN_RUNS`). Durable storage is Supabase (`billing_customers`,
+`usage_events`) — run `supabase/migrations/001_billing.sql` once in the
+dashboard. Without the tables the API degrades to in-memory metering.
+
+Stripe webhook: register `POST /api/v1/billing/webhook` in the Stripe
+dashboard; the signing secret goes in `STRIPE_WEBHOOK_SECRET`.
+`checkout.session.completed` flips the customer to `pro`;
+`customer.subscription.deleted` drops them back to `free`.
+
 ## Deploy
 
 ```bash
@@ -160,6 +201,9 @@ Then set environment variables in the Vercel dashboard for the project:
 - `ROSTR_KB_PATH` — enables the local JSON knowledge base (e.g. `./data/kb`); the zero-key way to use the RAG DAL.
 - `ROSTR_STORAGE_PATH` — local brain-library root for session memory (default `./storage`); the zero-key way to use the Context Engine loop.
 - `STRIPE_SECRET_KEY` — required for real checkout; without it, purchases are simulated.
+- `STRIPE_PRICE_ID` — the Stripe Price for the pro monthly subscription.
+- `STRIPE_WEBHOOK_SECRET` — signing secret for `POST /api/v1/billing/webhook`.
+- `ROSTR_FREE_PLAN_RUNS` / `ROSTR_PRO_PLAN_RUNS` — optional quota overrides (defaults 10 / 500).
 
 ## Context Engine (session memory)
 
