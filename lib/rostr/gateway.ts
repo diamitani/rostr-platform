@@ -7,6 +7,34 @@ export interface ChatMessage {
   content: string;
 }
 
+/** One metered LLM call. costUsd comes from the gateway response when the
+ *  provider reports it (Vercel AI Gateway: providerMetadata.gateway.cost);
+ *  otherwise it is estimated from the token counts and marked estimated. */
+export interface UsageReport {
+  model: string;
+  inputTokens: number;
+  outputTokens: number;
+  costUsd: number;
+  estimated: boolean;
+}
+
+// Fallback price table, USD per 1M tokens [input, output]. Only used when
+// the gateway does not report a cost. Provider list prices move — check
+// vercel.com/ai-gateway/models for current rates.
+const PRICE_TABLE: Record<string, [number, number]> = {
+  "anthropic/claude-sonnet-4-6": [3.0, 15.0],
+  "anthropic/claude-sonnet-4-20250514": [3.0, 15.0],
+};
+
+function estimateCost(
+  model: string,
+  inputTokens: number,
+  outputTokens: number
+): number {
+  const [pin, pout] = PRICE_TABLE[model] ?? [3.0, 15.0];
+  return (inputTokens / 1e6) * pin + (outputTokens / 1e6) * pout;
+}
+
 // Gateway endpoint: Vercel AI Gateway by default; override with
 // ROSTR_GATEWAY_URL for any OpenAI-compatible endpoint (e.g. OpenRouter:
 // https://openrouter.ai/api/v1/chat/completions). The key always comes
@@ -108,16 +136,53 @@ function mockComplete(messages: ChatMessage[]): string {
 export class GatewayClient {
   private apiKey: string;
   private mock: boolean;
+  private onUsage?: (u: UsageReport) => void;
 
-  constructor(opts?: { apiKey?: string; mock?: boolean }) {
+  constructor(opts?: {
+    apiKey?: string;
+    mock?: boolean;
+    onUsage?: (u: UsageReport) => void;
+  }) {
     const key = opts?.apiKey ?? process.env.AI_GATEWAY_API_KEY ?? "";
     this.apiKey = key;
     // Mock unless explicitly disabled AND a key is present.
     this.mock = opts?.mock ?? (process.env.MOCK_MODE === "true" || !key);
+    this.onUsage = opts?.onUsage;
   }
 
   get isMock(): boolean {
     return this.mock;
+  }
+
+  private reportUsage(
+    model: string,
+    data: {
+      usage?: {
+        prompt_tokens?: number;
+        completion_tokens?: number;
+        total_tokens?: number;
+      };
+      providerMetadata?: { gateway?: { cost?: number } };
+    }
+  ): void {
+    if (!this.onUsage) return;
+    try {
+      const inputTokens = Number(data.usage?.prompt_tokens ?? 0) || 0;
+      const outputTokens = Number(data.usage?.completion_tokens ?? 0) || 0;
+      const reported = Number(data.providerMetadata?.gateway?.cost);
+      const estimated = !(Number.isFinite(reported) && reported >= 0);
+      this.onUsage({
+        model,
+        inputTokens,
+        outputTokens,
+        costUsd: estimated
+          ? estimateCost(model, inputTokens, outputTokens)
+          : reported,
+        estimated,
+      });
+    } catch {
+      // Metering must never break the call.
+    }
   }
 
   async chat(
@@ -145,11 +210,18 @@ export class GatewayClient {
     }
     const data = (await res.json()) as {
       choices?: Array<{ message?: { content?: string } }>;
+      usage?: {
+        prompt_tokens?: number;
+        completion_tokens?: number;
+        total_tokens?: number;
+      };
+      providerMetadata?: { gateway?: { cost?: number } };
     };
     const content = data.choices?.[0]?.message?.content;
     if (!content) {
       throw new Error("Gateway returned no content");
     }
+    this.reportUsage(opts?.model ?? DEFAULT_MODEL, data);
     return content;
   }
 }
