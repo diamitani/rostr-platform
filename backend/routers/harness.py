@@ -21,7 +21,7 @@ HARNESS = os.environ.get("ROSTR_HARNESS_URL", "").rstrip("/")
 CONTRACT = {
     "ok": True,
     "name": "ROSTR Jev harness",
-    "version": "0.3.0",
+    "version": "0.4.0",
     "proxy": HARNESS or None,
     "endpoints": [
         "GET /v1/health",
