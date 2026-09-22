@@ -44,7 +44,7 @@ from contextlib import asynccontextmanager
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), "..", "rostr-core", "src"))
 
 from db.database import init_db
-from routers import pal, ragdal, npao, hub, stats, auth, agents, settings
+from routers import pal, ragdal, npao, hub, stats, auth, agents, settings, harness
 
 
 @asynccontextmanager
@@ -105,6 +105,7 @@ app.include_router(ragdal.router, prefix="/ragdal", tags=["RAG DAL"])
 app.include_router(npao.router, prefix="/npao", tags=["NPAO"])
 app.include_router(hub.router, prefix="/hub", tags=["Hub"])
 app.include_router(stats.router, prefix="/stats", tags=["Stats"])
+app.include_router(harness.router, prefix="/v1", tags=["Jev harness"])
 
 
 @app.get("/")
@@ -122,6 +123,7 @@ def root():
             "npao": ["POST /npao/classify", "POST /npao/tasks", "GET /npao/tasks"],
             "hub": ["GET/POST /hub/agents", "GET/POST /hub/decisions", "GET/POST /hub/learnings", "GET /hub/compound"],
             "stats": ["GET /stats"],
+            "harness": ["GET /v1/health", "POST /v1/sessions", "POST /v1/sessions/{id}/turns", "POST /v1/generate"],
         },
         "docs": "/docs",
     }
