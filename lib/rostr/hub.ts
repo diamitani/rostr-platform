@@ -275,10 +275,11 @@ export class SupabaseHub implements Hub {
       id: randomUUID(), projectId, agentId, goal, skillName,
       status: "running", tasks: [], steps: [], decisions: [], createdAt: nowIso(),
     };
-    await this.request("rostr_runs", "", {
+    const rows = await this.request("rostr_runs", "", {
       method: "POST",
       body: JSON.stringify({ id: run.id, user_id: this.userId, project_id: projectId, record: run }),
-    });
+    }) as unknown[];
+    if (rows.length !== 1) throw new Error("run persistence was not confirmed");
     return run;
   }
 
