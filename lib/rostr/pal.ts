@@ -113,6 +113,11 @@ export function compileManifest(input: CompileInput): Manifest {
   // CRITICAL: skillText must be populated — the Python version dropped it,
   // so workers never received the skill they were supposed to follow.
   const manifest: Manifest = {
+    version: 1,
+    completionCriteria: ["Produce a checkable result for the stated goal and label unknown facts."],
+    escalationPolicy: "require-approval",
+    deniedTools: ["write_file", "email_send", "publish", "charge"],
+    memoryScope: "project",
     projectId: input.projectId,
     agentId: input.agent.id,
     skillName: input.skillName,
@@ -126,4 +131,22 @@ export function compileManifest(input: CompileInput): Manifest {
   };
 
   return manifest;
+}
+
+/** Hard gate: a model-produced or malformed manifest cannot authorize tools. */
+export function validateManifest(manifest: Manifest): void {
+  if (manifest.version !== 1 || !manifest.projectId?.trim() || !manifest.agentId?.trim() ||
+      !manifest.goal?.trim() || !Array.isArray(manifest.completionCriteria) ||
+      !manifest.completionCriteria.length || !["require-approval", "human-in-loop"].includes(manifest.escalationPolicy) ||
+      !Array.isArray(manifest.allowedTools) || !Array.isArray(manifest.deniedTools) ||
+      !Number.isInteger(manifest.maxSteps) || manifest.maxSteps < 1 || manifest.maxSteps > 100) {
+    throw new Error("invalid PAL manifest");
+  }
+  const names = [...manifest.allowedTools, ...manifest.deniedTools];
+  if (names.some((name) => typeof name !== "string" || !/^[a-zA-Z0-9_:.-]{1,100}$/.test(name))) {
+    throw new Error("invalid PAL tool name");
+  }
+  if (manifest.allowedTools.some((name) => manifest.deniedTools.includes(name))) {
+    throw new Error("PAL tool allow/deny conflict");
+  }
 }

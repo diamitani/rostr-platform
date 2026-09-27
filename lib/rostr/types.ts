@@ -42,6 +42,12 @@ export interface Project {
 }
 
 export interface Manifest {
+  /** The compiler contract; incompatible versions fail closed. */
+  version: 1;
+  completionCriteria: string[];
+  escalationPolicy: "require-approval" | "human-in-loop";
+  deniedTools: string[];
+  memoryScope: "session" | "project";
   projectId: string;
   agentId: string;
   skillName?: string;

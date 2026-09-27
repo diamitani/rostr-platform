@@ -23,7 +23,7 @@ import type {
 } from "./types";
 import { MASTER_PROMPT, WORKER_PROMPT } from "./prompts";
 import { GatewayClient } from "./gateway";
-import { compileManifest } from "./pal";
+import { compileManifest, validateManifest } from "./pal";
 import { classify, orderByNpao } from "./npao";
 import type { Hub } from "./hub";
 import type { ToolRegistry } from "./tools";
@@ -202,6 +202,7 @@ export async function runWorker(
   opts: RunOptions & { manifest: Manifest; runId?: string }
 ): Promise<{ ok: boolean; output: string }> {
   const { gateway, manifest } = opts;
+  validateManifest(manifest);
 
   // First attempt.
   let attempt = await workerAttempt({ ...opts, extraContext: "" });
@@ -357,6 +358,9 @@ export async function runMaster(
         skillText: opts.skillText,
         context: opts.context,
       });
+      // Validate before mutating registry state or starting worker execution.
+      validateManifest(manifest);
+      tools.deny(manifest.skillName ?? manifest.agentId, manifest.deniedTools);
       // Gate the registry to the manifest's allow list for this skill.
       tools.allow(manifest.skillName ?? manifest.agentId, manifest.allowedTools);
       task.manifest = manifest;
