@@ -46,7 +46,6 @@ export async function POST(req: Request) {
   }
   const price = project.skills[skill].price_usd ?? 0;
 
-  const hub = hubFromEnv();
   const stripeKey = process.env.STRIPE_SECRET_KEY;
 
   // Live mode: create a Stripe Checkout session via the REST API.
@@ -88,6 +87,7 @@ export async function POST(req: Request) {
   }
 
   // Local development only: grant a mock entitlement without payment.
+  const hub = hubFromEnv(auth.auth.user_id);
   await hub.grantEntitlement({
     userId: user_id,
     projectId: project_id,

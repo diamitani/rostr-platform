@@ -234,68 +234,118 @@ export class JsonHub implements Hub {
   }
 }
 
-// ---------------------------------------------------------------------------
-// SupabaseHub: STUB. This class implements the Hub interface against a
-// Supabase/Postgres backend, but the client wiring is not implemented yet —
-// every method throws until it is. Swap JsonHub for this class in
-// hubFromEnv() once the real client is wired (schema: one row per run in a
-// `runs` table keyed by (project_id, run_id), entitlements in an
-// `entitlements` table, reference entries in a `reference_log` table).
-// ---------------------------------------------------------------------------
-
+// A hub is bound to one verified caller. Service-role requests bypass RLS, so
+// every query must also filter by this user and project. Never use anon keys
+// for this backend: a missing service credential is a configuration failure.
 export class SupabaseHub implements Hub {
   private url: string;
   private key: string;
-
-  constructor(url: string, key: string) {
+  private userId: string;
+  constructor(url: string, key: string, userId: string) {
     this.url = url;
     this.key = key;
-  }
-
-  private get configured(): boolean {
-    return Boolean(this.url && this.key);
-  }
-
-  private fail(method: string): never {
-    if (!this.configured) {
-      throw new Error("SupabaseHub not configured");
+    this.userId = userId;
+    if (!url || !key || !/^[0-9a-f]{8}-[0-9a-f-]{27,}$/i.test(userId)) {
+      throw new Error("SupabaseHub requires a verified user UUID and service credential");
     }
-    throw new Error(
-      `SupabaseHub stub: ${method} is not implemented yet — wire the Supabase client here.`
-    );
   }
 
-  async createRun(): Promise<RunRecord> {
-    this.fail("createRun");
+  private async request(table: string, query: string, init: RequestInit = {}): Promise<unknown> {
+    const res = await fetch(`${this.url.replace(/\/+$/, "")}/rest/v1/${table}${query}`, {
+      ...init,
+      signal: AbortSignal.timeout(8000),
+      headers: {
+        apikey: this.key,
+        Authorization: `Bearer ${this.key}`,
+        "Content-Type": "application/json",
+        Prefer: "return=representation",
+        ...init.headers,
+      },
+    });
+    if (!res.ok) throw new Error(`SupabaseHub ${table} failed (${res.status})`);
+    return res.status === 204 ? null : res.json();
   }
-  async getRun(): Promise<RunRecord | null> {
-    this.fail("getRun");
+
+  private scope(projectId: string): string {
+    return `project_id=eq.${encodeURIComponent(projectId)}&user_id=eq.${encodeURIComponent(this.userId)}`;
   }
-  async updateRun(): Promise<void> {
-    this.fail("updateRun");
+
+  async createRun(projectId: string, agentId: string, goal: string, skillName?: string): Promise<RunRecord> {
+    const run: RunRecord = {
+      id: randomUUID(), projectId, agentId, goal, skillName,
+      status: "running", tasks: [], steps: [], decisions: [], createdAt: nowIso(),
+    };
+    await this.request("rostr_runs", "", {
+      method: "POST",
+      body: JSON.stringify({ id: run.id, user_id: this.userId, project_id: projectId, record: run }),
+    });
+    return run;
   }
-  async addStep(): Promise<RunStep> {
-    this.fail("addStep");
+
+  async getRun(projectId: string, runId: string): Promise<RunRecord | null> {
+    const rows = await this.request("rostr_runs", `?${this.scope(projectId)}&id=eq.${encodeURIComponent(runId)}&select=record`) as Array<{ record: RunRecord }>;
+    return rows[0]?.record ?? null;
   }
-  async addDecision(): Promise<void> {
-    this.fail("addDecision");
+
+  async updateRun(projectId: string, run: RunRecord): Promise<void> {
+    if (run.projectId !== projectId) throw new Error("run project mismatch");
+    const rows = await this.request("rostr_runs", `?${this.scope(projectId)}&id=eq.${encodeURIComponent(run.id)}`, {
+      method: "PATCH", body: JSON.stringify({ record: run }),
+    }) as unknown[];
+    if (rows.length !== 1) throw new Error("run not found or not owned by caller");
   }
-  async logReference(): Promise<void> {
-    this.fail("logReference");
+
+  async addStep(projectId: string, runId: string, step: Omit<RunStep, "id" | "at">): Promise<RunStep> {
+    const rows = await this.request("rpc/rostr_append_step", "", {
+      method: "POST",
+      body: JSON.stringify({ p_project_id: projectId, p_user_id: this.userId, p_run_id: runId,
+        p_step: { ...step, id: randomUUID(), at: nowIso() } }),
+    }) as RunStep;
+    return rows;
   }
-  async checkEntitlement(): Promise<boolean> {
-    this.fail("checkEntitlement");
+
+  async addDecision(projectId: string, runId: string, text: string): Promise<void> {
+    await this.request("rpc/rostr_append_decision", "", {
+      method: "POST", body: JSON.stringify({ p_project_id: projectId, p_user_id: this.userId,
+        p_run_id: runId, p_decision: { at: nowIso(), text } }),
+    });
   }
-  async grantEntitlement(): Promise<void> {
-    this.fail("grantEntitlement");
+
+  async logReference(projectId: string, entry: string): Promise<void> {
+    await this.request("rostr_reference_log", "", {
+      method: "POST", body: JSON.stringify({ project_id: projectId, user_id: this.userId, entry }),
+    });
+  }
+
+  async checkEntitlement(userId: string, projectId: string, skill: string): Promise<boolean> {
+    if (userId !== this.userId) return false;
+    const rows = await this.request("rostr_entitlements", `?${this.scope(projectId)}&skill=eq.${encodeURIComponent(skill)}&select=uses_remaining`) as Array<{ uses_remaining: number | null }>;
+    return rows.length > 0 && (rows[0].uses_remaining === null || rows[0].uses_remaining > 0);
+  }
+
+  async grantEntitlement(e: Entitlement): Promise<void> {
+    // Hosted grants must be proved by Artispreneur's purchase/subscription
+    // ledger, not asserted by callers of this runtime. No local mock grants.
+    if (process.env.NODE_ENV === "production") throw new Error("hosted entitlement grants disabled");
+    if (e.userId !== this.userId) throw new Error("entitlement user mismatch");
+    await this.request("rostr_entitlements", "?on_conflict=user_id,project_id,skill", {
+      method: "POST", headers: { Prefer: "resolution=merge-duplicates,return=representation" },
+      body: JSON.stringify({ user_id: this.userId, project_id: e.projectId, skill: e.skill,
+        granted_via: e.grantedVia, uses_remaining: e.usesRemaining }),
+    });
   }
 }
 
-export function hubFromEnv(): Hub {
+export function hubFromEnv(userId?: string): Hub {
   const url = process.env.SUPABASE_URL ?? "";
-  const key = process.env.SUPABASE_ANON_KEY ?? "";
-  if (url && key) {
-    return new SupabaseHub(url, key);
+  if (url) {
+    const key = process.env.SUPABASE_SERVICE_KEY ?? "";
+    if (!key) throw new Error("SupabaseHub requires service credential");
+    if (userId && /^[0-9a-f]{8}-[0-9a-f-]{27,}$/i.test(userId)) {
+      return new SupabaseHub(url, key, userId);
+    }
+    throw new Error("SupabaseHub requires an authenticated user UUID");
   }
+  if (process.env.NODE_ENV === "production") throw new Error("Durable hub not configured");
   return new JsonHub();
 }

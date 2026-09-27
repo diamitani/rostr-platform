@@ -58,6 +58,16 @@ export async function POST(req: Request) {
   if (!auth.ok) {
     return Response.json({ error: auth.error }, { status: auth.status });
   }
+  // The shared Artispreneur tenant is per-user. Project API keys do not carry
+  // an artist identity; they must not run an artist's skills or read their data.
+  if (process.env.NODE_ENV === "production" && project_id === "artispreneur" && auth.auth.mode !== "jwt") {
+    return Response.json({ error: "user_jwt_required" }, { status: 403 });
+  }
+  // Separate enablement keeps a code deploy from activating an untested
+  // database, auth or gateway integration.
+  if (process.env.NODE_ENV === "production" && project_id === "artispreneur" && process.env.ARTISPRENEUR_ROSTR_ENABLED !== "true") {
+    return Response.json({ error: "artispreneur_harness_not_enabled" }, { status: 503 });
+  }
   const resolvedProjectId = auth.auth.project_id;
   const resolvedUserId = auth.auth.user_id;
 
@@ -101,7 +111,15 @@ export async function POST(req: Request) {
       usageCalls.push(u);
     },
   });
-  const hub = hubFromEnv();
+  if (process.env.NODE_ENV === "production" && gateway.isMock) {
+    return Response.json({ error: "model_not_configured" }, { status: 503 });
+  }
+  let hub;
+  try {
+    hub = hubFromEnv(auth.auth.user_id);
+  } catch {
+    return Response.json({ error: "hub_not_configured" }, { status: 503 });
+  }
 
   // Entitlement gate: in live mode a paid skill needs an entitlement.
   // In mock mode we bypass and grant a mock entitlement for consistency.
