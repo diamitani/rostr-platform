@@ -144,7 +144,7 @@ export async function resolveAuth(
         const uid = body?.id;
         const requested =
           opts?.projectIdFromBody ?? opts?.projectIdFromQuery;
-        if (uid && requested && serviceKey) {
+        if (uid && requested && requested !== "artispreneur" && serviceKey) {
           const owned = await authFetch(
             `${url}/rest/v1/projects?owner_id=eq.${encodeURIComponent(
               uid
@@ -172,6 +172,20 @@ export async function resolveAuth(
                   mode: "jwt",
                 },
               };
+            }
+          }
+        }
+        // Artispreneur is a shared project: check explicit per-artist membership,
+        // not the single-owner projects table. A valid JWT alone is insufficient.
+        if (uid && requested === "artispreneur" && serviceKey) {
+          const membership = await authFetch(
+            `${url}/rest/v1/rostr_project_memberships?project_id=eq.artispreneur&user_id=eq.${encodeURIComponent(uid)}&select=project_id`,
+            { headers: { apikey: serviceKey, Authorization: `Bearer ${serviceKey}` } }
+          );
+          if (membership.ok) {
+            const rows = await safeJson(membership) as Array<{ project_id?: string }> | null;
+            if (Array.isArray(rows) && rows.some((r) => r.project_id === requested)) {
+              return { ok: true, auth: { user_id: uid, project_id: requested, mode: "jwt" } };
             }
           }
         }

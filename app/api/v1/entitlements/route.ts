@@ -19,7 +19,12 @@ export async function GET(req: Request) {
     return Response.json({ error: auth.error }, { status: auth.status });
   }
 
-  const hub = hubFromEnv();
+  if (process.env.NODE_ENV === "production" && auth.auth.project_id === "artispreneur" && process.env.ARTISPRENEUR_ROSTR_ENABLED !== "true") {
+    return Response.json({ error: "artispreneur_harness_not_enabled" }, { status: 503 });
+  }
+  let hub;
+  try { hub = hubFromEnv(auth.auth.user_id); }
+  catch { return Response.json({ error: "hub_not_configured" }, { status: 503 }); }
   const entitled = await hub.checkEntitlement(
     auth.auth.user_id,
     auth.auth.project_id,
