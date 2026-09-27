@@ -3,8 +3,8 @@
 // The platform wires Composio in as an extension of the tool registry:
 // listComposioTools() discovers the tools for the configured apps,
 // attachComposioTools() registers each one as a ToolDef whose run()
-// delegates to executeComposioTool(), and the runtime can fall back to
-// executeComposioTool() for tool names the registry doesn't know.
+// delegates to executeComposioTool(). The run endpoint must verify the
+// authenticated user owns the connection and bind effect approvals before use.
 //
 // Endpoints (Composio REST API v3, confirmed against public docs):
 //   GET  /tools                  — list tools, filter by toolkits slugs

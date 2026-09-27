@@ -27,7 +27,6 @@ import { compileManifest } from "./pal";
 import { classify, orderByNpao } from "./npao";
 import type { Hub } from "./hub";
 import type { ToolRegistry } from "./tools";
-import { composioConfigured, executeComposioTool } from "./tools-composio";
 
 export interface RunOptions {
   gateway: GatewayClient;
@@ -111,7 +110,7 @@ function buildWorkerPrompt(
     "Reply with JSON ONLY, one of:",
     '  {"thought": "...", "action": "<tool_name>", "args": {...}}',
     '  {"thought": "...", "done": true, "result": "<what was accomplished>"}',
-    "Do not ask questions — make reasonable assumptions and note them in thought."
+    "If a missing detail could change the recipient, account, amount, audience, or result, stop and return done with a clear clarification_needed result. Never guess approval."
   );
   return lines.join("\n");
 }
@@ -178,24 +177,14 @@ async function workerAttempt(
 
     const actionName = String(act.action ?? "");
     const args = (act.args ?? {}) as Record<string, unknown>;
-    const tool = tools.getTool(actionName);
-    const allowed = new Set(manifest.allowedTools);
-    let res: string;
-    if (!tool) {
-      // Fallback: a Composio tool name the registry didn't pre-register
-      // (e.g. attach failed at run start) still runs directly.
-      res = composioConfigured()
-        ? await executeComposioTool(actionName, args)
-        : `error: unknown tool '${actionName}'`;
-    } else if (!allowed.has(actionName)) {
-      res = `error: tool '${actionName}' is not in this task's allowed tools`;
-    } else {
-      try {
-        res = await tool.run(args);
-      } catch (e) {
-        res = `error: ${e instanceof Error ? e.message : String(e)}`;
-      }
-    }
+    // The registry is the single enforcement point. In particular, an unknown
+    // model-supplied slug must never fall through to an unregistered Composio
+    // action, regardless of connector availability.
+    const res = await tools.call(
+      manifest.skillName ?? manifest.agentId,
+      actionName,
+      args
+    );
 
     const summary = `${thought.slice(0, 120)} -> ${actionName} => ${res.slice(0, 160)}`;
     history.push(summary);

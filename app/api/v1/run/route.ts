@@ -8,7 +8,6 @@ import {
   type UsageEvent,
 } from "@/lib/rostr/billing";
 import { defaultRegistry } from "@/lib/rostr/tools";
-import { attachComposioTools } from "@/lib/rostr/tools-composio";
 import { resolveAuth } from "@/lib/rostr/auth";
 import { runMaster } from "@/lib/rostr/runtime";
 import { kbStore } from "@/lib/rostr/rag-dal";
@@ -25,7 +24,6 @@ const runBodySchema = z.object({
   skill: z.string().min(1).optional(),
   input: z.string().min(1),
   user_id: z.string().min(1).optional(),
-  composio_account_id: z.string().min(1).optional(),
 });
 
 // POST /api/v1/run — start an agent run and stream progress as SSE.
@@ -37,6 +35,12 @@ export async function POST(req: Request) {
     return Response.json({ error: "invalid_json" }, { status: 400 });
   }
 
+  // The previous API accepted a client-supplied Composio account ID without
+  // verifying ownership. Reject it before any billing or entitlement work.
+  if (body && typeof body === "object" && Object.prototype.hasOwnProperty.call(body, "composio_account_id")) {
+    return Response.json({ error: "composio_connection_not_available" }, { status: 409 });
+  }
+
   const parsed = runBodySchema.safeParse(body);
   if (!parsed.success) {
     return Response.json(
@@ -44,8 +48,7 @@ export async function POST(req: Request) {
       { status: 400 }
     );
   }
-  const { project_id, agent, skill, input, user_id, composio_account_id } =
-    parsed.data;
+  const { project_id, agent, skill, input, user_id } = parsed.data;
 
   // Auth first — the sibling auth contract resolves who owns this request.
   const auth = await resolveAuth(req, {
@@ -141,15 +144,7 @@ export async function POST(req: Request) {
 
   const encoder = new TextEncoder();
 
-  // Tool registry: built-ins plus any Composio integrations. The Composio
-  // attach is best-effort — if it's unconfigured or the API is down the
-  // run continues with built-ins only.
   const tools = defaultRegistry();
-  try {
-    await attachComposioTools(tools, { connectedAccountId: composio_account_id });
-  } catch {
-    // never breaks the run
-  }
 
   // Context Engine (session memory): the always-on trigger loop runs on
   // every run in the background and never blocks the agent. One session id
