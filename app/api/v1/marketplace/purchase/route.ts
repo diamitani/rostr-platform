@@ -80,7 +80,14 @@ export async function POST(req: Request) {
     return Response.json({ checkout_url: json.url });
   }
 
-  // Mock mode: grant the entitlement immediately, no payment needed.
+  // A missing payment credential on a hosted deployment is a configuration
+  // failure, not a free purchase. Never grant paid access by falling back to
+  // the local mock flow in production.
+  if (process.env.NODE_ENV === "production") {
+    return Response.json({ error: "payment_not_configured" }, { status: 503 });
+  }
+
+  // Local development only: grant a mock entitlement without payment.
   await hub.grantEntitlement({
     userId: user_id,
     projectId: project_id,
