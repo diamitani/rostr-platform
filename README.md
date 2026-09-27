@@ -320,9 +320,10 @@ the context engine remembers. There is no separate chatbot.
    What it unlocks: the hosted platform — console, API, and background
    maintenance.
 
-Local dev needs none of this: with no `SUPABASE_URL` set, the API runs in
-dev mode (no auth required) and the console works out of the box with
-`npm run dev`.
+Local dev needs none of this: with no `SUPABASE_URL` set and a
+non-production `NODE_ENV`, the API runs in dev mode (no auth required).
+The console works out of the box with `npm run dev`. In production, a missing
+`SUPABASE_URL` returns 503 from protected API routes instead of anonymous access.
 
 ### Console tour
 
@@ -338,8 +339,8 @@ dev mode (no auth required) and the console works out of the box with
 
 ### Auth model
 
-- **Local dev** (no `SUPABASE_URL`): no auth required. `project_id` comes
-  from the request, `user_id` defaults to `local-dev`.
+- **Local dev** (no `SUPABASE_URL`, non-production `NODE_ENV`): no auth
+  required. `project_id` comes from the request, `user_id` defaults to `local-dev`.
 - **Hosted**: every `/api/v1` route resolves `project_id` from auth — never
   from the client alone. Two credential types: project API keys (SHA-256
   hash compared against `api_keys`, revoked keys rejected) and Supabase
