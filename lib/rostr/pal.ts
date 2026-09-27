@@ -120,7 +120,7 @@ export function compileManifest(input: CompileInput): Manifest {
     skillText: input.skillText ?? "",
     retrievedContext,
     constraints: [...constraints, ...guidance.map((g) => `guidance: ${g}`)],
-    allowedTools: input.allowedTools ?? ["read_file", "write_file", "list_dir"],
+    allowedTools: input.allowedTools ?? ["read_file", "list_dir"],
     maxSteps: input.maxSteps ?? 12,
     model: input.agent.model, // Stage 5 — route: model comes from the agent def.
   };

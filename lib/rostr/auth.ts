@@ -1,7 +1,8 @@
 // Auth: resolves the caller identity for v1 API routes.
 //
 // Three modes:
-//   - dev:      SUPABASE_URL is not set. Trusts the caller-supplied project_id
+//   - dev:      SUPABASE_URL is not set AND NODE_ENV is not production.
+//               Trusts the caller-supplied project_id
 //               (opts.projectIdFromBody ?? opts.projectIdFromQuery) and user_id
 //               (opts.userIdFromBody ?? "local-dev"). 401 if no project_id.
 //   - api_key:  SUPABASE_URL is set. The bearer token is a project API key:
@@ -11,6 +12,7 @@
 //               (verified via /auth/v1/user); the requested project_id must be
 //               in the user's owned projects, else 403 "project_forbidden".
 //
+// In production without SUPABASE_URL, fail closed with 503 auth_not_configured.
 // No new dependencies: fetch + node:crypto only. Never throws — every
 // failure path returns an AuthResult with { ok: false, status, error }.
 
@@ -63,7 +65,12 @@ export async function resolveAuth(
 ): Promise<AuthResult> {
   const url = supabaseUrl();
 
-  // ---- dev mode: no Supabase configured -----------------------------------
+  // ---- local dev only: no Supabase configured ------------------------------
+  // A missing production secret must not silently become anonymous auth.
+  // Fail closed even when the deployment is otherwise serving mock responses.
+  if (!url && process.env.NODE_ENV === "production") {
+    return { ok: false, status: 503, error: "auth_not_configured" };
+  }
   if (!url) {
     const projectId = opts?.projectIdFromBody ?? opts?.projectIdFromQuery;
     if (!projectId) {

@@ -80,6 +80,12 @@ export class ToolRegistry {
     if (!this.allowLists.get(skillName)?.has(name)) {
       return `error: tool '${name}' is not allowed for skill '${skillName}'`;
     }
+    // There is no server-side human approval token or idempotent proposal
+    // contract yet. A prompt, manifest allow-list or model action cannot
+    // authorize a filesystem mutation on its own.
+    if (name === "write_file") {
+      return "error: write_file requires human approval; no approval contract is configured";
+    }
     const tool = this.tools.get(name);
     if (!tool) {
       return `error: unknown tool '${name}'`;
@@ -95,12 +101,18 @@ export class ToolRegistry {
 // -- Built-in file tools (sandboxed to process.cwd()) --------------------------
 
 function sandbox(rel: string): string {
-  const root = path.resolve(process.cwd());
+  const root = fs.realpathSync(process.cwd());
   const p = path.resolve(root, rel);
   if (p !== root && !p.startsWith(root + path.sep)) {
     throw new Error(`path escapes workspace root: ${rel}`);
   }
-  return p;
+  // Lexical containment alone allows a symlink inside the root to point at
+  // private host files. Resolve the target before reading or listing it.
+  const actual = fs.realpathSync(p);
+  if (actual !== root && !actual.startsWith(root + path.sep)) {
+    throw new Error(`path escapes workspace root: ${rel}`);
+  }
+  return actual;
 }
 
 async function runReadFile(args: Record<string, unknown>): Promise<string> {
@@ -108,12 +120,10 @@ async function runReadFile(args: Record<string, unknown>): Promise<string> {
   return fs.readFileSync(p, "utf-8");
 }
 
-async function runWriteFile(args: Record<string, unknown>): Promise<string> {
-  const p = sandbox(String(args.path ?? ""));
-  const content = String(args.content ?? "");
-  fs.mkdirSync(path.dirname(p), { recursive: true });
-  fs.writeFileSync(p, content, "utf-8");
-  return `wrote ${content.length} chars to ${args.path}`;
+async function runWriteFile(_args: Record<string, unknown>): Promise<string> {
+  // Also seal the direct implementation path; registry.call is the primary
+  // boundary, but a future refactor must not accidentally bypass it.
+  return "error: write_file requires human approval; no approval contract is configured";
 }
 
 async function runListDir(args: Record<string, unknown>): Promise<string> {
