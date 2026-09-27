@@ -121,6 +121,12 @@ export async function POST(req: Request) {
     return Response.json({ error: "hub_not_configured" }, { status: 503 });
   }
 
+  // Entitlement gate: the website's purchase/subscription ledger is still
+  // authoritative. Until it is integrated, deny all hosted Artispreneur skill
+  // runs rather than relying on a stale or self-granted ROSTR cache.
+  if (process.env.NODE_ENV === "production" && resolvedProjectId === "artispreneur" && skill) {
+    return Response.json({ error: "website_entitlement_adapter_not_configured" }, { status: 503 });
+  }
   // Entitlement gate: in live mode a paid skill needs an entitlement.
   // In mock mode we bypass and grant a mock entitlement for consistency.
   if (skill && !gateway.isMock) {
