@@ -467,3 +467,15 @@ class TestClassifierHardening:
         npao = NPAO(phase_classifier=clf)
         assert npao.classify_phase("Research competitor pricing") == PhaseType.PRED
         assert clf.last_source == "keyword"
+
+    def test_llm_classifier_recovers_truncated_json(self):
+        from rostr.npao.llm import LLMPhaseClassifier
+        # Small models hit the token cap mid-object; the bare pair is enough.
+        clf = LLMPhaseClassifier(
+            base_url="https://example.invalid/v1",
+            api_key="test",
+            model="test-model",
+            call_fn=lambda s, u: '{"phase": "DEPLOYMENT", "reason": "rolling ou',
+        )
+        assert clf.classify("anything") == PhaseType.DEPLOYMENT
+        assert clf.last_source == "model"

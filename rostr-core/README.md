@@ -155,7 +155,10 @@ ROSTR_LLM_BASE_URL=... ROSTR_LLM_API_KEY=... ROSTR_LLM_MODEL=... \
 ```
 
 Keyword baseline on the bundled 45-task labeled dataset: 66.7% overall,
-4/18 on the tricky subset. Report: `benchmarks/results/phase_classifier_benchmark.json`.
+4/18 on the tricky subset. Measured model leg (free local SmolLM2-360M-Instruct,
+llama.cpp): 57.8% — the model path is proven end-to-end, but a model this
+small does not beat the keywords; use a real instruct model. Report:
+`benchmarks/results/phase_classifier_benchmark.json`.
 
 ### Rostr Hub — The Agent OS
 ```

@@ -35,6 +35,8 @@ export interface RunOptions {
   project: Project;
   skillText?: string;
   context?: string;
+  /** Optional cap on worker tool-loop steps per task (manifest default 12). */
+  maxSteps?: number;
   onEvent?: (e: SseEvent) => void;
 }
 
@@ -357,6 +359,7 @@ export async function runMaster(
         skillName,
         skillText: opts.skillText,
         context: opts.context,
+        maxSteps: opts.maxSteps,
       });
       // Validate before mutating registry state or starting worker execution.
       validateManifest(manifest);

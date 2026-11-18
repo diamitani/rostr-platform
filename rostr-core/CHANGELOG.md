@@ -15,4 +15,9 @@
 - Add: phase-classifier benchmark (`benchmarks/phase_classifier_benchmark.py`)
   with a 45-task labeled dataset (a third deliberately tricky). Keyword
   baseline on this dataset: 66.7% overall, 4/18 on the tricky subset.
-- Tests: 49 passing (was 42 passing, 1 failing).
+- Parser hardening: recovers truncated `{"phase": "X"` outputs and bare
+  labels; refuses schema echoes. max_tokens 60 -> 100.
+- Measured model leg (2026-11-18, free local SmolLM2-360M-Instruct via
+  llama.cpp, no vendor account): 57.8% vs keyword 66.7% — model path proven
+  end-to-end; accuracy needs a real instruct model.
+- Tests: 50 passing (was 42 passing, 1 failing).

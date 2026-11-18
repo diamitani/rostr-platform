@@ -26,6 +26,7 @@ from __future__ import annotations
 
 import json
 import os
+import re
 import urllib.request
 import urllib.error
 from typing import Callable, Optional
@@ -99,15 +100,38 @@ class LLMPhaseClassifier:
     @staticmethod
     def _parse(raw: str) -> PhaseType:
         text = raw.strip()
-        # Tolerate ```json fences and prose around the object.
+        label = ""
+        # Preferred: a complete JSON object (tolerate ```json fences/prose).
         start = text.find("{")
         end = text.rfind("}")
-        if start == -1 or end == -1 or end <= start:
-            raise ValueError(f"no JSON object in model output: {text[:120]!r}")
-        data = json.loads(text[start : end + 1])
-        label = str(data.get("phase", "")).strip().upper()
+        if start != -1 and end != -1 and end > start:
+            try:
+                data = json.loads(text[start : end + 1])
+                label = str(data.get("phase", "")).strip().upper()
+            except json.JSONDecodeError:
+                label = ""
+        # Small models often truncate the object at the token cap; recover a
+        # bare "phase": "LABEL" pair when no complete object parsed. Skip
+        # schema echoes like "phase": "PRED"|"DESIGN"|... (the "|" tells).
+        if not label:
+            m = re.search(r'"phase"\s*:\s*"([A-Za-z]+)"(?!\s*\|)', text)
+            if m:
+                label = m.group(1).strip().upper()
+        # Last resort: exactly one taxonomy label appears as a whole word in
+        # the output (e.g. a bare '"DEPLOYMENT"'). More than one distinct
+        # label means the model echoed the schema — ambiguous, refuse.
+        if not label:
+            found = {
+                m.group(0)
+                for m in re.finditer(
+                    r"\b(PRED|DESIGN|DEVELOPMENT|DEPLOYMENT|DEBUGGING)\b",
+                    text.upper(),
+                )
+            }
+            if len(found) == 1:
+                label = found.pop()
         if label not in PHASE_LABELS:
-            raise ValueError(f"unknown phase label: {label!r}")
+            raise ValueError(f"no usable phase label in model output: {text[:120]!r}")
         return PHASE_LABELS[label]
 
     def _http_call(self, system_prompt: str, user_prompt: str) -> str:
@@ -118,7 +142,7 @@ class LLMPhaseClassifier:
                 {"role": "user", "content": user_prompt},
             ],
             "temperature": 0,
-            "max_tokens": 60,
+            "max_tokens": 100,
         }).encode("utf-8")
         req = urllib.request.Request(
             f"{self.base_url}/chat/completions",
