@@ -1,0 +1,45 @@
+{"task": "Research the top five GTM automation platforms for B2B SaaS", "phase": "PRED", "tricky": false}
+{"task": "Analyze competitor pricing pages and summarize positioning", "phase": "PRED", "tricky": false}
+{"task": "Investigate whether vector search would improve our knowledge base", "phase": "PRED", "tricky": false}
+{"task": "Find three alternatives to our current email provider and compare costs", "phase": "PRED", "tricky": false}
+{"task": "Explore how other marketplaces handle creator payouts", "phase": "PRED", "tricky": false}
+{"task": "Report on churn patterns in the last two quarters", "phase": "PRED", "tricky": false}
+{"task": "Survey the open-source agent frameworks and shortlist two to adopt", "phase": "PRED", "tricky": false}
+{"task": "Triage the incoming feature requests and group them by theme", "phase": "PRED", "tricky": true}
+{"task": "Write up what we learned from the failed pilot and what to test next", "phase": "PRED", "tricky": true}
+{"task": "Design the data model for per-user workspaces", "phase": "DESIGN", "tricky": false}
+{"task": "Draft the architecture for the billing service", "phase": "DESIGN", "tricky": false}
+{"task": "Plan the migration from REST to typed RPC endpoints", "phase": "DESIGN", "tricky": false}
+{"task": "Spec the public API for partner integrations", "phase": "DESIGN", "tricky": false}
+{"task": "Wireframe the onboarding flow for new artists", "phase": "DESIGN", "tricky": false}
+{"task": "Lay out the UI states for the checkout page", "phase": "DESIGN", "tricky": false}
+{"task": "Decide how services should communicate and document the interfaces", "phase": "DESIGN", "tricky": true}
+{"task": "Figure out the schema before anyone writes a line of code", "phase": "DESIGN", "tricky": true}
+{"task": "Whiteboard the sequence of steps a run goes through end to end", "phase": "DESIGN", "tricky": true}
+{"task": "Implement the CSV export for the analytics dashboard", "phase": "DEVELOPMENT", "tricky": false}
+{"task": "Build a Slack notifier for failed runs", "phase": "DEVELOPMENT", "tricky": false}
+{"task": "Code the retry logic for the payment webhook", "phase": "DEVELOPMENT", "tricky": false}
+{"task": "Create the settings page for notification preferences", "phase": "DEVELOPMENT", "tricky": false}
+{"task": "Develop the ingestion worker for uploaded PDFs", "phase": "DEVELOPMENT", "tricky": false}
+{"task": "Add pagination to the contacts endpoint", "phase": "DEVELOPMENT", "tricky": true}
+{"task": "Write the integration that syncs calendar events nightly", "phase": "DEVELOPMENT", "tricky": true}
+{"task": "Get the search bar returning results from the new index", "phase": "DEVELOPMENT", "tricky": true}
+{"task": "Make the onboarding emails personalize from profile fields", "phase": "DEVELOPMENT", "tricky": false}
+{"task": "Deploy the staging branch to production after QA signs off", "phase": "DEPLOYMENT", "tricky": false}
+{"task": "Ship the iOS build to TestFlight", "phase": "DEPLOYMENT", "tricky": false}
+{"task": "Release version 2.4 with the new dashboard", "phase": "DEPLOYMENT", "tricky": false}
+{"task": "Publish the marketing site redesign", "phase": "DEPLOYMENT", "tricky": false}
+{"task": "Launch the beta to the waitlist cohort", "phase": "DEPLOYMENT", "tricky": false}
+{"task": "Cut a release candidate and tag it in git", "phase": "DEPLOYMENT", "tricky": true}
+{"task": "Roll out the new pricing page to ten percent of traffic", "phase": "DEPLOYMENT", "tricky": true}
+{"task": "Promote the verified container image to the production cluster", "phase": "DEPLOYMENT", "tricky": true}
+{"task": "Flip the feature flag for all paid workspaces", "phase": "DEPLOYMENT", "tricky": true}
+{"task": "Fix the crash when users upload files over 50 MB", "phase": "DEBUGGING", "tricky": false}
+{"task": "Debug the intermittent timeout in the search API", "phase": "DEBUGGING", "tricky": false}
+{"task": "The export button does nothing for some accounts; find out why", "phase": "DEBUGGING", "tricky": true}
+{"task": "Investigate the spike in 500 errors since this morning", "phase": "DEBUGGING", "tricky": true}
+{"task": "Users report the app hangs on login; reproduce and diagnose", "phase": "DEBUGGING", "tricky": true}
+{"task": "Resolve the memory leak in the websocket server", "phase": "DEBUGGING", "tricky": true}
+{"task": "Track down why webhook deliveries doubled after the last release", "phase": "DEBUGGING", "tricky": true}
+{"task": "Patch the broken pagination on the orders list", "phase": "DEBUGGING", "tricky": false}
+{"task": "Hotfix the incorrect totals on invoices before tomorrow", "phase": "DEBUGGING", "tricky": true}

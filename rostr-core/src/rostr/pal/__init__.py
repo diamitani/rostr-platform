@@ -19,6 +19,12 @@ from dataclasses import dataclass, field
 from enum import Enum
 from typing import Optional, Any
 import json
+import re
+
+
+def _word_count(text: str, keyword: str) -> int:
+    """Whole-word keyword count: 'platforms' must not score for 'plan'."""
+    return len(re.findall(r"\b" + re.escape(keyword) + r"\b", text))
 
 
 class Domain(str, Enum):
@@ -243,7 +249,7 @@ class PALCompiler:
             Domain.OPS: ["monitor", "alert", "backup", "schedule", "cron"],
         }
         text_lower = text.lower()
-        scores = {domain: sum(1 for s in sig if s in text_lower) for domain, sig in signals.items()}
+        scores = {domain: sum(_word_count(text_lower, sig_kw) for sig_kw in sig) for domain, sig in signals.items()}
         best = max(scores, key=scores.get)
         return best if scores[best] > 0 else Domain.RESEARCH
 

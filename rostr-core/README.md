@@ -128,6 +128,35 @@ Orchestrate → Pattern Selection
     Sequential · Parallel Fan-Out · Aggregation Fan-In · Conditional Branch
 ```
 
+### Model-based phase classification (new in 1.0.1)
+
+The keyword phase classifier is the offline baseline. For production, plug in
+any OpenAI-compatible endpoint (BYOK):
+
+```python
+from rostr.npao import NPAO
+from rostr.npao.llm import LLMPhaseClassifier
+
+# reads ROSTR_LLM_BASE_URL / ROSTR_LLM_API_KEY / ROSTR_LLM_MODEL
+classifier = LLMPhaseClassifier.from_env()
+npao = NPAO(phase_classifier=classifier)
+```
+
+The classifier answers with structured JSON and degrades to the keyword
+heuristic on any endpoint or parse failure (`classifier.last_source` tells you
+which path answered).
+
+Benchmark it:
+
+```bash
+python benchmarks/phase_classifier_benchmark.py            # keyword baseline
+ROSTR_LLM_BASE_URL=... ROSTR_LLM_API_KEY=... ROSTR_LLM_MODEL=... \
+    python benchmarks/phase_classifier_benchmark.py        # keyword vs model
+```
+
+Keyword baseline on the bundled 45-task labeled dataset: 66.7% overall,
+4/18 on the tricky subset. Report: `benchmarks/results/phase_classifier_benchmark.json`.
+
 ### Rostr Hub — The Agent OS
 ```
 rostr-hub/

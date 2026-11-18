@@ -400,3 +400,70 @@ class TestIntegration:
 
 if __name__ == "__main__":
     pytest.main([__file__, "-v"])
+
+
+# ── Classifier hardening tests ─────────────────────────────────
+
+class TestClassifierHardening:
+    """Word-boundary and model-based classification."""
+
+    def test_platforms_is_not_plan(self):
+        """Regression: 'platforms' must not match the 'plan' design keyword."""
+        npao = NPAO()
+        assert npao.classify_phase("Research B2B SaaS GTM automation platforms") == PhaseType.PRED
+
+    def test_deploy_words_still_match(self):
+        npao = NPAO()
+        assert npao.classify_phase("Deploy the staging branch") == PhaseType.DEPLOYMENT
+        assert npao.classify_phase("Fix the crash on upload") == PhaseType.DEBUGGING
+
+    def test_llm_classifier_model_path(self):
+        from rostr.npao.llm import LLMPhaseClassifier
+        clf = LLMPhaseClassifier(
+            base_url="https://example.invalid/v1",
+            api_key="test",
+            model="test-model",
+            call_fn=lambda sys_p, user_p: '{"phase": "DESIGN"}',
+        )
+        npao = NPAO(phase_classifier=clf)
+        assert npao.classify_phase("anything at all") == PhaseType.DESIGN
+        assert clf.last_source == "model"
+
+    def test_llm_classifier_fenced_json(self):
+        from rostr.npao.llm import LLMPhaseClassifier
+        clf = LLMPhaseClassifier(
+            base_url="https://example.invalid/v1",
+            api_key="test",
+            model="test-model",
+            call_fn=lambda s, u: '```json\n{"phase": "DEBUGGING"}\n```',
+        )
+        assert clf.classify("whatever") == PhaseType.DEBUGGING
+
+    def test_llm_classifier_falls_back_to_keywords(self):
+        from rostr.npao.llm import LLMPhaseClassifier
+
+        def boom(sys_p, user_p):
+            raise ConnectionError("endpoint down")
+
+        clf = LLMPhaseClassifier(
+            base_url="https://example.invalid/v1",
+            api_key="test",
+            model="test-model",
+            call_fn=boom,
+        )
+        npao = NPAO(phase_classifier=clf)  # wires keyword fallback automatically
+        assert npao.classify_phase("Fix the broken build") == PhaseType.DEBUGGING
+        assert clf.last_source == "keyword"
+        assert clf.last_error is not None
+
+    def test_llm_classifier_bad_output_falls_back(self):
+        from rostr.npao.llm import LLMPhaseClassifier
+        clf = LLMPhaseClassifier(
+            base_url="https://example.invalid/v1",
+            api_key="test",
+            model="test-model",
+            call_fn=lambda s, u: "I cannot classify that.",
+        )
+        npao = NPAO(phase_classifier=clf)
+        assert npao.classify_phase("Research competitor pricing") == PhaseType.PRED
+        assert clf.last_source == "keyword"

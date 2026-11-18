@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "rostr-core"
-version = "1.0.0"
+version = "1.0.1"
 description = "ROSTR: A Unified Architecture for Production-Grade Multi-Agent Systems with Phase-Aware Orchestration and Persistent Knowledge Compounding"
 readme = "README.md"
 license = {text = "MIT"}
@@ -33,10 +33,9 @@ dependencies = [
 ]
 
 [project.urls]
-Homepage = "https://rostr-framework.vercel.app"
-Repository = "https://github.com/rostr-ai/rostr"
-Documentation = "https://rostr-framework.vercel.app/docs"
-"Bug Tracker" = "https://github.com/rostr-ai/rostr/issues"
+Homepage = "https://rostr-paper.vercel.app"
+Repository = "https://github.com/diamitani/rostr-platform"
+"Bug Tracker" = "https://github.com/diamitani/rostr-platform/issues"
 
 [tool.setuptools.packages.find]
 where = ["src"]

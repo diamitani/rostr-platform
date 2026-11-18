@@ -1,0 +1,44 @@
+{
+  "dataset": "benchmarks/datasets/phase_tasks.jsonl",
+  "runs": [
+    {
+      "classifier": "keyword-heuristic",
+      "accuracy": 0.6667,
+      "correct": 30,
+      "total": 45,
+      "tricky_correct": 4,
+      "tricky_total": 18,
+      "per_phase": {
+        "DEBUGGING": {
+          "correct": 3,
+          "total": 9
+        },
+        "DEPLOYMENT": {
+          "correct": 7,
+          "total": 9
+        },
+        "DESIGN": {
+          "correct": 5,
+          "total": 9
+        },
+        "DEVELOPMENT": {
+          "correct": 6,
+          "total": 9
+        },
+        "PRED": {
+          "correct": 9,
+          "total": 9
+        }
+      },
+      "confusions": {
+        "DEBUGGING->PRED": 5,
+        "DESIGN->PRED": 3,
+        "DEVELOPMENT->PRED": 3,
+        "DEPLOYMENT->PRED": 2,
+        "DESIGN->DEVELOPMENT": 1,
+        "DEBUGGING->DEPLOYMENT": 1
+      },
+      "seconds": 0.0
+    }
+  ]
+}

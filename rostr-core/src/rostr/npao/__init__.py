@@ -21,6 +21,16 @@ from dataclasses import dataclass, field
 from enum import Enum, IntEnum
 from typing import Optional
 import json
+import re
+
+
+def _contains_word(text: str, keywords: list[str]) -> bool:
+    """Whole-word keyword match. Substring matching misfires: 'platforms'
+    contains 'plan', 'make' matches 'maker', so every keyword must match on
+    word boundaries."""
+    return any(
+        re.search(r"\b" + re.escape(kw) + r"\b", text) for kw in keywords
+    )
 
 
 class PhaseType(IntEnum):
@@ -153,8 +163,16 @@ class NPAO:
     allocates to capable agents, and selects orchestration patterns.
     """
 
-    def __init__(self):
+    def __init__(self, phase_classifier=None):
+        """phase_classifier: optional object with
+        ``classify(task_description, domain) -> PhaseType`` (see
+        ``rostr.npao.llm.LLMPhaseClassifier``). When set, classification is
+        model-based; the classifier degrades to the keyword heuristic on any
+        failure. None keeps the keyword heuristic."""
         self.agent_registry: list[AgentSpec] = []
+        self.phase_classifier = phase_classifier
+        if self.phase_classifier is not None and self.phase_classifier._fallback is None:
+            self.phase_classifier._fallback = self._classify_phase_keywords
 
     # ── Navigate: 5D Phase Classification ──────────────────────
 
@@ -162,34 +180,41 @@ class NPAO:
         """
         Navigate: classify a task into the 5D phase taxonomy.
 
-        Uses keyword heuristics; production would use LLM classification.
+        Uses the injected model-based classifier when present, otherwise
+        whole-word keyword heuristics.
         """
+        if self.phase_classifier is not None:
+            return self.phase_classifier.classify(task_description, domain)
+        return self._classify_phase_keywords(task_description, domain)
+
+    def _classify_phase_keywords(self, task_description: str, domain: str = "") -> PhaseType:
+        """Keyword heuristic phase classification (offline baseline)."""
         task_lower = task_description.lower()
         domain_lower = domain.lower()
 
         # Debugging signals (highest priority check)
         debug_keywords = ["bug", "fix", "error", "broken", "crash", "issue", "debug"]
-        if any(kw in task_lower for kw in debug_keywords):
+        if _contains_word(task_lower, debug_keywords):
             return PhaseType.DEBUGGING
 
         # Deployment signals
         deploy_keywords = ["deploy", "ship", "release", "publish", "launch", "production"]
-        if any(kw in task_lower for kw in deploy_keywords):
+        if _contains_word(task_lower, deploy_keywords):
             return PhaseType.DEPLOYMENT
 
         # Development signals
         dev_keywords = ["build", "implement", "code", "create", "make", "develop"]
-        if any(kw in task_lower for kw in dev_keywords):
+        if _contains_word(task_lower, dev_keywords):
             return PhaseType.DEVELOPMENT
 
         # Design signals
         design_keywords = ["design", "wireframe", "plan", "architect", "spec", "ui", "ux"]
-        if any(kw in task_lower for kw in design_keywords):
+        if _contains_word(task_lower, design_keywords):
             return PhaseType.DESIGN
 
         # Research signals
         research_keywords = ["research", "analyze", "investigate", "find", "explore", "report"]
-        if any(kw in task_lower for kw in research_keywords):
+        if _contains_word(task_lower, research_keywords):
             return PhaseType.PRED
 
         # Domain-based fallback

@@ -3,8 +3,8 @@ from setuptools import setup, find_packages
 
 setup(
     name="rostr-core",
-    version="1.0.0",
-    description="ROSTR: Billion-Dollar Agent Operating System",
+    version="1.0.1",
+    description="ROSTR: PAL intent compiler, NPAO orchestration, RAG DAL and Hub for multi-agent systems",
     author="Patrick Diamitani",
     author_email="patrick@diamitani.com",
     license="MIT",
