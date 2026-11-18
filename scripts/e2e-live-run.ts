@@ -38,6 +38,7 @@ async function main(): Promise<void> {
         name: "E2E Agent",
         systemPrompt: "",
         skills: ["workspace-inspector"],
+        model: process.env.E2E_MODEL,
       },
     ],
     workspaces: [],
@@ -54,6 +55,7 @@ async function main(): Promise<void> {
       process.env.E2E_GOAL ??
       "Inspect the workspace with the file tools and summarize in 3 bullets what the rostr-core package contains.",
     skillName: "workspace-inspector",
+    forceSingleTask: process.env.E2E_SINGLE_TASK === "1",
     maxSteps: Number(process.env.E2E_MAX_STEPS ?? "6"),
     skillText:
       'Steps: 1) call list_dir with args {"path": "."} to see the workspace. ' +

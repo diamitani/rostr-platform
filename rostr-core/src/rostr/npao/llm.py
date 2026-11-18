@@ -27,6 +27,7 @@ from __future__ import annotations
 import json
 import os
 import re
+import time
 import urllib.request
 import urllib.error
 from typing import Callable, Optional
@@ -153,6 +154,14 @@ class LLMPhaseClassifier:
             },
             method="POST",
         )
-        with urllib.request.urlopen(req, timeout=self.timeout_seconds) as resp:
-            payload = json.loads(resp.read().decode("utf-8"))
-        return payload["choices"][0]["message"]["content"]
+        for attempt in range(2):
+            try:
+                with urllib.request.urlopen(req, timeout=self.timeout_seconds) as resp:
+                    payload = json.loads(resp.read().decode("utf-8"))
+                return payload["choices"][0]["message"]["content"]
+            except urllib.error.HTTPError as exc:
+                # Rate limit / transient server error: one retry after a pause.
+                if exc.code in (429, 500, 502, 503, 504) and attempt == 0:
+                    time.sleep(4)
+                    continue
+                raise

@@ -137,13 +137,18 @@ async function workerAttempt(
 
     let act: Record<string, unknown>;
     try {
-      act = extractJson(await gateway.chat([...messages]));
+      act = extractJson(
+        await gateway.chat([...messages], { model: manifest.model })
+      );
     } catch {
       // One reformat retry, then stop cleanly with what we have.
-      const raw = await gateway.chat([
-        ...messages,
-        { role: "user", content: prompt + "\n\nReply with JSON only." },
-      ]);
+      const raw = await gateway.chat(
+        [
+          ...messages,
+          { role: "user", content: prompt + "\n\nReply with JSON only." },
+        ],
+        { model: manifest.model }
+      );
       try {
         act = extractJson(raw);
       } catch {
@@ -188,7 +193,9 @@ async function workerAttempt(
       args
     );
 
-    const summary = `${thought.slice(0, 120)} -> ${actionName} => ${res.slice(0, 160)}`;
+    // History needs enough of the tool result for later steps to use it;
+    // 160 chars made workers repeat actions because prior results looked empty.
+    const summary = `${thought.slice(0, 120)} -> ${actionName} => ${res.slice(0, 2000)}`;
     history.push(summary);
     output = res;
     if (runId) {
@@ -217,9 +224,10 @@ export async function runWorker(
     `Given the goal: ${manifest.goal}\n\n` +
     `Worker output:\n${attempt.output}\n\n` +
     `Does this output satisfy the goal? Reply VERIFIED or FAILED: <reason>`;
-  const verdict = await gateway.chat([
-    { role: "user", content: verifyPrompt },
-  ]);
+  const verdict = await gateway.chat(
+    [{ role: "user", content: verifyPrompt }],
+    { model: manifest.model }
+  );
   const verified = /^\s*VERIFIED\b/i.test(verdict.trim());
 
   if (!verified) {
@@ -285,7 +293,12 @@ async function synthesizeReply(
 // ---------------------------------------------------------------------------
 
 export async function runMaster(
-  opts: RunOptions & { agentId: string; goal: string; skillName?: string }
+  opts: RunOptions & {
+    agentId: string;
+    goal: string;
+    skillName?: string;
+    forceSingleTask?: boolean;
+  }
 ): Promise<RunRecord> {
   const { gateway, hub, tools, project, agentId, goal, skillName } = opts;
   const agent = project.agents.find((a) => a.id === agentId);
@@ -321,17 +334,27 @@ export async function runMaster(
   };
 
   try {
-    // 1. Decompose the goal into 2-4 subtasks.
-    const raw = await gateway.chat([
-      { role: "system", content: MASTER_PROMPT },
-      {
-        role: "user",
-        content:
-          `GOAL: ${goal}\n\nDecompose this goal into 2-4 concrete subtasks. ` +
-          `Reply with a numbered list, one subtask per line.`,
-      },
-    ]);
-    const subtaskTexts = parseSubtasks(raw);
+    // 1. Decompose the goal into 2-4 subtasks, unless the caller asked for
+    // a single-task run (short-burst environments, smoke tests).
+    let subtaskTexts: string[];
+    if (opts.forceSingleTask) {
+      subtaskTexts = [goal];
+      pushDecision("Single-task run requested; decomposition skipped.");
+    } else {
+      const raw = await gateway.chat(
+        [
+          { role: "system", content: MASTER_PROMPT },
+          {
+            role: "user",
+            content:
+              `GOAL: ${goal}\n\nDecompose this goal into 2-4 concrete subtasks. ` +
+              `Reply with a numbered list, one subtask per line.`,
+          },
+        ],
+        { model: agent.model }
+      );
+      subtaskTexts = parseSubtasks(raw);
+    }
 
     // 2. NPAO classify + order N -> A -> P -> O.
     const ordered = orderByNpao(subtaskTexts.map((title) => ({ title })));

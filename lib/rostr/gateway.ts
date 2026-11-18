@@ -135,6 +135,8 @@ function mockComplete(messages: ChatMessage[]): string {
 
 export class GatewayClient {
   private apiKey: string;
+  // Team rate limit is per-minute: keep at least 12.5s between calls.
+  private lastCallAt = 0;
   private mock: boolean;
   private onUsage?: (u: UsageReport) => void;
 
@@ -192,21 +194,40 @@ export class GatewayClient {
     if (this.mock) {
       return mockComplete(messages);
     }
-    const res = await fetch(GATEWAY_URL, {
-      method: "POST",
-      headers: {
-        Authorization: `Bearer ${this.apiKey}`,
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        model: opts?.model ?? DEFAULT_MODEL,
-        messages,
-        max_tokens: opts?.maxTokens ?? 1024,
-      }),
+    const body = JSON.stringify({
+      model: opts?.model ?? DEFAULT_MODEL,
+      messages,
+      max_tokens: opts?.maxTokens ?? 1024,
     });
-    if (!res.ok) {
-      const body = await res.text().catch(() => "");
-      throw new Error(`Gateway HTTP ${res.status}: ${body.slice(0, 300)}`);
+    // Rate limits (per-minute team caps) and transient 5xx: back off and
+    // retry instead of killing the whole run.
+    const wait = 12500 - (Date.now() - this.lastCallAt);
+    if (wait > 0) await new Promise((r) => setTimeout(r, wait));
+    this.lastCallAt = Date.now();
+    let res: Response | null = null;
+    for (let attempt = 0; attempt < 4; attempt++) {
+      res = await fetch(GATEWAY_URL, {
+        method: "POST",
+        headers: {
+          Authorization: `Bearer ${this.apiKey}`,
+          "Content-Type": "application/json",
+        },
+        body,
+      });
+      if (res.ok) break;
+      if (res.status === 429 || res.status >= 500) {
+        await new Promise((r) =>
+          setTimeout(r, res!.status === 429 ? 13000 : 4000)
+        );
+        continue;
+      }
+      break;
+    }
+    if (!res || !res.ok) {
+      const text = res ? await res.text().catch(() => "") : "";
+      throw new Error(
+        `Gateway HTTP ${res?.status}: ${text.slice(0, 300)}`
+      );
     }
     const data = (await res.json()) as {
       choices?: Array<{ message?: { content?: string } }>;

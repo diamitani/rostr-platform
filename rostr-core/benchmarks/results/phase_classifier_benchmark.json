@@ -41,46 +41,37 @@
       "seconds": 0.0
     },
     {
-      "classifier": "model (smollm2-360m-instruct)",
-      "accuracy": 0.5778,
-      "correct": 26,
+      "classifier": "model (deepseek/deepseek-chat-v3.1)",
+      "accuracy": 1.0,
+      "correct": 45,
       "total": 45,
-      "tricky_correct": 5,
+      "tricky_correct": 18,
       "tricky_total": 18,
       "per_phase": {
         "DEBUGGING": {
-          "correct": 1,
+          "correct": 9,
           "total": 9
         },
         "DEPLOYMENT": {
-          "correct": 8,
+          "correct": 9,
           "total": 9
         },
         "DESIGN": {
-          "correct": 4,
+          "correct": 9,
           "total": 9
         },
         "DEVELOPMENT": {
-          "correct": 7,
+          "correct": 9,
           "total": 9
         },
         "PRED": {
-          "correct": 6,
+          "correct": 9,
           "total": 9
         }
       },
-      "confusions": {
-        "DEBUGGING->DEPLOYMENT": 6,
-        "DESIGN->PRED": 4,
-        "PRED->DEPLOYMENT": 2,
-        "DEVELOPMENT->PRED": 2,
-        "DEBUGGING->PRED": 2,
-        "PRED->DESIGN": 1,
-        "DESIGN->DEVELOPMENT": 1,
-        "DEPLOYMENT->PRED": 1
-      },
-      "seconds": 41.92,
-      "keyword_fallbacks": 24
+      "confusions": {},
+      "seconds": 29.0,
+      "keyword_fallbacks": 0
     }
   ]
 }
