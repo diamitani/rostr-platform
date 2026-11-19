@@ -11,11 +11,19 @@ export interface AffiliateEntry {
   affiliateId: string;
   /** Query param the referral id goes in, when affiliateId is set. */
   refParam?: string;
+  /** Full referral URL when the program issues one (takes precedence). */
+  referralUrl?: string;
 }
 
 export const AFFILIATE_REGISTRY: AffiliateEntry[] = [
   { tool: "apify", signupUrl: "https://apify.com/sign-up", affiliateId: "" },
-  { tool: "firecrawl", signupUrl: "https://www.firecrawl.dev/signup", affiliateId: "" },
+  {
+    tool: "firecrawl",
+    signupUrl: "https://www.firecrawl.dev/signup",
+    affiliateId: "",
+    // Owner-approved Firecrawl referral link.
+    referralUrl: "https://firecrawl.link/artispreneur",
+  },
   { tool: "composio", signupUrl: "https://composio.dev/", affiliateId: "" },
   { tool: "openrouter", signupUrl: "https://openrouter.ai/signup", affiliateId: "" },
 ];
@@ -25,6 +33,7 @@ export const AFFILIATE_REGISTRY: AffiliateEntry[] = [
 export function getSignupLink(tool: string): string | null {
   const e = AFFILIATE_REGISTRY.find((x) => x.tool === tool.toLowerCase());
   if (!e) return null;
+  if (e.referralUrl) return e.referralUrl;
   if (!e.affiliateId) return e.signupUrl;
   const param = e.refParam ?? "ref";
   const sep = e.signupUrl.includes("?") ? "&" : "?";
