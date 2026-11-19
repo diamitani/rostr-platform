@@ -36,6 +36,7 @@ export class ToolRegistry {
     this.register({ name: "read_file", description: "Read a text file inside the workspace root.", run: runReadFile });
     this.register({ name: "write_file", description: "Write text to a file inside the workspace root.", run: runWriteFile });
     this.register({ name: "list_dir", description: "List files in a directory inside the workspace root.", run: runListDir });
+    this.register({ name: "web_search", description: "Search the web (Wikipedia full-text) and return the top results with snippets. Read-only, no key required.", run: runWebSearch });
   }
 
   /** Register any tool implementation. */
@@ -129,6 +130,35 @@ async function runWriteFile(_args: Record<string, unknown>): Promise<string> {
 async function runListDir(args: Record<string, unknown>): Promise<string> {
   const p = sandbox(String(args.path ?? "."));
   return fs.readdirSync(p).sort().join("\n");
+}
+
+// -- Web search (free, read-only) --------------------------------------------
+// Wikipedia full-text search: no API key, stable JSON API. DuckDuckGo's
+// HTML endpoints challenge datacenter clients (HTTP 202), so they are not
+// a dependable backend for an unattended agent.
+
+async function runWebSearch(args: Record<string, unknown>): Promise<string> {
+  const query = String(args.query ?? args.q ?? "").trim();
+  if (!query) return "error: web_search requires a 'query' argument";
+  const url = new URL("https://en.wikipedia.org/w/api.php");
+  url.searchParams.set("action", "query");
+  url.searchParams.set("list", "search");
+  url.searchParams.set("srsearch", query);
+  url.searchParams.set("format", "json");
+  url.searchParams.set("srlimit", String(Math.min(Number(args.limit ?? 5) || 5, 10)));
+  const res = await fetch(url.toString(), { signal: AbortSignal.timeout(15000) });
+  if (!res.ok) return `error: web_search http ${res.status}`;
+  const payload = (await res.json()) as {
+    query?: { search?: { title: string; snippet: string }[] };
+  };
+  const hits = payload.query?.search ?? [];
+  if (!hits.length) return `no results for: ${query}`;
+  return hits
+    .map(
+      (h, i) =>
+        `${i + 1}. ${h.title}\n   ${h.snippet.replace(/<[^>]+>/g, "")}\n   https://en.wikipedia.org/wiki/${encodeURIComponent(h.title)}`
+    )
+    .join("\n");
 }
 
 /** The built-in toolset. Small on purpose — add yours via registerComposioTool. */

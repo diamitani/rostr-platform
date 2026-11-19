@@ -74,9 +74,13 @@ export async function listComposioTools(opts?: {
 }): Promise<ComposioToolInfo[]> {
   if (!composioConfigured()) return [];
   try {
-    const url = new URL(TOOLS_LIST_PATH, COMPOSIO_BASE_URL);
+    // NOTE: new URL(path, base) drops the base's /api/v3 prefix when path
+    // starts with "/", so concatenate instead of using the URL(base) form.
+    const url = new URL(COMPOSIO_BASE_URL + TOOLS_LIST_PATH);
     if (opts?.apps?.length) {
-      url.searchParams.set("toolkits", opts.apps.join(","));
+      // Verified against the live API: "toolkits" is silently ignored
+      // (returns unfiltered results); "toolkit_slug" filters.
+      url.searchParams.set("toolkit_slug", opts.apps.join(","));
     }
     const res = await composioFetch(url.toString(), {
       method: "GET",
@@ -103,8 +107,7 @@ export async function executeComposioTool(
   }
   try {
     const url = new URL(
-      `${TOOL_EXECUTE_PATH}/${encodeURIComponent(name)}`,
-      COMPOSIO_BASE_URL
+      `${COMPOSIO_BASE_URL}${TOOL_EXECUTE_PATH}/${encodeURIComponent(name)}`
     );
     const body: Record<string, unknown> = { arguments: args };
     if (connectedAccountId) {

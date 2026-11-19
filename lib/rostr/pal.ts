@@ -96,6 +96,19 @@ function guidanceFor(skillName: string | undefined, goal: string): string[] {
 
 // -- Full pipeline --------------------------------------------------------------
 
+/** Built-in tools an agent may hold: read-only by construction. */
+const READ_ONLY_TOOLS = new Set(["read_file", "list_dir", "web_search"]);
+
+/** Composio slugs verified read-only (public-data queries, no writes). */
+const COMPOSIO_READ_ONLY = new Set([
+  "HACKERNEWS_GET_FRONTPAGE",
+  "HACKERNEWS_GET_LATEST_POSTS",
+  "HACKERNEWS_GET_TODAYS_POSTS",
+  "HACKERNEWS_SEARCH_POSTS",
+  "HACKERNEWS_GET_ITEM_WITH_ID",
+  "HACKERNEWS_GET_USER",
+]);
+
 export function compileManifest(input: CompileInput): Manifest {
   // Stage 1 — extract: verb + target + constraints from the raw goal text.
   const cleaned = stripHedges(input.goal);
@@ -126,8 +139,12 @@ export function compileManifest(input: CompileInput): Manifest {
     retrievedContext,
     constraints: [...constraints, ...guidance.map((g) => `guidance: ${g}`)],
     // Caller may narrow read-only tools but cannot add new authority.
+    // The compile-time gate: only tools on the read-only sets can ever enter
+    // a manifest, however the caller phrases them. Composio tools are
+    // admitted slug-by-slug from COMPOSIO_READ_ONLY — never whole toolkits,
+    // since toolkits mix read and write actions.
     allowedTools: (input.allowedTools ?? ["read_file", "list_dir"]).filter(
-      (name) => name === "read_file" || name === "list_dir"
+      (name) => READ_ONLY_TOOLS.has(name) || COMPOSIO_READ_ONLY.has(name)
     ),
     maxSteps: input.maxSteps ?? 12,
     model: input.agent.model, // Stage 5 — route: model comes from the agent def.

@@ -29,6 +29,11 @@ import type { Hub } from "./hub";
 import type { ToolRegistry } from "./tools";
 
 export interface RunOptions {
+  /** Requested tool allowlist; the PAL compiler intersects it with the
+   *  read-only sets, so this can narrow but never widen authority. */
+  allowedTools?: string[];
+  /** Cap on generated tokens per step/verify call (speed vs. completeness). */
+  maxTokens?: number;
   gateway: GatewayClient;
   hub: Hub;
   tools: ToolRegistry;
@@ -138,7 +143,10 @@ async function workerAttempt(
     let act: Record<string, unknown>;
     try {
       act = extractJson(
-        await gateway.chat([...messages], { model: manifest.model })
+        await gateway.chat([...messages], {
+          model: manifest.model,
+          maxTokens: opts.maxTokens,
+        })
       );
     } catch {
       // One reformat retry, then stop cleanly with what we have.
@@ -226,7 +234,7 @@ export async function runWorker(
     `Does this output satisfy the goal? Reply VERIFIED or FAILED: <reason>`;
   const verdict = await gateway.chat(
     [{ role: "user", content: verifyPrompt }],
-    { model: manifest.model }
+    { model: manifest.model, maxTokens: opts.maxTokens }
   );
   const verified = /^\s*VERIFIED\b/i.test(verdict.trim());
 
@@ -383,6 +391,7 @@ export async function runMaster(
         skillText: opts.skillText,
         context: opts.context,
         maxSteps: opts.maxSteps,
+        allowedTools: opts.allowedTools,
       });
       // Validate before mutating registry state or starting worker execution.
       validateManifest(manifest);

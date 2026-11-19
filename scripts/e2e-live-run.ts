@@ -29,6 +29,26 @@ async function main(): Promise<void> {
   const hub = new JsonHub(process.env.E2E_HUB_DIR ?? "./e2e-runs");
   const tools = new ToolRegistry();
 
+  // Real app tools: attach read-only HackerNews tools through Composio when
+  // his key is present; degrades to zero extra tools without it.
+  const { attachComposioTools } = await import("../lib/rostr/tools-composio");
+  const composio = await attachComposioTools(tools, { apps: ["hackernews"] });
+  console.log(
+    `composio: configured=${composio.configured} registered=${composio.registered}`
+  );
+  const requestedTools = (
+    process.env.E2E_TOOLS ??
+    [
+      "read_file",
+      "list_dir",
+      "web_search",
+      ...(composio.registered ? ["HACKERNEWS_GET_FRONTPAGE"] : []),
+    ].join(",")
+  )
+    .split(",")
+    .map((t) => t.trim())
+    .filter(Boolean);
+
   const project: Project = {
     id: "e2e-project",
     name: "E2E live run",
@@ -55,9 +75,11 @@ async function main(): Promise<void> {
       process.env.E2E_GOAL ??
       "Inspect the workspace with the file tools and summarize in 3 bullets what the rostr-core package contains.",
     skillName: "workspace-inspector",
+    allowedTools: requestedTools,
+    maxTokens: Number(process.env.E2E_MAX_TOKENS ?? "0") || undefined,
     forceSingleTask: process.env.E2E_SINGLE_TASK === "1",
     maxSteps: Number(process.env.E2E_MAX_STEPS ?? "6"),
-    skillText:
+    skillText: process.env.E2E_SKILL_TEXT ??
       'Steps: 1) call list_dir with args {"path": "."} to see the workspace. ' +
       '2) call read_file with args {"path": "README.md"} and read the first part. ' +
       "3) reply done with result: a 3-bullet summary of what rostr-core contains.",
