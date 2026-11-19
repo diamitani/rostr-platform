@@ -261,11 +261,23 @@ export class GatewayClient {
       providerMetadata?: { gateway?: { cost?: number } };
     };
     const content = data.choices?.[0]?.message?.content;
-    if (!content) {
-      throw new Error("Gateway returned no content");
+    if (content) {
+      this.reportUsage(opts?.model ?? DEFAULT_MODEL, data);
+      return content;
     }
-    this.reportUsage(opts?.model ?? DEFAULT_MODEL, data);
-    return content;
+    // Empty content is a transient provider flake (observed repeatedly on
+    // free models): retry a few times before giving up.
+    let lastErr: Error = new Error("Gateway returned no content");
+    for (let attempt = 0; attempt < 3; attempt++) {
+      await new Promise((r) => setTimeout(r, 4000));
+      try {
+        return await this.chat(messages, opts);
+      } catch (e) {
+        lastErr = e instanceof Error ? e : new Error(String(e));
+        if (!/no content/.test(lastErr.message)) throw lastErr;
+      }
+    }
+    throw lastErr;
   }
 }
 
