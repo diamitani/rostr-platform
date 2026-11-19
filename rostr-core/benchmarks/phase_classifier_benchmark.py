@@ -84,20 +84,31 @@ def print_report(result):
 
 def main():
     rows = load_dataset(DATASET)
+    # Optional slice "start:end" lets a long paced model run be split across
+    # processes; ROSTR_BENCH_OUT writes the raw result JSON for merging.
+    sl = os.environ.get("ROSTR_BENCH_SLICE", "").strip()
+    if sl:
+        a, _, b = sl.partition(":")
+        rows = rows[int(a or 0): int(b) if b else None]
     print(f"dataset: {len(rows)} tasks from {os.path.relpath(DATASET)}")
+    delay = float(os.environ.get("ROSTR_BENCH_DELAY", "0"))
 
     results = []
 
     keyword_npao = NPAO()
     results.append(score("keyword-heuristic", keyword_npao.classify_phase, rows))
 
-    if all(os.environ.get(k) for k in ("ROSTR_LLM_BASE_URL", "ROSTR_LLM_API_KEY", "ROSTR_LLM_MODEL")):
+    if all(os.environ.get(k) for k in ("ROSTR_LLM_BASE_URL", "ROSTR_LLM_API_KEY")) and (
+        os.environ.get("ROSTR_LLM_MODEL") or "openrouter" in os.environ["ROSTR_LLM_BASE_URL"]
+    ):
         from rostr.npao.llm import LLMPhaseClassifier
         classifier = LLMPhaseClassifier.from_env(fallback=keyword_npao._classify_phase_keywords)
         model_npao = NPAO(phase_classifier=classifier)
         sources = []
 
         def model_predict(task):
+            if delay:
+                time.sleep(delay)
             phase = model_npao.classify_phase(task)
             sources.append(classifier.last_source)
             return phase
@@ -111,9 +122,10 @@ def main():
     for r in results:
         print_report(r)
 
-    os.makedirs(os.path.dirname(RESULTS), exist_ok=True)
+    out = os.environ.get("ROSTR_BENCH_OUT", "").strip() or RESULTS
+    os.makedirs(os.path.dirname(out), exist_ok=True)
     report = {"dataset": os.path.relpath(DATASET), "runs": results}
-    with open(RESULTS, "w") as f:
+    with open(out, "w") as f:
         json.dump(report, f, indent=2)
     print(f"\nreport written to {os.path.relpath(RESULTS)}")
 

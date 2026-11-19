@@ -72,6 +72,42 @@
       "confusions": {},
       "seconds": 29.0,
       "keyword_fallbacks": 0
+    },
+    {
+      "classifier": "model (inclusionai/ling-3.2-flash:free)",
+      "correct": 44,
+      "total": 45,
+      "tricky_correct": 17,
+      "tricky_total": 18,
+      "seconds": 436.81,
+      "keyword_fallbacks": 0,
+      "note": "free OpenRouter tier; run in 5 paced slices (ROSTR_BENCH_SLICE, 3s delay) under the 20 req/min free limit",
+      "accuracy": 0.9778,
+      "per_phase": {
+        "DEBUGGING": {
+          "correct": 9,
+          "total": 9
+        },
+        "DEPLOYMENT": {
+          "correct": 9,
+          "total": 9
+        },
+        "DESIGN": {
+          "correct": 9,
+          "total": 9
+        },
+        "DEVELOPMENT": {
+          "correct": 9,
+          "total": 9
+        },
+        "PRED": {
+          "correct": 8,
+          "total": 9
+        }
+      },
+      "confusions": {
+        "PRED->DEBUGGING": 1
+      }
     }
   ]
 }

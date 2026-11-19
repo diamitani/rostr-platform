@@ -35,13 +35,27 @@ function estimateCost(
   return (inputTokens / 1e6) * pin + (outputTokens / 1e6) * pout;
 }
 
-// Gateway endpoint: Vercel AI Gateway by default; override with
-// ROSTR_GATEWAY_URL for any OpenAI-compatible endpoint (e.g. OpenRouter:
-// https://openrouter.ai/api/v1/chat/completions). The key always comes
-// from AI_GATEWAY_API_KEY.
+// Gateway endpoint: explicit ROSTR_GATEWAY_URL wins; otherwise OpenRouter
+// when only OPENROUTER_API_KEY is set, else the Vercel AI Gateway. Default
+// route is a free OpenRouter model so the runtime costs nothing out of the
+// box; override the model per manifest/agent or via ROSTR_MODEL.
+const OPENROUTER_URL = "https://openrouter.ai/api/v1/chat/completions";
+const VERCEL_URL = "https://ai-gateway.vercel.sh/v1/chat/completions";
 const GATEWAY_URL =
-  process.env.ROSTR_GATEWAY_URL ?? "https://ai-gateway.vercel.sh/v1/chat/completions";
-const DEFAULT_MODEL = "anthropic/claude-sonnet-4-20250514";
+  process.env.ROSTR_GATEWAY_URL ??
+  (process.env.OPENROUTER_API_KEY && !process.env.AI_GATEWAY_API_KEY
+    ? OPENROUTER_URL
+    : VERCEL_URL);
+const DEFAULT_MODEL =
+  process.env.ROSTR_MODEL ??
+  (GATEWAY_URL.includes("openrouter")
+    ? "inclusionai/ling-3.2-flash:free"
+    : "anthropic/claude-sonnet-4-20250514");
+// Minimum spacing between calls; Vercel team plans enforce ~5 req/min per
+// model per region, OpenRouter free tier ~20 req/min.
+const MIN_CALL_INTERVAL_MS = Number(
+  process.env.ROSTR_MIN_CALL_INTERVAL_MS ?? "12500"
+);
 
 // ---------------------------------------------------------------------------
 // Mock mode: deterministic per-input responses. Outputs always include words
@@ -145,7 +159,11 @@ export class GatewayClient {
     mock?: boolean;
     onUsage?: (u: UsageReport) => void;
   }) {
-    const key = opts?.apiKey ?? process.env.AI_GATEWAY_API_KEY ?? "";
+    const key =
+      opts?.apiKey ??
+      process.env.AI_GATEWAY_API_KEY ??
+      process.env.OPENROUTER_API_KEY ??
+      "";
     this.apiKey = key;
     // Mock unless explicitly disabled AND a key is present.
     this.mock = opts?.mock ?? (process.env.MOCK_MODE === "true" || !key);
@@ -197,11 +215,15 @@ export class GatewayClient {
     const body = JSON.stringify({
       model: opts?.model ?? DEFAULT_MODEL,
       messages,
-      max_tokens: opts?.maxTokens ?? 1024,
+      // Generous cap: several hosted models spend leading tokens on hidden
+      // reasoning before emitting content; a tight cap starves the answer.
+      max_tokens: opts?.maxTokens ?? 4096,
+      // Ask OpenRouter-style routers to skip the reasoning preamble.
+      reasoning: { exclude: true },
     });
     // Rate limits (per-minute team caps) and transient 5xx: back off and
     // retry instead of killing the whole run.
-    const wait = 12500 - (Date.now() - this.lastCallAt);
+    const wait = MIN_CALL_INTERVAL_MS - (Date.now() - this.lastCallAt);
     if (wait > 0) await new Promise((r) => setTimeout(r, wait));
     this.lastCallAt = Date.now();
     let res: Response | null = null;

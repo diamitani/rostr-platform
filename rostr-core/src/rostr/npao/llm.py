@@ -75,6 +75,9 @@ class LLMPhaseClassifier:
         base_url = os.environ.get("ROSTR_LLM_BASE_URL", "").strip()
         api_key = os.environ.get("ROSTR_LLM_API_KEY", "").strip()
         model = os.environ.get("ROSTR_LLM_MODEL", "").strip()
+        if not model and "openrouter" in base_url:
+            # Free-tier default so the classifier costs nothing on OpenRouter.
+            model = "inclusionai/ling-3.2-flash:free"
         if not (base_url and api_key and model):
             raise ValueError(
                 "Set ROSTR_LLM_BASE_URL, ROSTR_LLM_API_KEY and ROSTR_LLM_MODEL "
@@ -143,7 +146,12 @@ class LLMPhaseClassifier:
                 {"role": "user", "content": user_prompt},
             ],
             "temperature": 0,
-            "max_tokens": 100,
+            # Generous cap: several hosted models spend leading tokens on
+            # hidden reasoning before emitting content; a tight cap starves
+            # the answer (null or truncated JSON).
+            "max_tokens": 600,
+            # Ask OpenRouter-style routers to skip the reasoning preamble.
+            "reasoning": {"exclude": True},
         }).encode("utf-8")
         req = urllib.request.Request(
             f"{self.base_url}/chat/completions",
@@ -158,7 +166,13 @@ class LLMPhaseClassifier:
             try:
                 with urllib.request.urlopen(req, timeout=self.timeout_seconds) as resp:
                     payload = json.loads(resp.read().decode("utf-8"))
-                return payload["choices"][0]["message"]["content"]
+                content = payload["choices"][0]["message"].get("content")
+                if content is None:
+                    # Reasoning-style models can return null content when the
+                    # token cap is eaten by reasoning; treat as a real error
+                    # so the caller falls back deliberately, not with a crash.
+                    raise ValueError("model returned null content (token cap likely eaten by reasoning)")
+                return content
             except urllib.error.HTTPError as exc:
                 # Rate limit / transient server error: one retry after a pause.
                 if exc.code in (429, 500, 502, 503, 504) and attempt == 0:
