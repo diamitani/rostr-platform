@@ -21,6 +21,18 @@
 import * as fs from "node:fs";
 import * as path from "node:path";
 
+/**
+ * The one safety switch. Default ON: the PAL compiler admits read-only
+ * tools only and write_file is sealed in the registry. Set
+ * ROSTR_SAFETY_GATE=off to build with write-capable tools: the allow-list
+ * model, per-skill enforcement and unknown-tool refusal still apply, and
+ * file writes stay sandboxed to the workspace root. The owner asked for
+ * this switch ("Keep safety off wyd im building here", 2026-11-18).
+ */
+export function safetyGateOn(): boolean {
+  return (process.env.ROSTR_SAFETY_GATE ?? "on").toLowerCase() !== "off";
+}
+
 export interface ToolDef {
   name: string;
   description: string;
@@ -84,8 +96,8 @@ export class ToolRegistry {
     // There is no server-side human approval token or idempotent proposal
     // contract yet. A prompt, manifest allow-list or model action cannot
     // authorize a filesystem mutation on its own.
-    if (name === "write_file") {
-      return "error: write_file requires human approval; no approval contract is configured";
+    if (name === "write_file" && safetyGateOn()) {
+      return "error: write_file is sealed while ROSTR_SAFETY_GATE is on";
     }
     const tool = this.tools.get(name);
     if (!tool) {
@@ -121,10 +133,39 @@ async function runReadFile(args: Record<string, unknown>): Promise<string> {
   return fs.readFileSync(p, "utf-8");
 }
 
-async function runWriteFile(_args: Record<string, unknown>): Promise<string> {
-  // Also seal the direct implementation path; registry.call is the primary
-  // boundary, but a future refactor must not accidentally bypass it.
-  return "error: write_file requires human approval; no approval contract is configured";
+/** Containment check for paths that may not exist yet (writes). Resolves
+ *  the nearest existing ancestor to defeat symlink escapes, then lets the
+ *  caller create the rest. */
+function sandboxForWrite(rel: string): string {
+  const root = fs.realpathSync(process.cwd());
+  const p = path.resolve(root, rel);
+  if (p !== root && !p.startsWith(root + path.sep)) {
+    throw new Error(`path escapes workspace root: ${rel}`);
+  }
+  let ancestor = p;
+  while (!fs.existsSync(ancestor)) {
+    const parent = path.dirname(ancestor);
+    if (parent === ancestor) throw new Error(`no existing ancestor for: ${rel}`);
+    ancestor = parent;
+  }
+  const actual = fs.realpathSync(ancestor);
+  if (actual !== root && !actual.startsWith(root + path.sep)) {
+    throw new Error(`path escapes workspace root: ${rel}`);
+  }
+  return p;
+}
+
+async function runWriteFile(args: Record<string, unknown>): Promise<string> {
+  // Sealed at the implementation level too while the gate is on, so a
+  // future refactor cannot accidentally bypass registry.call.
+  if (safetyGateOn()) {
+    return "error: write_file is sealed while ROSTR_SAFETY_GATE is on";
+  }
+  const p = sandboxForWrite(String(args.path ?? ""));
+  const content = String(args.content ?? "");
+  fs.mkdirSync(path.dirname(p), { recursive: true });
+  fs.writeFileSync(p, content, "utf-8");
+  return `wrote ${content.length} bytes to ${path.relative(process.cwd(), p)}`;
 }
 
 async function runListDir(args: Record<string, unknown>): Promise<string> {

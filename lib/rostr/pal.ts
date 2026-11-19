@@ -7,8 +7,13 @@
 //   5. route   — pick the model from the agent definition
 
 import type { AgentDef, Manifest } from "./types";
+import { safetyGateOn } from "./tools";
 
 export interface CompileInput {
+  /** Override the ROSTR_SAFETY_GATE env for this compile. */
+  safetyGate?: boolean;
+  /** Denylist applied when the gate is off (ignored while it is on). */
+  deniedTools?: string[];
   projectId: string;
   agent: AgentDef;
   goal: string;
@@ -110,6 +115,8 @@ const COMPOSIO_READ_ONLY = new Set([
 ]);
 
 export function compileManifest(input: CompileInput): Manifest {
+  // Single switch (env), per-compile override wins when provided.
+  const gateOn = input.safetyGate ?? safetyGateOn();
   // Stage 1 — extract: verb + target + constraints from the raw goal text.
   const cleaned = stripHedges(input.goal);
   const constraints = extractConstraints(input.goal);
@@ -129,7 +136,11 @@ export function compileManifest(input: CompileInput): Manifest {
     version: 1,
     completionCriteria: ["Produce a checkable result for the stated goal and label unknown facts."],
     escalationPolicy: "require-approval",
-    deniedTools: ["write_file", "email_send", "publish", "charge"],
+    // Gate on: write-capable tools are denied outright. Gate off: the
+    // caller's allowlist governs; the registry still refuses unknown tools.
+    deniedTools: gateOn
+      ? ["write_file", "email_send", "publish", "charge"]
+      : (input.deniedTools ?? []),
     memoryScope: "project",
     projectId: input.projectId,
     agentId: input.agent.id,
@@ -138,14 +149,17 @@ export function compileManifest(input: CompileInput): Manifest {
     skillText: input.skillText ?? "",
     retrievedContext,
     constraints: [...constraints, ...guidance.map((g) => `guidance: ${g}`)],
-    // Caller may narrow read-only tools but cannot add new authority.
-    // The compile-time gate: only tools on the read-only sets can ever enter
-    // a manifest, however the caller phrases them. Composio tools are
-    // admitted slug-by-slug from COMPOSIO_READ_ONLY — never whole toolkits,
-    // since toolkits mix read and write actions.
-    allowedTools: (input.allowedTools ?? ["read_file", "list_dir"]).filter(
-      (name) => READ_ONLY_TOOLS.has(name) || COMPOSIO_READ_ONLY.has(name)
-    ),
+    // Gate on: caller may narrow read-only tools but cannot add authority;
+    // only tools on the read-only sets can enter a manifest, and Composio
+    // tools are admitted slug-by-slug from COMPOSIO_READ_ONLY — never whole
+    // toolkits, since toolkits mix read and write actions.
+    // Gate off (ROSTR_SAFETY_GATE=off): the caller's allowlist passes
+    // through as given; per-skill allow/deny enforcement still applies.
+    allowedTools: gateOn
+      ? (input.allowedTools ?? ["read_file", "list_dir"]).filter(
+          (name) => READ_ONLY_TOOLS.has(name) || COMPOSIO_READ_ONLY.has(name)
+        )
+      : (input.allowedTools ?? ["read_file", "list_dir"]),
     maxSteps: input.maxSteps ?? 12,
     model: input.agent.model, // Stage 5 — route: model comes from the agent def.
   };
