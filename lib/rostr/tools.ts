@@ -33,6 +33,19 @@ export function safetyGateOn(): boolean {
   return (process.env.ROSTR_SAFETY_GATE ?? "on").toLowerCase() !== "off";
 }
 
+/**
+ * Effect tools (send, publish, anything that changes the outside world)
+ * must pass a registered confirmation hook before executing. The hook is
+ * the owner-scoped confirm-before-write flow: it sees the tool name and
+ * full arguments and returns true to allow, or false/a reason string to
+ * refuse. No hook registered -> the effect refuses. The hook is the ONLY
+ * authority for effects; a model action or manifest entry never is.
+ */
+export type EffectConfirmer = (
+  tool: string,
+  args: Record<string, unknown>
+) => Promise<boolean | string>;
+
 export interface ToolDef {
   name: string;
   description: string;
@@ -43,6 +56,13 @@ export class ToolRegistry {
   private tools = new Map<string, ToolDef>();
   private allowLists = new Map<string, Set<string>>();
   private denyLists = new Map<string, Set<string>>();
+  private effectTools = new Set<string>();
+  private effectConfirmer?: EffectConfirmer;
+
+  /** Register the one confirmation hook all effect tools must pass. */
+  setEffectConfirmer(fn: EffectConfirmer): void {
+    this.effectConfirmer = fn;
+  }
 
   constructor() {
     this.register({ name: "read_file", description: "Read a text file inside the workspace root.", run: runReadFile });
@@ -63,6 +83,15 @@ export class ToolRegistry {
    */
   registerComposioTool(def: ToolDef): void {
     this.register(def);
+  }
+
+  /**
+   * Register a write-capable tool. Execution requires the confirmation
+   * hook's approval on every single call — approval is never cached.
+   */
+  registerEffectTool(def: ToolDef): void {
+    this.register(def);
+    this.effectTools.add(def.name);
   }
 
   getTool(name: string): ToolDef | undefined {
@@ -98,6 +127,16 @@ export class ToolRegistry {
     // authorize a filesystem mutation on its own.
     if (name === "write_file" && safetyGateOn()) {
       return "error: write_file is sealed while ROSTR_SAFETY_GATE is on";
+    }
+    if (this.effectTools.has(name)) {
+      if (!this.effectConfirmer) {
+        return `error: effect tool '${name}' has no confirmation hook registered; refusing`;
+      }
+      const verdict = await this.effectConfirmer(name, args);
+      if (verdict !== true) {
+        const reason = typeof verdict === "string" ? `: ${verdict}` : "";
+        return `error: effect tool '${name}' was not confirmed${reason}`;
+      }
     }
     const tool = this.tools.get(name);
     if (!tool) {

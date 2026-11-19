@@ -100,7 +100,8 @@ export async function listComposioTools(opts?: {
 export async function executeComposioTool(
   name: string,
   args: Record<string, unknown>,
-  connectedAccountId?: string
+  connectedAccountId?: string,
+  entityId?: string
 ): Promise<string> {
   if (!composioConfigured()) {
     return "error: Composio is not configured (COMPOSIO_API_KEY missing)";
@@ -112,6 +113,10 @@ export async function executeComposioTool(
     const body: Record<string, unknown> = { arguments: args };
     if (connectedAccountId) {
       body.connected_account_id = connectedAccountId;
+    }
+    if (entityId) {
+      // Required by the API when executing against a connected account.
+      body.entity_id = entityId;
     }
     const res = await composioFetch(url.toString(), {
       method: "POST",
@@ -129,7 +134,9 @@ export async function executeComposioTool(
     if (!res.ok || payload?.successful === false) {
       const detail =
         payload?.error != null
-          ? String(payload.error)
+          ? typeof payload.error === "string"
+            ? payload.error
+            : JSON.stringify(payload.error).slice(0, 400)
           : `http ${res.status}`;
       return `error: composio execute failed for '${name}': ${detail}`;
     }
@@ -137,6 +144,30 @@ export async function executeComposioTool(
   } catch (e) {
     return `error: composio execute failed for '${name}': ${e instanceof Error ? e.message : String(e)}`;
   }
+}
+
+/**
+ * Register one write-capable Composio tool as a registry EFFECT tool, bound
+ * to a specific connected account (the visitor's own connection — the
+ * caller is responsible for resolving which account belongs to which
+ * user). Every execution passes the registry's confirmation hook.
+ */
+export function attachComposioEffectTool(
+  registry: ToolRegistry,
+  opts: {
+    name: string;
+    slug: string;
+    description?: string;
+    connectedAccountId: string;
+    entityId: string;
+  }
+): void {
+  registry.registerEffectTool({
+    name: opts.name,
+    description: opts.description ?? `Composio effect tool ${opts.slug}`,
+    run: async (args) =>
+      executeComposioTool(opts.slug, args, opts.connectedAccountId, opts.entityId),
+  });
 }
 
 const DEFAULT_APPS = ["gmail", "googlecalendar", "googledrive", "slack"];

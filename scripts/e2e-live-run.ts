@@ -36,6 +36,50 @@ async function main(): Promise<void> {
   console.log(
     `composio: configured=${composio.configured} registered=${composio.registered}`
   );
+  // Effect tools (E2E_EFFECTS=1): real email_send + publish via Composio,
+  // bound to the connected account named in the env. The confirmation hook
+  // is the owner-scoped confirm-before-write flow; this test confirmer only
+  // approves mail addressed to the owner's own mailboxes with a [rostr test]
+  // subject, and refuses everything else with a reason.
+  if (process.env.E2E_EFFECTS === "1") {
+    const { attachComposioEffectTool } = await import(
+      "../lib/rostr/tools-composio"
+    );
+    const ca = process.env.E2E_GMAIL_CA ?? "";
+    const ent = process.env.E2E_GMAIL_ENTITY ?? "";
+    if (!ca || !ent) throw new Error("E2E_EFFECTS=1 needs E2E_GMAIL_CA and E2E_GMAIL_ENTITY");
+    attachComposioEffectTool(tools, {
+      name: "email_send",
+      slug: "GMAIL_SEND_EMAIL",
+      description: "Send an email through the connected Gmail account.",
+      connectedAccountId: ca,
+      entityId: ent,
+    });
+    attachComposioEffectTool(tools, {
+      name: "publish",
+      slug: "GMAIL_CREATE_EMAIL_DRAFT",
+      description: "Publish content as a draft artifact in the connected account.",
+      connectedAccountId: ca,
+      entityId: ent,
+    });
+    const OWN_MAILBOXES = new Set(
+      (process.env.E2E_SAFE_RECIPIENTS ?? "").split(",").map((m) => m.trim()).filter(Boolean)
+    );
+    tools.setEffectConfirmer(async (tool, args) => {
+      const to = String(args.recipient_email ?? args.to ?? "");
+      const subject = String(args.subject ?? "");
+      if (!OWN_MAILBOXES.has(to)) {
+        return `recipient '${to}' is not an owner mailbox`;
+      }
+      if (!subject.startsWith("[rostr test]")) {
+        return "subject must start with '[rostr test]' in the test policy";
+      }
+      console.log(`[confirm] ${tool} to ${to} approved by test policy`);
+      return true;
+    });
+    console.log("effects: email_send + publish registered (confirm hook active)");
+  }
+
   const requestedTools = (
     process.env.E2E_TOOLS ??
     [
