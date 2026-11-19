@@ -1,0 +1,25 @@
+[
+  {
+    "name": "github_repo",
+    "kind": "http",
+    "description": "Look up a GitHub repo by {owner}/{repo}",
+    "url": "https://api.github.com/repos/{owner}/{repo}"
+  },
+  {
+    "name": "apify_run_actor",
+    "kind": "http",
+    "description": "Run an Apify actor (needs your own Apify account/key)",
+    "url": "https://api.apify.com/v2/acts/{actorId}/runs",
+    "method": "POST",
+    "keyEnv": "APIFY_API_KEY",
+    "account": "apify",
+    "effect": true
+  },
+  {
+    "name": "my_composio_tool",
+    "kind": "composio",
+    "slug": "HACKERNEWS_GET_FRONTPAGE",
+    "connectedAccountId": "ca_...",
+    "entityId": "..."
+  }
+]

@@ -212,33 +212,160 @@ async function runListDir(args: Record<string, unknown>): Promise<string> {
   return fs.readdirSync(p).sort().join("\n");
 }
 
-// -- Web search (free, read-only) --------------------------------------------
-// Wikipedia full-text search: no API key, stable JSON API. DuckDuckGo's
-// HTML endpoints challenge datacenter clients (HTTP 202), so they are not
-// a dependable backend for an unattended agent.
+// -- Web search (free, read-only, DuckDuckGo) -----------------------------------
+// DuckDuckGo, no API key. Three routes, best first:
+//   1. html.duckduckgo.com/html/  - real web results
+//   2. lite.duckduckgo.com/lite/  - real web results, simpler markup
+//   3. api.duckduckgo.com instant answers - always reachable, but an
+//      entity-lookup service: great for "what is X", empty for news.
+// Routes 1-2 answer some datacenter IPs with an HTTP 202 anomaly challenge;
+// that is detected and the next route is tried. The returned text names the
+// route that served so callers can see which path produced the results.
+
+const DDG_UA =
+  "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36";
+
+interface SearchHit {
+  title: string;
+  snippet: string;
+  url: string;
+}
+
+function decodeDdgRedirect(href: string): string {
+  const m = /[?&]uddg=([^&]+)/.exec(href);
+  if (m) {
+    try {
+      return decodeURIComponent(m[1]);
+    } catch {
+      return href;
+    }
+  }
+  return href.startsWith("//") ? `https:${href}` : href;
+}
+
+function stripTags(s: string): string {
+  return s
+    .replace(/<[^>]+>/g, "")
+    .replace(/&quot;/g, '"')
+    .replace(/&#x27;/g, "'")
+    .replace(/&amp;/g, "&")
+    .replace(/&lt;/g, "<")
+    .replace(/&gt;/g, ">")
+    .trim();
+}
+
+/** Route 1+2: scrape a DDG HTML results page. Returns null on challenge
+ *  (HTTP 202 anomaly page) or network failure, [] on a real empty page. */
+async function ddgHtmlRoute(endpoint: string, query: string): Promise<SearchHit[] | null> {
+  try {
+    const res = await fetch(endpoint, {
+      method: "POST",
+      headers: {
+        "User-Agent": DDG_UA,
+        "Content-Type": "application/x-www-form-urlencoded",
+        Accept: "text/html",
+      },
+      body: `q=${encodeURIComponent(query)}`,
+      signal: AbortSignal.timeout(12000),
+    });
+    if (res.status === 202) return null; // anomaly challenge
+    if (!res.ok) return null;
+    const html = await res.text();
+    if (html.includes("anomaly") && html.includes("challenge")) return null;
+    const hits: SearchHit[] = [];
+    // Modern html endpoint: <a class="result__a" href="...">title</a> with a
+    // nearby <a class="result__snippet">snippet</a>.
+    const blocks = html.split(/<div[^>]*class="[^"]*result results_links[^"]*"/).slice(1);
+    for (const b of blocks) {
+      const a = /<a[^>]*class="[^"]*result__a[^"]*"[^>]*href="([^"]+)"[^>]*>([\s\S]*?)<\/a>/.exec(b);
+      if (!a) continue;
+      const s = /<a[^>]*class="[^"]*result__snippet[^"]*"[^>]*>([\s\S]*?)<\/a>/.exec(b);
+      hits.push({
+        title: stripTags(a[2]),
+        url: decodeDdgRedirect(a[1]),
+        snippet: s ? stripTags(s[1]) : "",
+      });
+    }
+    // lite endpoint markup: <a rel="nofollow" href="//duckduckgo.com/l/?uddg=...">
+    if (!hits.length) {
+      const linkRe = /<a[^>]*href="(\/\/duckduckgo\.com\/l\/\?uddg=[^"]+)"[^>]*>([\s\S]*?)<\/a>/g;
+      let m: RegExpExecArray | null;
+      while ((m = linkRe.exec(html)) !== null) {
+        hits.push({ title: stripTags(m[2]), url: decodeDdgRedirect(m[1]), snippet: "" });
+      }
+    }
+    return hits;
+  } catch {
+    return null;
+  }
+}
+
+/** Route 3: instant-answer API. Always reachable; entity-focused. */
+async function ddgInstantAnswer(query: string): Promise<string | null> {
+  try {
+    const url = new URL("https://api.duckduckgo.com/");
+    url.searchParams.set("q", query);
+    url.searchParams.set("format", "json");
+    url.searchParams.set("no_html", "1");
+    url.searchParams.set("skip_disambig", "1");
+    const res = await fetch(url.toString(), {
+      headers: { "User-Agent": DDG_UA },
+      signal: AbortSignal.timeout(12000),
+    });
+    if (!res.ok) return null;
+    const d = (await res.json()) as {
+      Heading?: string;
+      AbstractText?: string;
+      AbstractURL?: string;
+      RelatedTopics?: ({ Text?: string; FirstURL?: string } | { Topics?: { Text?: string; FirstURL?: string }[] })[];
+    };
+    const lines: string[] = [];
+    if (d.AbstractText) {
+      lines.push(`1. ${d.Heading ?? query}\n   ${d.AbstractText}\n   ${d.AbstractURL ?? ""}`);
+    }
+    let i = lines.length ? 2 : 1;
+    for (const t of d.RelatedTopics ?? []) {
+      const item = "Text" in t ? t : ("Topics" in t ? (t.Topics ?? [])[0] : undefined);
+      if (item?.Text && item?.FirstURL && i <= 6) {
+        lines.push(`${i}. ${stripTags(item.Text)}\n   ${item.FirstURL}`);
+        i++;
+      }
+    }
+    return lines.length ? lines.join("\n") : null;
+  } catch {
+    return null;
+  }
+}
 
 async function runWebSearch(args: Record<string, unknown>): Promise<string> {
   const query = String(args.query ?? args.q ?? "").trim();
   if (!query) return "error: web_search requires a 'query' argument";
-  const url = new URL("https://en.wikipedia.org/w/api.php");
-  url.searchParams.set("action", "query");
-  url.searchParams.set("list", "search");
-  url.searchParams.set("srsearch", query);
-  url.searchParams.set("format", "json");
-  url.searchParams.set("srlimit", String(Math.min(Number(args.limit ?? 5) || 5, 10)));
-  const res = await fetch(url.toString(), { signal: AbortSignal.timeout(15000) });
-  if (!res.ok) return `error: web_search http ${res.status}`;
-  const payload = (await res.json()) as {
-    query?: { search?: { title: string; snippet: string }[] };
-  };
-  const hits = payload.query?.search ?? [];
-  if (!hits.length) return `no results for: ${query}`;
-  return hits
-    .map(
-      (h, i) =>
-        `${i + 1}. ${h.title}\n   ${h.snippet.replace(/<[^>]+>/g, "")}\n   https://en.wikipedia.org/wiki/${encodeURIComponent(h.title)}`
-    )
-    .join("\n");
+  const limit = Math.min(Number(args.limit ?? 5) || 5, 10);
+
+  for (const [name, endpoint] of [
+    ["duckduckgo-html", "https://html.duckduckgo.com/html/"],
+    ["duckduckgo-lite", "https://lite.duckduckgo.com/lite/"],
+  ] as const) {
+    const hits = await ddgHtmlRoute(endpoint, query);
+    if (hits === null) continue; // challenged or unreachable: next route
+    if (!hits.length) return `[${name}] no results for: ${query}`;
+    return (
+      `[${name}]\n` +
+      hits
+        .slice(0, limit)
+        .map((h, i) => `${i + 1}. ${h.title}\n   ${h.snippet}\n   ${h.url}`)
+        .join("\n")
+    );
+  }
+
+  const ia = await ddgInstantAnswer(query);
+  if (ia) return `[duckduckgo-instant-answer]\n${ia}`;
+  return (
+    "no results: duckduckgo html/lite routes were challenged or unreachable " +
+    "from this host (HTTP 202 anomaly check), and the instant-answer API had " +
+    "nothing for this query. The instant-answer API is entity-lookup only; " +
+    "news/current-events queries need the html route from an unchallenged IP."
+  );
 }
 
 /** The built-in toolset. Small on purpose — add yours via registerComposioTool. */
