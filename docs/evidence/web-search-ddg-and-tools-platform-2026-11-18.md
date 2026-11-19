@@ -60,3 +60,16 @@ and no vendor accounts were created - that decision is flagged to main.
 
 Zero spend. Evidence logs: /tmp runs on the build host (ephemeral); the
 driver scripts are committed so any stage is reproducible.
+
+## Update: Firecrawl-backed search fallback (owner-approved, option 3)
+
+web_search now falls back to the Firecrawl search API when every free DDG
+route is challenged or empty (approved by Patrick). Uses his existing
+FIRECRAWL_API_KEY, never logged. Route is named [firecrawl-search].
+
+Live proof through the web-research skill from this DDG-challenged host:
+- query "Gemini 3 release" (current events): DDG chain was challenged,
+  Firecrawl fallback returned real current web results led by Google's
+  official Gemini 3 announcement (blog.google) and Google DeepMind.
+- synthesize stage then produced a sourced answer, honestly separating
+  official material from community-sourced release-date claims.

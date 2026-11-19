@@ -337,6 +337,44 @@ async function ddgInstantAnswer(query: string): Promise<string | null> {
   }
 }
 
+/** Route 4 (fallback): Firecrawl search API, used only when every free DDG
+ *  route is challenged or empty. Approved by the owner; uses his existing
+ *  Firecrawl key from FIRECRAWL_API_KEY, never logged. */
+async function firecrawlSearchRoute(query: string, limit: number): Promise<string | null> {
+  const key = process.env.FIRECRAWL_API_KEY ?? "";
+  if (!key) return null;
+  try {
+    const res = await fetch("https://api.firecrawl.dev/v1/search", {
+      method: "POST",
+      headers: {
+        Authorization: `Bearer ${key}`,
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ query, limit }),
+      signal: AbortSignal.timeout(20000),
+    });
+    if (!res.ok) return `error: firecrawl-search http ${res.status}`;
+    const d = (await res.json()) as {
+      success?: boolean;
+      data?: ({ url?: string; title?: string; description?: string; markdown?: string }[] | { web?: { url?: string; title?: string; description?: string }[] });
+    };
+    const raw = d.data as unknown;
+    const list = Array.isArray(raw) ? raw : (raw as { web?: unknown[] })?.web ?? [];
+    if (!list.length) return "[firecrawl-search] no results for: " + query;
+    return (
+      "[firecrawl-search]\n" +
+      list
+        .slice(0, limit)
+        .map((h: { url?: string; title?: string; description?: string }, i: number) =>
+          `${i + 1}. ${h.title ?? ""}\n   ${h.description ?? ""}\n   ${h.url ?? ""}`
+        )
+        .join("\n")
+    );
+  } catch (e) {
+    return `error: firecrawl-search ${e instanceof Error ? e.message : String(e)}`;
+  }
+}
+
 async function runWebSearch(args: Record<string, unknown>): Promise<string> {
   const query = String(args.query ?? args.q ?? "").trim();
   if (!query) return "error: web_search requires a 'query' argument";
@@ -360,11 +398,18 @@ async function runWebSearch(args: Record<string, unknown>): Promise<string> {
 
   const ia = await ddgInstantAnswer(query);
   if (ia) return `[duckduckgo-instant-answer]\n${ia}`;
+
+  // DDG challenged/empty: owner-approved Firecrawl-backed search fallback.
+  const fc = await firecrawlSearchRoute(query, limit);
+  if (fc) return fc;
+
   return (
     "no results: duckduckgo html/lite routes were challenged or unreachable " +
-    "from this host (HTTP 202 anomaly check), and the instant-answer API had " +
-    "nothing for this query. The instant-answer API is entity-lookup only; " +
-    "news/current-events queries need the html route from an unchallenged IP."
+    "from this host (HTTP 202 anomaly check), the instant-answer API had " +
+    "nothing for this query, and no FIRECRAWL_API_KEY fallback was available. " +
+    "The instant-answer API is entity-lookup only; news/current-events " +
+    "queries need the html route from an unchallenged IP or the Firecrawl " +
+    "fallback."
   );
 }
 
