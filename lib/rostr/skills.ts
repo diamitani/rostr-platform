@@ -215,3 +215,216 @@ export function registerSuggestEditTool(
     },
   });
 }
+
+// -- publish-note skill (tool: publish) -----------------------------------------
+
+export interface NoteAnalysis {
+  surface: string; // note | announcement | doc
+  audience: string;
+  goal: string;
+  keyPoints: string[];
+}
+
+export interface NoteDraft {
+  surface: string;
+  title: string;
+  body: string;
+}
+
+const NOTE_SURFACES: Record<string, string> = {
+  note: "Title <= 10 words. Body: 1-3 short paragraphs, plain text, no markdown headers. 60-150 words.",
+  announcement:
+    "Title states the news <= 10 words. Body: lead with the news, then why it matters, then what happens next. 100-200 words.",
+  doc: "Title names the topic. Body: short sections separated by blank lines, each section one idea, plain language. 150-300 words.",
+};
+
+export class PublishNoteSkill {
+  readonly name = "publish-note";
+  constructor(private gateway: GatewayClient, private model?: string) {}
+
+  async analyze(request: string): Promise<NoteAnalysis> {
+    return chatJson<NoteAnalysis>(
+      this.gateway,
+      [
+        {
+          role: "system",
+          content:
+            `You are the analysis stage of a publish-note skill. Reply with JSON ONLY: ` +
+            `{"surface": "<one of: ${Object.keys(NOTE_SURFACES).join(", ")}>", "audience": "...", ` +
+            `"goal": "<one line>", "keyPoints": ["...", ...]}. Pick the surface by meaning.`,
+        },
+        { role: "user", content: request },
+      ],
+      this.model,
+      1500
+    );
+  }
+
+  async draft(a: NoteAnalysis, request: string): Promise<NoteDraft> {
+    return chatJson<NoteDraft>(
+      this.gateway,
+      [
+        {
+          role: "system",
+          content:
+            "You are the drafting stage of a publish-note skill. Follow the surface contract EXACTLY. " +
+            'Reply with JSON ONLY: {"title": "...", "body": "..."}. Plain paragraphs, no markdown.',
+        },
+        {
+          role: "user",
+          content:
+            `SURFACE: ${a.surface}\nCONTRACT: ${NOTE_SURFACES[a.surface]}\nAUDIENCE: ${a.audience}\n` +
+            `GOAL: ${a.goal}\nKEY POINTS: ${a.keyPoints.join("; ")}\n\nREQUEST: ${request}`,
+        },
+      ],
+      this.model,
+      2500
+    );
+  }
+}
+
+// -- web-research skill (tool: web_search) --------------------------------------
+
+export interface ResearchPlan {
+  queries: string[];
+  angle: string;
+}
+
+export class WebResearchSkill {
+  readonly name = "web-research";
+  constructor(private gateway: GatewayClient, private model?: string) {}
+
+  /** Stage 1 — plan: break the question into 1-3 search queries. */
+  async plan(question: string): Promise<ResearchPlan> {
+    return chatJson<ResearchPlan>(
+      this.gateway,
+      [
+        {
+          role: "system",
+          content:
+            "You are the planning stage of a web-research skill. Break the question into 1-3 " +
+            "focused search queries that together answer it. " +
+            'Reply with JSON ONLY: {"queries": ["...", ...], "angle": "<one line: what a good answer looks like>"}',
+        },
+        { role: "user", content: question },
+      ],
+      this.model,
+      1200
+    );
+  }
+
+  /** Stage 3 — synthesize searched material into an answer with sources. */
+  async synthesize(question: string, material: string): Promise<{ answer: string }> {
+    return chatJson<{ answer: string }>(
+      this.gateway,
+      [
+        {
+          role: "system",
+          content:
+            "You are the synthesis stage of a web-research skill. Answer the question from the " +
+            "SEARCH MATERIAL only, in 2-4 short paragraphs, naming the source for each claim. " +
+            'Reply with JSON ONLY: {"answer": "..."}',
+        },
+        { role: "user", content: `QUESTION: ${question}\n\nSEARCH MATERIAL:\n${material}` },
+      ],
+      this.model,
+      2500
+    );
+  }
+}
+
+// -- file-writer skill (tool: write_file) ---------------------------------------
+
+export interface FilePlan {
+  path: string;
+  format: string;
+  outline: string[];
+}
+
+export class FileWriterSkill {
+  readonly name = "file-writer";
+  constructor(private gateway: GatewayClient, private model?: string) {}
+
+  /** Stage 1 — choose path and format from intent. */
+  async plan(request: string): Promise<FilePlan> {
+    return chatJson<FilePlan>(
+      this.gateway,
+      [
+        {
+          role: "system",
+          content:
+            "You are the planning stage of a file-writer skill. Choose a workspace-relative file " +
+            "path (under scratch/ unless told otherwise) and format (md/txt/json/csv) from the " +
+            "request's intent, plus a 2-4 point content outline. " +
+            'Reply with JSON ONLY: {"path": "...", "format": "...", "outline": ["...", ...]}',
+        },
+        { role: "user", content: request },
+      ],
+      this.model,
+      1200
+    );
+  }
+
+  /** Stage 2 — compose the file content from the plan. */
+  async compose(plan: FilePlan, request: string): Promise<{ content: string }> {
+    return chatJson<{ content: string }>(
+      this.gateway,
+      [
+        {
+          role: "system",
+          content:
+            "You are the compose stage of a file-writer skill. Write the full file content for " +
+            "this plan, in the stated format. " +
+            'Reply with JSON ONLY: {"content": "<the entire file>"}',
+        },
+        {
+          role: "user",
+          content:
+            `PATH: ${plan.path}\nFORMAT: ${plan.format}\nOUTLINE: ${plan.outline.join("; ")}\n\nREQUEST: ${request}`,
+        },
+      ],
+      this.model,
+      2500
+    );
+  }
+}
+
+// -- hn-digest skill (tool: HACKERNEWS_GET_FRONTPAGE) ----------------------------
+
+export class HnDigestSkill {
+  readonly name = "hn-digest";
+  constructor(private gateway: GatewayClient, private model?: string) {}
+
+  /** Stage 2 — rank the fetched front page for a theme and summarize. */
+  async digest(theme: string, frontPageJson: string): Promise<{ digest: string }> {
+    return chatJson<{ digest: string }>(
+      this.gateway,
+      [
+        {
+          role: "system",
+          content:
+            "You are the digest stage of an hn-digest skill. From the Hacker News front page JSON, " +
+            "pick the 3 stories most relevant to the theme, rank them, and give one line each " +
+            "(title, points, why it fits). " +
+            'Reply with JSON ONLY: {"digest": "..."}',
+        },
+        {
+          role: "user",
+          content: `THEME: ${theme}\n\nFRONT PAGE JSON (truncated):\n${frontPageJson.slice(0, 6000)}`,
+        },
+      ],
+      this.model,
+      2000
+    );
+  }
+}
+
+// -- registry update: keep listSkills in sync with the staged set ---------------
+
+export const STAGED_SKILLS = [
+  "write-email",
+  "publish-note",
+  "web-research",
+  "file-writer",
+  "hn-digest",
+];
